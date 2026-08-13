@@ -1,0 +1,181 @@
+/* =====================================================================
+   PROJECTS.CSS — page-specific styles for projects.html ("Project Focus")
+   Shared nav (overlay variant) / contact pill / footer / buttons live
+   in base.css.
+   ===================================================================== */
+
+/* ============ HERO (photo, search + filter bar anchored inside) ============ */
+.hero{
+  position:relative;
+  min-height:640px;
+  overflow:hidden;
+  background:#100f0c;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.hero img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;
+}
+.hero::after{
+  content:"";
+  position:absolute; inset:0; z-index:2;
+  background:linear-gradient(180deg, rgba(10,9,7,0.58) 0%, rgba(10,9,7,0.34) 30%, rgba(10,9,7,0.72) 100%);
+}
+
+.hero-head{
+  position:relative; z-index:3;
+  max-width:var(--container); margin:0 auto; width:100%;
+  padding:150px 48px 0;
+}
+.hero-head h1{
+  font-family:var(--serif); font-weight:400; color:var(--white);
+  font-size:clamp(30px, 3.6vw, 46px); line-height:1.1; letter-spacing:-.01em;
+}
+.hero-head p{
+  margin-top:14px; max-width:520px;
+  font-family:var(--sans); font-weight:400; font-size:16px;
+  color:rgba(255,255,255,0.8);
+}
+
+/* ---- filter bar (sits low inside the hero photo) ---- */
+.filter-bar{
+  position:relative; z-index:3;
+  max-width:var(--container); margin:0 auto; width:100%;
+  padding:0 48px 44px;
+  display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
+}
+.filter-bar-left{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+.filter-pill{
+  display:flex; align-items:center; gap:10px;
+  background:rgba(241,238,231,0.92); color:var(--ink);
+  font-family:var(--sans); font-weight:600; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase;
+  padding:15px 22px; border:none; cursor:pointer; transition:background .2s ease;
+}
+.filter-pill:hover{ background:var(--white); }
+.filter-pill svg{ width:11px; height:11px; stroke:var(--ink); flex-shrink:0; }
+.filter-dot{ color:rgba(255,255,255,0.55); font-weight:400; }
+
+.filter-search{
+  display:flex; align-items:center; gap:8px;
+  background:var(--ink); color:var(--white);
+  font-family:var(--sans); font-weight:600; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
+  padding:15px 26px; border:none; cursor:pointer; transition:background .2s ease;
+}
+.filter-search:hover{ background:#242119; }
+.filter-search svg{ width:13px; height:13px; stroke:var(--white); }
+
+.filter-more{
+  display:flex; align-items:center; gap:8px;
+  background:none; border:none; cursor:pointer;
+  font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--white); padding:10px 4px;
+}
+.filter-more svg{ width:10px; height:10px; stroke:var(--white); transition:transform .25s ease; }
+.filter-more[aria-expanded="true"] svg{ transform:rotate(180deg); }
+
+/* ---- expandable panel (price / bedrooms / bathrooms) ---- */
+.filter-panel{
+  background:var(--cream);
+  overflow:hidden;
+  max-height:0;
+  transition:max-height .35s ease;
+}
+.filter-panel.is-open{ max-height:220px; }
+.filter-panel-inner{
+  max-width:var(--container); margin:0 auto;
+  padding:44px 48px;
+  display:flex; align-items:flex-end; gap:56px; flex-wrap:wrap;
+}
+.filter-group label{
+  display:block; font-family:var(--sans); font-weight:600; font-size:12px;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--grey); margin-bottom:14px;
+}
+.filter-range{ display:flex; align-items:center; gap:12px; }
+.filter-range select{
+  appearance:none; background:var(--white); border:1px solid var(--hairline);
+  font-family:var(--sans); font-size:14px; color:var(--ink);
+  padding:12px 16px; min-width:120px;
+}
+.filter-range span{ font-family:var(--sans); font-size:13px; color:var(--grey); }
+
+.filter-update{
+  margin-left:auto;
+  display:flex; align-items:center; gap:8px;
+  background:#B7B49B; color:var(--ink);
+  font-family:var(--sans); font-weight:600; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
+  padding:15px 26px; border:none; cursor:pointer; transition:background .2s ease;
+}
+.filter-update:hover{ background:#A6A388; }
+.filter-update svg{ width:12px; height:12px; stroke:var(--ink); }
+
+@media (max-width:900px){
+  .hero{ min-height:560px; }
+  .hero-head{ padding:120px 24px 0; }
+  .filter-bar{ padding:0 24px 32px; }
+  .filter-bar-left{ gap:10px; }
+  .filter-panel-inner{ padding:32px 24px; gap:28px; }
+  .filter-update{ margin-left:0; width:100%; justify-content:center; }
+}
+
+/* ============ PROJECTS GRID ============ */
+.projects-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:20px;
+  padding:20px;
+  background:var(--white);
+}
+.project-card{
+  position:relative; aspect-ratio:16/11; overflow:hidden; background:#100f0c;
+}
+.project-card img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+}
+.project-card::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(10,9,7,0) 42%, rgba(10,9,7,0.78) 100%);
+}
+.project-card-info{
+  position:absolute; z-index:2; left:0; right:0; bottom:0; padding:30px 34px 32px;
+}
+.project-card-info h3{
+  font-family:var(--sans); font-weight:600; font-size:19px; line-height:1.4;
+  color:var(--white); max-width:34ch;
+}
+.project-meta, .project-meta-2{
+  display:flex; align-items:center; gap:10px; margin-top:14px;
+  font-family:var(--sans); font-weight:500; font-size:12.5px; letter-spacing:.05em;
+  text-transform:uppercase; color:rgba(255,255,255,0.88);
+}
+.project-meta-2{ margin-top:10px; }
+.project-meta .dot, .project-meta-2 .dot{ opacity:.6; }
+.project-meta-2 svg{ width:12px; height:12px; stroke:rgba(255,255,255,0.88); }
+
+@media (max-width:900px){
+  .projects-grid{ grid-template-columns:1fr; gap:14px; padding:14px; }
+  .project-card{ aspect-ratio:4/3; }
+  .project-card-info{ padding:22px 22px 24px; }
+}
+
+/* ============ CLOSING CTA (reuses representation.css's dark-band pattern) ============ */
+.projects-cta{
+  position:relative; overflow:hidden; min-height:320px;
+  display:flex; align-items:center;
+  background:radial-gradient(120% 100% at 85% 0%, #524a34 0%, #221f18 50%, #100f0c 100%);
+}
+.projects-cta::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(16,15,12,0.08), rgba(16,15,12,0.4));
+}
+.projects-cta-inner{
+  position:relative; z-index:2; width:100%;
+  max-width:var(--container); margin:0 auto; padding:80px 48px;
+}
+.projects-cta .eyebrow{ color:#D8C89A; display:block; margin-bottom:16px; }
+.projects-cta h2{
+  font-family:var(--serif); font-weight:400; color:var(--white);
+  font-size:clamp(28px,3.6vw,42px); max-width:640px;
+}
+.projects-cta-actions{ display:flex; gap:20px; flex-wrap:wrap; margin-top:40px; }
+
+@media (max-width:640px){
+  .projects-cta-inner{ padding:56px 24px; }
+  .projects-cta-actions{ flex-direction:column; align-items:flex-start; gap:16px; }
+}

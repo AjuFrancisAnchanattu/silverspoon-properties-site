@@ -1,0 +1,342 @@
+/* =====================================================================
+   BASE.CSS — shared across every page
+   Design tokens, reset, nav (+ overlay variant), floating contact pill,
+   standard footer, shared buttons. Page-specific sections (hero, bio,
+   testimonials, etc.) live in their own <page>.css file.
+   ===================================================================== */
+
+:root{
+  --ink:#141311;
+  --white:#ffffff;
+  --grey:#6b675e;
+  --hairline:rgba(20,19,17,0.12);
+  --pill-bg:rgba(18,17,14,0.82);
+  --brass:#9a7c3f;
+  --cream:#F1EEE7;
+
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --container:1320px;
+}
+
+/* ---------- Reset ---------- */
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{ font-family:var(--sans); color:var(--ink); background:var(--white); -webkit-font-smoothing:antialiased; }
+img, video{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+
+/* ---------- Shared type/label utilities ---------- */
+.eyebrow{
+  font-family:var(--sans); font-weight:600; font-size:12px;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--brass);
+}
+
+/* ---------- Shared buttons ---------- */
+.btn-contact{
+  display:inline-block;
+  background:#B7B49B; color:var(--ink);
+  font-family:var(--serif); font-weight:500; font-size:15px; letter-spacing:.03em; text-transform:uppercase;
+  padding:20px 46px;
+  transition:background .2s ease;
+}
+.btn-contact:hover{ background:#A6A388; }
+
+/* =====================================================================
+   NAV — default variant: light background, dark text (interior pages)
+   Fixed on every page so it stays visible while scrolling — see
+   .nav-spacer below (reserves the height fixed positioning removes from
+   flow) and js/nav.js (adds "is-scrolled" once the page scrolls, which
+   the overlay variant further down needs to become legible/opaque).
+   ===================================================================== */
+header.site-nav{
+  position:fixed; top:0; left:0; right:0; z-index:30;
+  background:var(--white);
+  border-bottom:1px solid var(--hairline);
+  transition:box-shadow .25s ease;
+}
+header.site-nav.is-scrolled{ box-shadow:0 4px 24px rgba(0,0,0,0.06); }
+
+/* Reserves the space the fixed header removes from normal flow.
+   Place directly after </header> on default-variant pages only —
+   overlay-variant pages want their hero to start at the very top,
+   underneath the (initially transparent) nav, so they skip this. */
+.nav-spacer{ height:93px; }
+.nav-inner{
+  max-width:var(--container); margin:0 auto;
+  padding:26px 48px;
+  display:flex; align-items:center; justify-content:space-between; gap:32px;
+}
+
+/* wordmark: light / bold / light, merged, lowercase */
+.logo{
+  font-family:var(--sans); font-size:23px; letter-spacing:-0.01em;
+  display:flex; white-space:nowrap; color:var(--ink);
+}
+.logo .w-light{ font-weight:400; }
+.logo .w-bold{ font-weight:700; }
+
+nav.primary{
+  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  font-size:13.5px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--ink);
+}
+nav.primary a{
+  display:flex; align-items:center; gap:5px; padding:4px 2px;
+  transition:color .2s ease;
+}
+nav.primary a:hover{ color:var(--brass); }
+nav.primary .dot{ color:var(--grey); font-weight:400; opacity:.7; }
+nav.primary .chevron{
+  width:8px; height:8px; margin-top:1px;
+  border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor;
+  transform:rotate(45deg); opacity:.8;
+}
+
+.nav-icons{ display:flex; align-items:center; gap:12px; flex-shrink:0; }
+.icon-circle{
+  width:40px; height:40px; border-radius:50%;
+  border:1px solid var(--hairline);
+  display:flex; align-items:center; justify-content:center;
+  transition:border-color .2s ease, background .2s ease;
+}
+.icon-circle:hover{ border-color:var(--ink); background:var(--ink); }
+.icon-circle:hover svg{ stroke:var(--white); }
+.icon-circle svg{ width:17px; height:17px; stroke:var(--ink); transition:stroke .2s ease; }
+
+@media (max-width:1080px){
+  nav.primary{ display:none; }
+  .nav-inner{ padding:20px 24px; }
+}
+
+/* ---------- NAV — overlay variant: transparent over a video/image hero ----------
+   Add class "site-nav--overlay" to <header class="site-nav"> on hero-video pages.
+   Stays transparent (text/icons in white, to read over the hero) until
+   js/nav.js adds "is-scrolled" past the hero, at which point it needs an
+   opaque backing or the white text would sit unreadable over page content. */
+header.site-nav--overlay{
+  background:transparent;
+  border-bottom:1px solid rgba(255,255,255,0.16);
+  transition:background .25s ease, box-shadow .25s ease;
+}
+header.site-nav--overlay.is-scrolled{
+  background:var(--ink);
+  box-shadow:0 4px 24px rgba(0,0,0,0.25);
+}
+header.site-nav--overlay .logo{ color:var(--white); }
+header.site-nav--overlay nav.primary{ color:var(--white); }
+header.site-nav--overlay nav.primary .dot{ color:rgba(255,255,255,0.5); }
+header.site-nav--overlay .icon-circle{ border-color:rgba(255,255,255,0.35); }
+header.site-nav--overlay .icon-circle:hover{ border-color:var(--white); background:rgba(255,255,255,0.12); }
+header.site-nav--overlay .icon-circle svg{ stroke:var(--white); }
+
+/* =====================================================================
+   HERO VIDEO FALLBACK — shared animated placeholder shown behind any
+   hero <video> until its real source file is uploaded / fails to load.
+   Stacking order inside a hero: fallback (z:0) → video (z:1) → dark
+   overlay gradient, page-specific (z:2) → hero content (z:3).
+   ===================================================================== */
+.hero-fallback-bg{
+  position:absolute; inset:0; z-index:0;
+  background:
+    radial-gradient(120% 90% at 15% 0%, #6b5f3f 0%, #2c2818 42%, #12100c 78%),
+    linear-gradient(120deg, #1c1913, #100f0c);
+  background-size:200% 200%;
+  animation:heroFallbackDrift 22s ease-in-out infinite alternate;
+}
+@keyframes heroFallbackDrift{
+  0%{ background-position:0% 0%; }
+  100%{ background-position:100% 60%; }
+}
+.hero-note{
+  position:absolute; z-index:3; right:24px; top:20px;
+  font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,0.45);
+}
+
+/* =====================================================================
+   FLOATING CONTACT PILL — persists on every page
+   ===================================================================== */
+.contact-pill{
+  position:fixed; left:50%; bottom:28px; transform:translateX(-50%);
+  z-index:50;
+  background:var(--pill-bg);
+  backdrop-filter:blur(10px);
+  border-radius:12px;
+  display:flex; align-items:stretch;
+  box-shadow:0 12px 32px rgba(0,0,0,0.28);
+  overflow:hidden;
+}
+.contact-pill a{
+  display:flex; align-items:center; gap:9px;
+  padding:15px 24px;
+  font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:#EFEAE0;
+  transition:background .2s ease;
+  white-space:nowrap;
+}
+.contact-pill a:hover{ background:rgba(255,255,255,0.08); }
+.contact-pill a svg{ width:15px; height:15px; stroke:#EFEAE0; flex-shrink:0; }
+.contact-pill .sep{ width:1px; background:rgba(255,255,255,0.16); margin:10px 0; }
+
+@media (max-width:640px){
+  .contact-pill{ bottom:16px; border-radius:10px; }
+  .contact-pill a{ padding:13px 14px; font-size:10.5px; gap:6px; }
+}
+
+/* =====================================================================
+   STANDARD FOOTER — identical markup/styles on every page.
+   Background image: images/footerbgimg-ZVM1Y70n.png
+   ===================================================================== */
+.site-footer{
+  position:relative; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding-bottom:40px;
+}
+.footer-bg{
+  position:absolute; inset:0; z-index:0;
+  background-image:url('../images/footerbgimg-ZVM1Y70n.png');
+  background-size:cover; background-position:center 65%;
+  background-color:#100f0c; /* fallback tone until the image loads */
+}
+/* Deliberately heavier than a typical photo scrim — the source photo
+   carries a third-party developer watermark in one corner, so the
+   overlay is tuned dark/opaque throughout (not just top-weighted) to
+   keep it illegible everywhere the crop might land, not just at the top. */
+.footer-overlay{
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg, rgba(8,12,22,0.94) 0%, rgba(9,15,28,0.88) 38%, rgba(9,15,28,0.74) 70%, rgba(9,15,28,0.6) 100%);
+}
+.footer-content{ position:relative; z-index:2; }
+.footer-top{
+  max-width:var(--container); margin:0 auto; padding:120px 48px 80px;
+  display:grid; grid-template-columns:2.1fr 1.1fr; gap:60px;
+}
+.footer-cols{ display:grid; grid-template-columns:repeat(3, 1fr); gap:32px; }
+.footer-col .flogo{
+  font-family:var(--sans); font-size:22px; color:var(--white); margin-bottom:36px;
+}
+.footer-col .flogo b{ font-weight:700; }
+.footer-col a{
+  display:block; color:rgba(255,255,255,0.92); font-family:var(--sans);
+  font-size:18px; font-weight:400; margin-bottom:26px; transition:color .2s ease;
+}
+.footer-col a:hover{ color:#D8C89A; }
+
+.footer-card{
+  background:rgba(255,255,255,0.08); backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,0.14);
+  border-radius:16px; padding:44px 40px; align-self:start;
+}
+.footer-card p{
+  font-family:var(--sans); font-size:22px; line-height:1.5; color:var(--white); margin-bottom:32px;
+}
+.btn-wa-join{
+  display:inline-flex; align-items:center; gap:10px;
+  border:1px solid rgba(255,255,255,0.55); color:var(--white);
+  font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  padding:16px 28px; background:transparent; transition:background .2s ease, border-color .2s ease;
+}
+.btn-wa-join:hover{ background:rgba(255,255,255,0.12); border-color:var(--white); }
+.btn-wa-join svg{ width:16px; height:16px; stroke:var(--white); }
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.18);
+  max-width:var(--container); margin:0 auto; width:100%;
+  padding:32px 48px 0;
+  display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+}
+.footer-legal{ display:flex; align-items:center; gap:16px; }
+.footer-legal a{
+  font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,0.85);
+}
+.footer-legal span{ color:rgba(255,255,255,0.4); }
+.footer-social{ display:flex; align-items:center; gap:22px; }
+.footer-social a{ display:flex; align-items:center; gap:10px; color:rgba(255,255,255,0.9); font-size:12.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+.fs-icon{
+  width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,0.14);
+  display:flex; align-items:center; justify-content:center;
+}
+.fs-icon svg{ width:16px; height:16px; stroke:var(--white); }
+
+@media (max-width:900px){
+  .footer-top{ grid-template-columns:1fr; padding:80px 24px 56px; gap:48px; }
+  .footer-cols{ grid-template-columns:1fr 1fr; row-gap:40px; }
+  .footer-bottom{ padding:28px 24px 0; }
+}
+
+/* =====================================================================
+   CONTACT MODAL — shared across every page. Markup is injected by
+   js/contact-modal.js; this only styles it. Opened by any element
+   carrying data-contact-modal (see contact-pill / footer below).
+   ===================================================================== */
+.contact-modal-overlay{
+  position:fixed; inset:0; z-index:100;
+  background:rgba(20,19,17,0.6); backdrop-filter:blur(6px);
+  display:none; align-items:center; justify-content:center; padding:24px;
+}
+.contact-modal-overlay.is-open{ display:flex; }
+
+.contact-modal-close{
+  position:fixed; top:28px; right:28px; z-index:101;
+  width:40px; height:40px; border-radius:50%; border:none; cursor:pointer;
+  background:rgba(255,255,255,0.12);
+  display:flex; align-items:center; justify-content:center;
+  transition:background .2s ease;
+}
+.contact-modal-close:hover{ background:rgba(255,255,255,0.22); }
+.contact-modal-close svg{ width:16px; height:16px; stroke:var(--white); }
+
+.contact-modal{
+  position:relative; width:100%; max-width:700px; max-height:88vh; overflow-y:auto;
+  background:#EDEAE2; padding:56px;
+}
+.cm-head{
+  display:flex; align-items:flex-start; justify-content:space-between; gap:24px;
+  margin-bottom:48px;
+}
+.cm-head h2{
+  font-family:var(--serif); font-weight:400; font-size:clamp(26px,3vw,34px); color:var(--ink);
+}
+.cm-icons{ display:flex; gap:10px; flex-shrink:0; }
+.cm-icons a{
+  width:40px; height:40px; border-radius:50%; background:var(--white);
+  display:flex; align-items:center; justify-content:center;
+  transition:background .2s ease;
+}
+.cm-icons a:hover{ background:var(--cream); }
+.cm-icons svg{ width:16px; height:16px; stroke:var(--ink); }
+
+.cm-row{ display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-bottom:32px; }
+.cm-field label{
+  display:block; font-family:var(--sans); font-weight:600; font-size:11px;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--grey); margin-bottom:10px;
+}
+.cm-field input, .cm-field textarea{
+  width:100%; border:none; border-bottom:1px solid rgba(20,19,17,0.28);
+  background:transparent; padding:6px 0 10px;
+  font-family:var(--sans); font-size:15px; color:var(--ink);
+  transition:border-color .2s ease;
+}
+.cm-field input:focus, .cm-field textarea:focus{ outline:none; border-bottom-color:var(--ink); }
+.cm-field textarea{ resize:vertical; min-height:64px; }
+.cm-field.full{ margin-bottom:32px; }
+
+.cm-actions{ display:flex; justify-content:flex-end; }
+.cm-send{
+  background:var(--ink); color:var(--white);
+  font-family:var(--sans); font-weight:600; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
+  padding:16px 36px; border:none; cursor:pointer; transition:background .2s ease;
+}
+.cm-send:hover{ background:#242119; }
+
+.cm-success{
+  display:none; text-align:center; padding:40px 0;
+  font-family:var(--serif); font-size:22px; color:var(--ink); line-height:1.5;
+}
+.contact-modal.is-sent form{ display:none; }
+.contact-modal.is-sent .cm-success{ display:block; }
+
+@media (max-width:640px){
+  .contact-modal{ padding:36px 24px; max-height:92vh; }
+  .contact-modal-close{ top:16px; right:16px; }
+  .cm-row{ grid-template-columns:1fr; gap:24px; margin-bottom:24px; }
+  .cm-head{ margin-bottom:36px; }
+}

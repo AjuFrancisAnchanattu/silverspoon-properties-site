@@ -1,0 +1,30 @@
+/* =====================================================================
+   COMING-SOON.CSS — page-specific styles for coming-soon.html
+   Shared nav / contact pill / footer / buttons live in base.css.
+   One generic page, reused across every not-yet-built route via a
+   ?page= query param (read client-side — see the <script> in the HTML).
+   ===================================================================== */
+
+.soon{
+  min-height:66vh;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--cream);
+  padding:160px 24px;
+  text-align:center;
+}
+.soon-inner{ max-width:640px; }
+.soon .eyebrow{ display:block; margin-bottom:22px; }
+.soon h1{
+  font-family:var(--serif); font-weight:400; font-size:clamp(32px,4.4vw,52px);
+  color:var(--ink); line-height:1.15;
+}
+.soon p{
+  margin-top:22px;
+  font-family:var(--sans); font-weight:400; font-size:17px; line-height:1.7;
+  color:var(--grey);
+}
+.soon-cta{ margin-top:40px; }
+
+@media (max-width:640px){
+  .soon{ padding:110px 24px; }
+}

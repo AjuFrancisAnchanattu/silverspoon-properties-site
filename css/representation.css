@@ -1,0 +1,187 @@
+/* =====================================================================
+   REPRESENTATION.CSS — page-specific styles for representation.html
+   Shared nav / contact pill / footer / buttons live in base.css.
+   ===================================================================== */
+
+/* ============ HERO (video, bottom-left content — matches about.css) ============ */
+.hero{
+  position:relative;
+  height:82vh; min-height:560px;
+  overflow:hidden;
+  background:#100f0c; /* fallback while video/poster loads */
+}
+.hero video{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;
+}
+.hero::after{
+  content:"";
+  position:absolute; inset:0; z-index:2;
+  background:linear-gradient(180deg, rgba(16,15,12,0.05) 0%, rgba(16,15,12,0.18) 55%, rgba(16,15,12,0.66) 100%);
+}
+
+.hero-content{
+  position:relative; z-index:3; height:100%;
+  max-width:var(--container); margin:0 auto;
+  padding:0 48px 140px;
+  display:flex; flex-direction:column; justify-content:flex-end;
+}
+.hero-content h1{
+  font-family:var(--serif); font-weight:400; color:var(--white);
+  font-size:clamp(36px, 5vw, 62px); line-height:1.06; letter-spacing:-.01em;
+  max-width:780px;
+}
+.hero-content p{
+  margin-top:18px; max-width:560px;
+  font-family:var(--sans); font-weight:400; font-size:17px;
+  color:rgba(255,255,255,0.82);
+}
+
+@media (max-width:640px){
+  .hero-content{ padding:0 24px 100px; }
+}
+
+/* ============ SECTION HEAD (shared shape: eyebrow + h2 + intro) ============ */
+.sec-head{ max-width:760px; margin-bottom:72px; }
+.sec-head .eyebrow{ display:block; margin-bottom:16px; }
+.sec-head h2{
+  font-family:var(--serif); font-weight:400; font-size:clamp(32px,3.6vw,48px);
+  color:var(--ink); line-height:1.12;
+}
+.sec-head p{
+  margin-top:20px; font-family:var(--sans); font-weight:400; font-size:17px;
+  line-height:1.7; color:var(--grey); max-width:62ch;
+}
+
+@media (max-width:900px){
+  .sec-head{ margin-bottom:48px; }
+}
+
+/* ============ COMPARISON (regular agent vs. private client rep) ============ */
+.compare{ background:var(--white); padding:150px 0 130px; }
+.compare-wrap{ max-width:var(--container); margin:0 auto; padding:0 48px; }
+.compare-grid{ display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+
+.compare-card{
+  padding:48px 44px;
+  border:1px solid var(--hairline);
+}
+.compare-card--against{ background:var(--cream); }
+.compare-card--for{
+  background:var(--ink); border-color:var(--ink);
+}
+.compare-card h3{
+  font-family:var(--serif); font-weight:400; font-size:26px; margin-bottom:6px;
+  color:var(--ink);
+}
+.compare-card--for h3{ color:var(--white); }
+.compare-card .compare-tag{
+  font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--grey); margin-bottom:32px; display:block;
+}
+.compare-card--for .compare-tag{ color:#D8C89A; }
+
+.compare-list{ list-style:none; display:flex; flex-direction:column; gap:22px; }
+.compare-list li{
+  display:flex; gap:14px; align-items:flex-start;
+  font-family:var(--sans); font-size:15.5px; line-height:1.6; color:var(--ink);
+}
+.compare-card--for .compare-list li{ color:rgba(255,255,255,0.88); }
+.compare-list .mark{
+  flex-shrink:0; width:20px; height:20px; margin-top:1px;
+  display:flex; align-items:center; justify-content:center;
+}
+.compare-list .mark svg{ width:14px; height:14px; }
+.compare-card--against .mark svg{ stroke:var(--grey); }
+.compare-card--for .mark svg{ stroke:#D8C89A; }
+
+@media (max-width:900px){
+  .compare{ padding:90px 0 80px; }
+  .compare-grid{ grid-template-columns:1fr; gap:24px; }
+  .compare-card{ padding:40px 32px; }
+}
+
+/* ============ PROCESS (numbered sequence) ============ */
+.process{ background:var(--cream); padding:150px 0 130px; }
+.process-wrap{ max-width:var(--container); margin:0 auto; padding:0 48px; }
+
+.process-list{ display:flex; flex-direction:column; }
+.process-step{
+  display:grid; grid-template-columns:140px 1fr; gap:40px;
+  padding:44px 0; border-top:1px solid var(--hairline);
+}
+.process-step:last-child{ border-bottom:1px solid var(--hairline); }
+.process-num{
+  font-family:var(--serif); font-weight:400; font-size:56px; line-height:1;
+  color:var(--brass);
+}
+.process-body h3{
+  font-family:var(--serif); font-weight:400; font-size:24px; color:var(--ink);
+  margin-bottom:12px;
+}
+.process-body p{
+  font-family:var(--sans); font-weight:400; font-size:16.5px; line-height:1.75;
+  color:var(--ink); max-width:60ch;
+}
+
+@media (max-width:900px){
+  .process{ padding:90px 0 80px; }
+  .process-step{ grid-template-columns:1fr; gap:12px; padding:32px 0; }
+  .process-num{ font-size:40px; }
+}
+
+/* ============ WHO IT'S FOR (4-up grid) ============ */
+.who{ background:var(--white); padding:150px 0 130px; }
+.who-wrap{ max-width:var(--container); margin:0 auto; padding:0 48px; }
+.who-grid{
+  display:grid; grid-template-columns:repeat(4, 1fr);
+  gap:48px;
+}
+.who-item .who-icon{
+  width:52px; height:52px; border-radius:50%;
+  border:1px solid var(--hairline);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:28px;
+}
+.who-icon svg{ width:22px; height:22px; stroke:var(--brass); }
+.who-item h3{
+  font-family:var(--serif); font-weight:400; font-size:21px; color:var(--ink);
+  margin-bottom:14px;
+}
+.who-item p{
+  font-family:var(--sans); font-weight:400; font-size:15px; line-height:1.7;
+  color:var(--grey);
+}
+
+@media (max-width:1080px){
+  .who-grid{ grid-template-columns:1fr 1fr; row-gap:48px; }
+}
+@media (max-width:640px){
+  .who{ padding:90px 0 80px; }
+  .who-grid{ grid-template-columns:1fr; row-gap:44px; }
+}
+
+/* ============ CLOSING CTA (dark band, final section before footer) ============ */
+.rep-cta{
+  position:relative; overflow:hidden; min-height:360px;
+  display:flex; align-items:center;
+  background:radial-gradient(120% 100% at 15% 0%, #524a34 0%, #221f18 50%, #100f0c 100%);
+}
+.rep-cta::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(16,15,12,0.08), rgba(16,15,12,0.4));
+}
+.rep-cta-inner{
+  position:relative; z-index:2; width:100%;
+  max-width:var(--container); margin:0 auto; padding:90px 48px;
+}
+.rep-cta .eyebrow{ color:#D8C89A; display:block; margin-bottom:16px; }
+.rep-cta h2{
+  font-family:var(--serif); font-weight:400; color:var(--white);
+  font-size:clamp(30px,4vw,46px); max-width:640px;
+}
+.rep-cta-actions{ display:flex; gap:20px; flex-wrap:wrap; margin-top:44px; }
+
+@media (max-width:640px){
+  .rep-cta-inner{ padding:64px 24px; }
+  .rep-cta-actions{ flex-direction:column; align-items:flex-start; gap:16px; }
+}

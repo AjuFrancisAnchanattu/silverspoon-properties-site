@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leena Parwani | Silver Spoon Properties</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <!-- ============ NAV (overlay variant — transparent over hero video) ============ -->
+  <header class="site-nav site-nav--overlay">
+    <div class="nav-inner">
+      <a href="home.html" class="logo">
+        <span class="w-light">silver</span><span class="w-bold">spoon</span><span class="w-light">properties</span>
+      </a>
+
+      <nav class="primary">
+        <a href="projects.html">Project Focus <span class="chevron"></span></a>
+        <span class="dot">•</span>
+        <a href="representation.html">Private Client Rep</a>
+        <span class="dot">•</span>
+        <a href="about.html">About</a>
+        <span class="dot">•</span>
+        <a href="coming-soon.html?page=Developer+Partners">Developers <span class="chevron"></span></a>
+        <span class="dot">•</span>
+        <a href="coming-soon.html?page=Book+a+Call" data-contact-modal>Contact</a>
+      </nav>
+
+      <div class="nav-icons">
+        <a class="icon-circle" href="#" aria-label="WhatsApp Leena">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>
+        </a>
+        <a class="icon-circle" href="#" aria-label="Language">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9s1.3-6.4 3.8-9Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-fallback-bg"></div>
+    <video autoplay muted loop playsinline>
+      <source src="videos/sliverSpoonVideo.mp4" type="video/mp4">
+    </video>
+
+    <p class="hero-note">Video placeholder — videos/silverSpoonVideo.mp4</p>
+
+    <div class="hero-content">
+      <h1>Leena Parwani</h1>
+      <p>Your private client representative in Dubai's premium property market.</p>
+
+      <div class="hero-actions">
+        <a class="primary" href="coming-soon.html?page=Book+a+Call" data-contact-modal>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+          Book a Call
+        </a>
+        <div class="sep"></div>
+        <a href="coming-soon.html?page=Get+Shortlisted" data-contact-modal>
+          Get Shortlisted
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOUNDER ============ -->
+  <section class="founder">
+    <div class="founder-photo">
+      <img src="images/leenaParwani.jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+    </div>
+    <div class="founder-panel">
+      <p class="founder-note">Placeholder copy — replace with Leena's own story</p>
+      <span class="founder-eyebrow">Founder</span>
+      <h2>Leena Parwani</h2>
+      <div class="founder-copy">
+        <p>Leena is the Founder of Silver Spoon Properties LLC, a private client representation practice built exclusively for buyers in Dubai's premium property market. Her firm specializes in off-plan and secondary market acquisitions, developer negotiations, and building long-term property portfolios for discerning clients.</p>
+        <p>With a focus on discretion and buyer-first advocacy, she works with end-users, investors, and overseas buyers who want a single point of accountability throughout the purchase — from first shortlisting through negotiation and handover.</p>
+        <p>Leena has built partnerships with ten of Dubai's leading developers, giving clients access to off-market and pre-launch inventory before it reaches the public market. Every recommendation is weighed against a client's existing portfolio and long-term goals, not evaluated as a single transaction.</p>
+        <p>Since founding Silver Spoon Properties, she has represented buyers exclusively — never developers or sellers — a distinction that shapes every negotiation, every shortlist, and every relationship she builds.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURE PROPERTIES ============ -->
+  <section class="features">
+    <div class="features-wrap">
+      <div class="features-head">
+        <button class="features-arrow" id="featPrev" aria-label="Previous properties">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <h2>Feature properties</h2>
+        <button class="features-arrow" id="featNext" aria-label="Next properties">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+
+      <div class="features-track" id="featTrack">
+        <div class="feature-card">
+          <img src="images/Featureproperties/1744800906394-853274353.jpeg" alt="Exquisite, furnished 2-bedroom apartment with full view of Palm & skyline">
+          <div class="feature-card-info">
+            <h3>Exquisite, Furnished 2-Bedroom Apartment With Full View Of Palm &amp; Skyline</h3>
+            <div class="feature-meta"><span>2,055 SQ. FT.</span><span class="dot">•</span><span>AED 19,997,304</span></div>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <img src="images/Featureproperties/1744799409119-304166344.jpg" alt="The Opus Penthouse, a singular masterpiece in the sky">
+          <div class="feature-card-info">
+            <h3>The Opus Penthouse — A Singular Masterpiece In The Sky</h3>
+            <div class="feature-meta"><span>12,788 SQ. FT.</span><span class="dot">•</span><span>AED 149,979,772</span></div>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <img src="images/Featureproperties/1744801798866-303325356.jpeg" alt="Palm Jumeirah villa, fully renovated">
+          <div class="feature-card-info">
+            <h3>Palm Jumeirah Villa — Fully Renovated</h3>
+            <div class="feature-meta"><span>6,800 SQ. FT.</span><span class="dot">•</span><span>AED 70,000,798</span></div>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <img src="images/Featureproperties/1744803008524-912670174.png" alt="Luxurious renovated garden home on Palm Jumeirah">
+          <div class="feature-card-info">
+            <h3>Luxurious Renovated Garden Home On Palm Jumeirah</h3>
+            <div class="feature-meta"><span>5,800 SQ. FT.</span><span class="dot">•</span><span>AED 65,000,741</span></div>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <img src="images/Featureproperties/1744804395478-266492069.jpg" alt="Waterfront villa with private marina views">
+          <div class="feature-card-info">
+            <h3>Waterfront Villa With Private Marina Views</h3>
+            <div class="feature-meta"><span>7,200 SQ. FT.</span><span class="dot">•</span><span>AED 58,500,000</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="features-cta">
+        <a class="btn-search-all" href="projects.html">Search All</a>
+      </div>
+    </div>
+  </section>
+   <!-- ============ FEATURED DEVELOPMENT ============ -->
+  <section class="featured-dev">
+    <div class="dev-slide is-active">
+      <img src="images/FEATUREDDEVELOPMENT/1777883846332-774979557.jpg" alt="Aman Residences Dubai living room with panoramic skyline views by day">
+    </div>
+    <div class="dev-slide">
+      <img src="images/FEATUREDDEVELOPMENT/1777883846813-262734492.jpg" alt="Aman Residences Dubai living room with panoramic skyline views by night">
+    </div>
+    <div class="dev-slide">
+      <img src="images/FEATUREDDEVELOPMENT/1777883847010-451571279.jpg" alt="Aerial view of Aman Residences Dubai beachfront towers and the Dubai skyline">
+    </div>
+
+    <div class="dev-scrim"></div>
+    <span class="dev-label">Featured Development</span>
+
+    <div class="dev-dots" id="devDots">
+      <button class="dev-dot is-active" data-index="0" aria-label="Show image 1"></button>
+      <button class="dev-dot" data-index="1" aria-label="Show image 2"></button>
+      <button class="dev-dot" data-index="2" aria-label="Show image 3"></button>
+    </div>
+
+    <div class="dev-bar">
+      <h3>Aman Residences Dubai</h3>
+      <div class="dev-bar-right">
+        <div class="dev-meta">
+          <span>78 Residence Units</span><span class="dot">•</span>
+          <span>2 Bed Units From 3,800 Sq Ft</span><span class="dot">•</span>
+          <span>AED 49,945,986</span>
+        </div>
+        <div class="dev-bar-divider"></div>
+        <a class="dev-view-btn" href="coming-soon.html?page=Project+Focus">View</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CURATION SIGN-UP ============ -->
+  <section class="curation">
+    <div class="curation-row">
+      <div class="curation-text">
+        <span class="curation-eyebrow">Sign Up</span>
+        <h2>Get A Personalised Curation Of Ideal Opportunities For You</h2>
+        <p>Let us know what you're looking for with a few questions and get a curated list of Dubai properties that match your criteria to your email.</p>
+        <a class="btn-start" href="coming-soon.html?page=Get+Shortlisted" data-contact-modal>
+          Start Now
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
+        </a>
+      </div>
+      <div class="curation-photo">
+        <img src="images/commenimages/dubai-selling-guide-9dpTt35i.png" alt="Dubai residence interior and exterior showcase">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUST WALL ============ -->
+  <section class="trust-wall">
+    <div class="trust-row trust-row--top">
+      <div class="trust-track">
+        <img src="images/leena/images.jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+        <img src="images/leena/images (1).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+        <img src="images/leena/images (2).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+        <img src="images/leena/images (3).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+        <img src="images/leena/images (4).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+        <img src="images/leena/images (5).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+        <img src="images/leena/images.jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
+        <img src="images/leena/images (1).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
+        <img src="images/leena/images (2).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
+        <img src="images/leena/images (3).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
+        <img src="images/leena/images (4).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
+        <img src="images/leena/images (5).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
+      </div>
+    </div>
+
+    <div class="trust-row trust-row--center">
+      <img src="images/leena/images (6).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+      <img src="images/leena/images (8).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+      <div class="trust-center-text">
+        <h2>A Name You Can Trust</h2>
+      </div>
+      <img src="images/leena/images (1).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+      <img src="images/leena/images (3).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+    </div>
+
+    <div class="trust-row trust-row--bottom">
+      <div class="trust-track">
+        <img src="images/leena/images (2).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+        <img src="images/leena/images (4).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+        <img src="images/leena/images (5).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+        <img src="images/leena/images (6).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+        <img src="images/leena/images (8).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+        <img src="images/leena/images.jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+        <img src="images/leena/images (2).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
+        <img src="images/leena/images (4).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
+        <img src="images/leena/images (5).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
+        <img src="images/leena/images (6).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
+        <img src="images/leena/images (8).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
+        <img src="images/leena/images.jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ON CAMERA (YouTube Shorts — rendered from REEL_IDS below) ============ -->
+  <section class="reels">
+    <div class="reels-wrap">
+      <div class="features-head">
+        <button class="features-arrow" id="reelsPrev" aria-label="Previous videos">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <h2>On camera</h2>
+        <button class="features-arrow" id="reelsNext" aria-label="Next videos">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+
+      <div class="reels-track" id="reelsTrack"></div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER (standard — identical on every page) ============ -->
+  <footer class="site-footer">
+    <div class="footer-bg"></div>
+    <div class="footer-overlay"></div>
+    <div class="footer-content">
+      <div class="footer-top">
+        <div class="footer-cols">
+          <div class="footer-col">
+            <div class="flogo">silver<b>spoon</b>properties</div>
+            <a href="projects.html">Project Focus</a>
+            <a href="coming-soon.html?page=Developer+Partners">Developer Partners</a>
+            <a href="coming-soon.html?page=Secondary+Market">Secondary Market</a>
+          </div>
+          <div class="footer-col">
+            <a href="representation.html">Private Client Representation</a>
+            <a href="about.html">About Leena Parwani</a>
+            <a href="coming-soon.html?page=Testimonials">Testimonials</a>
+            <a href="coming-soon.html?page=Journal">Journal</a>
+          </div>
+          <div class="footer-col">
+            <a href="coming-soon.html?page=Book+a+Call" data-contact-modal>Book a Call</a>
+            <a href="coming-soon.html?page=Get+Shortlisted" data-contact-modal>Get Shortlisted</a>
+            <a href="coming-soon.html?page=Book+a+Call" data-contact-modal>Contact Us</a>
+          </div>
+        </div>
+
+        <div class="footer-card">
+          <p>Join the WhatsApp Channel for market insight — monthly reports, new launches, off-market alerts.</p>
+          <a class="btn-wa-join" href="#">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>
+            Join Channel
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <a href="coming-soon.html?page=Privacy+Policy">Privacy Policy</a><span>•</span><a href="coming-soon.html?page=Terms+%26+Conditions">Terms &amp; Conditions</a>
+        </div>
+        <div class="footer-social">
+          <a href="#"><span class="fs-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg></span>Instagram</a>
+          <a href="#"><span class="fs-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4.5a2 2 0 0 1 4 0V17M11 12.5V17"/></svg></span>LinkedIn</a>
+          <a href="#"><span class="fs-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10.5 10 4 2-4 2Z" fill="currentColor" stroke="none"/></svg></span>YouTube</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ FLOATING CONTACT PILL (persists across the whole site) ============ -->
+  <div class="contact-pill">
+    <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>WhatsApp</a>
+    <div class="sep"></div>
+    <a href="tel:+971"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2 2C9.5 21 3 14.5 3 6a2 2 0 0 1 1-2Z"/></svg>Call Us</a>
+    <div class="sep"></div>
+    <a href="coming-soon.html?page=Book+a+Call" data-contact-modal><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>Contact Us</a>
+  </div>
+
+  <script>
+    const featTrack = document.getElementById('featTrack');
+    const featPrev = document.getElementById('featPrev');
+    const featNext = document.getElementById('featNext');
+
+    function featStep(){
+      const card = featTrack.querySelector('.feature-card');
+      return card.offsetWidth + 22;
+    }
+    featNext.addEventListener('click', () => featTrack.scrollBy({ left: featStep(), behavior: 'smooth' }));
+    featPrev.addEventListener('click', () => featTrack.scrollBy({ left: -featStep(), behavior: 'smooth' }));
+  </script>
+
+  <script>
+    const devSlides = document.querySelectorAll('.dev-slide');
+    const devDots = document.querySelectorAll('.dev-dot');
+    let devIndex = 0;
+    let devTimer;
+
+    function devShow(i){
+      devSlides[devIndex].classList.remove('is-active');
+      devDots[devIndex].classList.remove('is-active');
+      devIndex = i;
+      devSlides[devIndex].classList.add('is-active');
+      devDots[devIndex].classList.add('is-active');
+    }
+    function devAutoAdvance(){
+      devTimer = setInterval(() => devShow((devIndex + 1) % devSlides.length), 5000);
+    }
+    devDots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        if (i === devIndex) return;
+        devShow(i);
+        clearInterval(devTimer);
+        devAutoAdvance();
+      });
+    });
+    devAutoAdvance();
+  </script>
+
+  <script>
+    // ON CAMERA — add future YouTube Shorts here, newest first or last, doesn't matter.
+    // Just the video ID (the part after /shorts/ in the URL, before any "?").
+    const REEL_IDS = [
+      'kWb6cy4i-vw',
+      'LjZtou6ZCEI',
+      '6Zcrh6YC7WU',
+      'pV_ok2TF47w',
+      'sT6LCobMFDE',
+      'FWq3kY8X3pI',
+      'Wq9yto57n_s'
+    ];
+
+    const reelsTrack = document.getElementById('reelsTrack');
+    const reelsPrev = document.getElementById('reelsPrev');
+    const reelsNext = document.getElementById('reelsNext');
+
+    reelsTrack.innerHTML = REEL_IDS.map(id => `
+      <div class="reel-card" data-id="${id}">
+        <button class="reel-play" aria-label="Play video">
+          <img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="YouTube Shorts thumbnail" loading="lazy">
+          <span class="reel-play-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
+          </span>
+        </button>
+        <a class="reel-watch" href="https://youtube.com/shorts/${id}" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M14 5h5v5M9 15 19 5"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg>
+        </a>
+      </div>
+    `).join('');
+
+    reelsTrack.querySelectorAll('.reel-play').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.closest('.reel-card').dataset.id;
+        btn.outerHTML = `<iframe class="reel-frame" src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" title="YouTube short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      });
+    });
+
+    function reelsStep(){
+      const card = reelsTrack.querySelector('.reel-card');
+      return card.offsetWidth + 20;
+    }
+    reelsNext.addEventListener('click', () => reelsTrack.scrollBy({ left: reelsStep(), behavior: 'smooth' }));
+    reelsPrev.addEventListener('click', () => reelsTrack.scrollBy({ left: -reelsStep(), behavior: 'smooth' }));
+  </script>
+
+  <script src="js/nav.js"></script>
+  <script src="js/contact-modal.js"></script>
+
+</body>
+</html>
