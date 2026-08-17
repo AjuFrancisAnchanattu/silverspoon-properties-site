@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coming Soon | Silver Spoon Properties</title>
+<title>Contact / Book a Call | Silver Spoon Properties</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="images/favicon.png" type="image/png">
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/coming-soon.css">
+<link rel="stylesheet" href="css/contact.css">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 </head>
 <body>
 
@@ -47,15 +48,91 @@
   </header>
   <div class="nav-spacer"></div>
 
-  <!-- ============ COMING SOON ============ -->
-  <section class="soon">
-    <div class="soon-inner">
-      <span class="eyebrow">Coming Soon</span>
-      <h1 id="soonTitle">This Page</h1>
-      <p>We're still building this part of the site. In the meantime, reach out directly using WhatsApp or Call Us below and Leena will help you personally.</p>
-      <div class="soon-cta">
-        <a class="btn-contact" href="home.html">Back To Home</a>
-      </div>
+  <!-- ============ INTRO ============ -->
+  <section class="contact-intro">
+    <div class="contact-intro-wrap">
+      <h1>Let's find your next property</h1>
+      <p>Two ways to get started — book a call directly, or get shortlisted and Leena will reach out personally with options that fit.</p>
+    </div>
+  </section>
+
+  <!-- ============ BOOK A CALL ============ -->
+  <section class="contact-book" id="book-a-call">
+    <div class="contact-book-wrap">
+      <span class="eyebrow">Book a Call</span>
+      <h2>Pick a time that works for you</h2>
+      <p>Ready to move now? Grab a slot directly on Leena's calendar — no back-and-forth.</p>
+
+      <div class="calendly-inline-widget" data-url="https://calendly.com/ajufrancisanchanattu/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+
+      <a class="contact-book-wa" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>
+        Book via WhatsApp Instead
+      </a>
+    </div>
+  </section>
+
+  <div class="contact-divider"><span>Or</span></div>
+
+  <!-- ============ GET SHORTLISTED ============ -->
+  <section class="contact-shortlist" id="shortlist">
+    <div class="shortlist-card">
+      <span class="eyebrow">Get Shortlisted</span>
+      <h2>Tell us what you're looking for</h2>
+      <p>A few quick details so Leena can flag your enquiry and come back with the right options — not a generic list.</p>
+
+      <form id="shortlistForm">
+        <div class="cm-row">
+          <div class="cm-field"><label for="scName">Name</label><input id="scName" type="text" required></div>
+          <div class="cm-field"><label for="scPhone">Phone / WhatsApp</label><input id="scPhone" type="tel" required></div>
+        </div>
+        <div class="cm-row">
+          <div class="cm-field"><label for="scEmail">Email</label><input id="scEmail" type="email" required></div>
+          <div class="cm-field">
+            <label for="scBudget">Budget Range</label>
+            <select id="scBudget" required>
+              <option value="" disabled selected>Select a range</option>
+              <option>Under AED 2M</option>
+              <option>AED 2M – 5M</option>
+              <option>AED 5M – 10M</option>
+              <option>AED 10M – 20M</option>
+              <option>AED 20M+</option>
+              <option>Prefer to discuss</option>
+            </select>
+          </div>
+        </div>
+        <div class="cm-row">
+          <div class="cm-field">
+            <label for="scProject">Project / Developer of Interest</label>
+            <input id="scProject" type="text" placeholder="e.g. Aman Residences Dubai, or a developer name">
+          </div>
+          <div class="cm-field">
+            <label for="scPurpose">Purchase Purpose</label>
+            <select id="scPurpose" required>
+              <option value="" disabled selected>Select one</option>
+              <option>Investment</option>
+              <option>End-Use (personal residence)</option>
+              <option>Both</option>
+            </select>
+          </div>
+        </div>
+        <div class="cm-field full">
+          <label for="scTimeline">Timeline</label>
+          <select id="scTimeline" required>
+            <option value="" disabled selected>Select a timeline</option>
+            <option>Ready now</option>
+            <option>Within 1–3 months</option>
+            <option>Within 3–6 months</option>
+            <option>6+ months</option>
+            <option>Just exploring</option>
+          </select>
+        </div>
+        <div class="cm-actions">
+          <button class="cm-send" type="submit">Get Shortlisted</button>
+        </div>
+      </form>
+
+      <div class="cm-success">Thank you — Leena will review your details and be in touch shortly.</div>
     </div>
   </section>
 
@@ -116,15 +193,21 @@
     <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>Contact Us</a>
   </div>
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const pageName = params.get('page') || 'This Page';
-    document.getElementById('soonTitle').textContent = pageName;
-    document.title = pageName + ' — Coming Soon | Silver Spoon Properties';
-  </script>
-
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <script src="js/nav.js"></script>
-  <script src="js/contact-modal.js"></script>
+  <script>
+    // Pre-fill "Project / Developer of Interest" when arriving from a
+    // project page or Developer Partners link, e.g. contact.html?project=Aman+Residences+Dubai#shortlist
+    const params = new URLSearchParams(window.location.search);
+    const prefill = params.get('project') || params.get('developer');
+    if (prefill) document.getElementById('scProject').value = prefill;
+
+    const shortlistCard = document.querySelector('.shortlist-card');
+    document.getElementById('shortlistForm').addEventListener('submit', e => {
+      e.preventDefault();
+      shortlistCard.classList.add('is-sent');
+    });
+  </script>
 
 </body>
 </html>

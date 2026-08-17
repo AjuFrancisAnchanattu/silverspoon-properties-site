@@ -8,14 +8,24 @@ vision-values.jpg
   or architectural shot works best (matches the current placeholder crop:
   a bright living space with large windows).
 
-leenaParwani.jpeg
-  Used in: home.html, .founder-photo img
-  Home page's "Founder" split section (photo left, dark bio panel right),
-  directly below the hero. Portrait orientation, fills a min-height:640px
-  column edge-to-edge — a confident, editorial portrait of Leena works
-  best (matches the reference crop: seated, three-quarter framing, warm
-  interior/architectural background). As-dropped filename, referenced
-  directly rather than renamed.
+leena-photos/ (folder)
+  Used in: home.html, .founder-photo img (leena-03.jpg). Real professional
+  photos, sourced from images/LeenaParwani/*.JPG (Canon EOS R5m2 originals,
+  12-15MB each) — those source files had no usable EXIF orientation for
+  raw-buffer readers, so each is reprocessed once through `sips` (which
+  normalizes orientation correctly, confirmed visually) and resized to
+  1600px on the long edge / ~80% JPEG quality, landing at 160-230KB each.
+  A straight `sips -r <deg>` rotation on top of the source produced the
+  WRONG orientation (rotates an already-correct image again) — if
+  reprocessing more of the originals later, resize only, no -r flag.
+  One exact duplicate among the 4 sources (`6A4A6772 (1).JPG`, confirmed
+  via md5) was skipped. Current mapping:
+    leena-01.jpg → kitchen counter, cream blazer, brown trousers
+    leena-02.jpg → same shoot, different angle (unused so far)
+    leena-03.jpg → in front of a bookshelf/gallery wall — used for Home's
+                    Founder section (strongest, most editorial framing)
+  This replaces the old placeholder `leenaParwani.jpeg` (no longer
+  referenced anywhere; left in place rather than deleted).
 
 Featureproperties/ (folder)
   Used in: home.html, .feature-card img (Feature Properties carousel,
@@ -68,6 +78,25 @@ leena/ (folder)
   across the three rows, which is normal for this marquee pattern. Tiles
   are fixed-size crops (300x200 top/bottom rows, 280x340 center row on
   desktop) — square-ish, front-facing portraits work best if adding more.
+
+logo/logo.png
+  Used in: shared header (site-wide, base.css `.logo-img` + `.flogo .logo-img`).
+  The real brand wordmark — a silver/white gradient "SILVER SPOON" lockup,
+  transparent background. Only legible on dark backgrounds, so it's used
+  as an <img> on the Home overlay nav and in every page's (always-dark)
+  footer `.flogo`; the white-nav pages (About, Representation, Project
+  Focus, Coming Soon, Contact) keep the existing styled text wordmark
+  since there's no dark/ink version of this logo yet. As-dropped filename.
+
+favicon.png
+  Used in: <link rel="icon"> in every page's <head>.
+  Copied from `logo/fav icon .png` (the space in that original filename
+  breaks clean href references, so this is the one deliberate rename in
+  this project — the source file is left untouched in logo/). It's the
+  "spoon" negative-space monogram cropped from the full logo, silver
+  gradient on transparent. Note: source is 2002x1042 (not square) — a
+  proper square-cropped favicon would render more predictably across
+  browsers/devices if that becomes a priority later.
 
 footerbgimg-ZVM1Y70n.png
   Used in: css/base.css, .footer-bg (shared by every page's standard footer)

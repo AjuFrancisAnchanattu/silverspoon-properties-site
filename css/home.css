@@ -65,6 +65,37 @@
   .hero-actions a{ justify-content:center; padding:16px 24px; }
 }
 
+/* ============ TRUST STRIP (developer logos, auto-scrolling right-to-left) ============ */
+.trust-strip{ background:var(--white); padding:52px 0; overflow:hidden; }
+.trust-strip-row{ overflow:hidden; }
+.bio-note{
+  font-family:var(--sans); font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--grey); margin-bottom:36px;
+}
+
+/* Right-to-left loop: same seamless-marquee technique as .trust-track
+   (see Trust Wall further down) — margin-right on every tile (not flex
+   gap) so the duplicated set repeats at exactly half the track width. */
+.trust-strip-track{
+  display:flex; align-items:center; width:max-content;
+  animation:trustStripScroll 32s linear infinite;
+}
+.trust-strip:hover .trust-strip-track{ animation-play-state:paused; }
+@keyframes trustStripScroll{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); }
+}
+.trust-strip-track img{
+  height:78px; width:auto; margin-right:132px;
+  opacity:.75; transition:opacity .2s ease; flex-shrink:0;
+}
+.trust-strip-track img:hover{ opacity:1; }
+
+@media (max-width:640px){
+  .trust-strip{ padding:36px 0; }
+  .trust-strip-track img{ height:54px; margin-right:84px; }
+}
+
 /* ============ FOUNDER (split photo / dark bio panel) ============ */
 .founder{
   display:grid; grid-template-columns:1fr 1.25fr;
@@ -168,6 +199,96 @@
   .features-wrap{ padding:0 24px; }
   .feature-card{ width:78vw; height:480px; }
   .features-head{ margin-bottom:32px; }
+}
+
+/* ============ WHY A PRIVATE CLIENT REPRESENTATIVE (short block) ============ */
+.why-pcr{ background:var(--cream); padding:120px 0; text-align:center; }
+.why-pcr-wrap{ max-width:1080px; margin:0 auto; padding:0 48px; }
+.why-pcr .eyebrow{ display:block; margin-bottom:16px; }
+.why-pcr h2{
+  font-family:var(--serif); font-weight:400; font-size:clamp(28px,3.4vw,40px);
+  color:var(--ink); margin-bottom:64px;
+}
+.why-pcr-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:44px;
+  text-align:left; margin-bottom:56px;
+}
+.why-pcr-item h3{
+  font-family:var(--serif); font-weight:400; font-size:20px; color:var(--ink); margin-bottom:12px;
+}
+.why-pcr-item p{ font-family:var(--sans); font-size:15px; line-height:1.7; color:var(--grey); }
+
+.why-pcr-link{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--sans); font-weight:600; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--ink); border-bottom:1px solid var(--ink); padding-bottom:4px; transition:color .2s ease, border-color .2s ease;
+}
+.why-pcr-link:hover{ color:var(--brass); border-color:var(--brass); }
+.why-pcr-link svg{ width:12px; height:12px; stroke:currentColor; }
+
+@media (max-width:900px){
+  .why-pcr{ padding:80px 0; }
+  .why-pcr h2{ margin-bottom:44px; }
+  .why-pcr-grid{ grid-template-columns:1fr; gap:32px; margin-bottom:40px; }
+}
+
+/* ============ TESTIMONIALS (condensed, home) ============ */
+.home-testimonials{ background:var(--white); padding:120px 0; text-align:center; }
+.home-testimonials-wrap{ max-width:var(--container); margin:0 auto; padding:0 48px; }
+.home-testimonials-wrap .bio-note{ margin-bottom:20px; }
+.home-testimonials-wrap .eyebrow{ display:block; margin-bottom:14px; }
+.home-testimonials-wrap h2{
+  font-family:var(--serif); font-weight:400; font-size:clamp(28px,3.4vw,40px);
+  color:var(--ink); margin-bottom:64px;
+}
+.home-testimonials-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+  text-align:left; margin-bottom:48px;
+}
+.home-test-card{ background:var(--cream); padding:36px; }
+.home-test-card p{
+  font-family:var(--sans); font-size:15.5px; line-height:1.65; color:var(--ink); margin-bottom:28px;
+}
+.home-test-person{ display:flex; align-items:center; gap:14px; }
+.home-test-avatar{
+  width:44px; height:44px; border-radius:50%; flex-shrink:0;
+  background:linear-gradient(135deg, #cfc6ac, #8f8563);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--serif); color:#fff; font-size:15px;
+}
+.home-test-person .name{ font-weight:700; font-size:14px; color:var(--ink); }
+.home-test-person .role{
+  margin-top:2px; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--grey);
+}
+
+@media (max-width:900px){
+  .home-testimonials{ padding:80px 0; }
+  .home-testimonials-wrap h2{ margin-bottom:44px; }
+  .home-testimonials-grid{ grid-template-columns:1fr; gap:20px; margin-bottom:36px; }
+}
+
+/* ============ JOIN WHATSAPP CHANNEL (dedicated Home block — footer also has one) ============ */
+.wa-channel{
+  background:radial-gradient(120% 140% at 15% 0%, #3a3624 0%, #201e16 55%, #100f0c 100%);
+  padding:70px 0;
+}
+.wa-channel-wrap{
+  max-width:var(--container); margin:0 auto; padding:0 48px;
+  display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;
+}
+.wa-channel-text .eyebrow{ color:#D8C89A; display:block; margin-bottom:14px; }
+.wa-channel-text h2{
+  font-family:var(--serif); font-weight:400; font-size:clamp(26px,3vw,34px); color:var(--white);
+}
+.wa-channel-text p{
+  margin-top:12px; max-width:48ch;
+  font-family:var(--sans); font-size:15.5px; line-height:1.6; color:rgba(255,255,255,0.8);
+}
+.wa-channel-cta{ flex-shrink:0; }
+
+@media (max-width:640px){
+  .wa-channel{ padding:52px 0; }
+  .wa-channel-wrap{ flex-direction:column; align-items:flex-start; }
 }
 
 /* ============ CURATION (sign-up split — text left, full-bleed graphic right) ============ */

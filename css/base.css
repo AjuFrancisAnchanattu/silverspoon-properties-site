@@ -70,10 +70,16 @@ header.site-nav.is-scrolled{ box-shadow:0 4px 24px rgba(0,0,0,0.06); }
 /* wordmark: light / bold / light, merged, lowercase */
 .logo{
   font-family:var(--sans); font-size:23px; letter-spacing:-0.01em;
-  display:flex; white-space:nowrap; color:var(--ink);
+  display:flex; align-items:center; white-space:nowrap; color:var(--ink);
 }
 .logo .w-light{ font-weight:400; }
 .logo .w-bold{ font-weight:700; }
+
+/* Real logo.png (silver/white gradient) — only legible on dark
+   backgrounds, so it's used on the overlay nav variant and the
+   (always-dark) footer; light-nav pages keep the text wordmark above. */
+.logo-img{ height:36px; width:auto; display:block; }
+.flogo .logo-img{ height:34px; }
 
 nav.primary{
   display:flex; align-items:center; gap:14px; flex-wrap:wrap;
@@ -366,13 +372,14 @@ header.site-nav--overlay .icon-circle svg{ stroke:var(--white); }
   display:block; font-family:var(--sans); font-weight:600; font-size:11px;
   letter-spacing:.08em; text-transform:uppercase; color:var(--grey); margin-bottom:10px;
 }
-.cm-field input, .cm-field textarea{
+.cm-field input, .cm-field select, .cm-field textarea{
   width:100%; border:none; border-bottom:1px solid rgba(20,19,17,0.28);
   background:transparent; padding:6px 0 10px;
   font-family:var(--sans); font-size:15px; color:var(--ink);
   transition:border-color .2s ease;
 }
-.cm-field input:focus, .cm-field textarea:focus{ outline:none; border-bottom-color:var(--ink); }
+.cm-field input:focus, .cm-field select:focus, .cm-field textarea:focus{ outline:none; border-bottom-color:var(--ink); }
+.cm-field select{ appearance:none; border-radius:0; cursor:pointer; }
 .cm-field textarea{ resize:vertical; min-height:64px; }
 .cm-field.full{ margin-bottom:32px; }
 
