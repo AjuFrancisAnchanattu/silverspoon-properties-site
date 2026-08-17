@@ -18,9 +18,9 @@
       <div class="cm-head">
         <h2>Enquire now</h2>
         <div class="cm-icons">
-          <a href="#" aria-label="WhatsApp Leena">${WHATSAPP_ICON}</a>
-          <a href="tel:+971" aria-label="Call Leena">${PHONE_ICON}</a>
-          <a href="mailto:hello@silverspoonproperties.com" aria-label="Email Leena">${EMAIL_ICON}</a>
+          <a href="https://wa.me/971527693333" aria-label="WhatsApp Leena">${WHATSAPP_ICON}</a>
+          <a href="tel:+971527693333" aria-label="Call Leena">${PHONE_ICON}</a>
+          <a href="mailto:Info@silverspoonprop.com" aria-label="Email Leena">${EMAIL_ICON}</a>
         </div>
       </div>
 

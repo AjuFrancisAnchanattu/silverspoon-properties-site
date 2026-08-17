@@ -34,7 +34,7 @@
       </nav>
 
       <div class="nav-icons">
-        <a class="icon-circle" href="#" aria-label="WhatsApp Leena">
+        <a class="icon-circle" href="https://wa.me/971527693333" aria-label="WhatsApp Leena">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>
         </a>
         <a class="icon-circle" href="#" aria-label="Language">
@@ -65,7 +65,7 @@
 
       <div class="calendly-inline-widget" data-url="https://calendly.com/ajufrancisanchanattu/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
 
-      <a class="contact-book-wa" href="#">
+      <a class="contact-book-wa" href="https://wa.me/971527693333?text=Hi%20Leena%2C%20I%27d%20like%20to%20book%20a%20call">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>
         Book via WhatsApp Instead
       </a>
@@ -186,9 +186,9 @@
 
   <!-- ============ FLOATING CONTACT PILL (persists across the whole site) ============ -->
   <div class="contact-pill">
-    <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>WhatsApp</a>
+    <a href="https://wa.me/971527693333"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>WhatsApp</a>
     <div class="sep"></div>
-    <a href="tel:+971"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2 2C9.5 21 3 14.5 3 6a2 2 0 0 1 1-2Z"/></svg>Call Us</a>
+    <a href="tel:+971527693333"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2 2C9.5 21 3 14.5 3 6a2 2 0 0 1 1-2Z"/></svg>Call Us</a>
     <div class="sep"></div>
     <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>Contact Us</a>
   </div>
@@ -202,9 +202,26 @@
     const prefill = params.get('project') || params.get('developer');
     if (prefill) document.getElementById('scProject').value = prefill;
 
+    // No backend exists to receive this form, so on submit we open a
+    // pre-filled email to Leena's lead inbox (the user's own mail client
+    // sends it) as a real, working fallback — then show the thank-you state.
+    const LEAD_EMAIL = 'Info@silverspoonprop.com';
     const shortlistCard = document.querySelector('.shortlist-card');
     document.getElementById('shortlistForm').addEventListener('submit', e => {
       e.preventDefault();
+
+      const body = [
+        `Name: ${document.getElementById('scName').value}`,
+        `Phone / WhatsApp: ${document.getElementById('scPhone').value}`,
+        `Email: ${document.getElementById('scEmail').value}`,
+        `Budget Range: ${document.getElementById('scBudget').value}`,
+        `Project / Developer of Interest: ${document.getElementById('scProject').value || '—'}`,
+        `Purchase Purpose: ${document.getElementById('scPurpose').value}`,
+        `Timeline: ${document.getElementById('scTimeline').value}`,
+      ].join('\n');
+      const subject = 'New Shortlist Enquiry — Silver Spoon Properties';
+      window.location.href = `mailto:${LEAD_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
       shortlistCard.classList.add('is-sent');
     });
   </script>
