@@ -1,0 +1,30 @@
+{
+  "id": "oasis-mareva",
+  "name": "Mareva at The Oasis",
+  "developer": "Emaar",
+  "community": "The Oasis",
+  "tags": [],
+  "status": "off-plan",
+  "priceRange": "Coming soon",
+  "paymentPlan": "Coming soon",
+  "handoverDate": "Coming soon",
+  "unitTypes": ["Coming soon"],
+  "bedroomOptions": [],
+  "unitCounts": {},
+  "plotArea": {},
+  "saleableArea": {},
+  "buildingHeight": "",
+  "amenities": [],
+  "technicalSpec": "",
+  "description": "Mareva is a villa collection within Emaar's The Oasis community. Full specs available on request.",
+  "leenasTake": "Placeholder — Leena's personal take on this project goes here.",
+  "heroImage": "images/projects/oasis-mareva/hero.jpg",
+  "gallery": [
+    "images/projects/oasis-mareva/gallery-01.jpg",
+    "images/projects/oasis-mareva/gallery-02.jpg"
+  ],
+  "floorPlans": [],
+  "youtubeVideos": [],
+  "brochureUrl": "images/projects/oasis-mareva/brochure.pdf",
+  "sourceNote": "Name/developer/community as given directly by Leena. Source material is a Dropbox folder share — not accessible; Leena to provide specs and photos directly."
+}
