@@ -115,59 +115,21 @@
     </div>
   </section>
 
-  <!-- ============ FEATURE PROPERTIES ============ -->
+  <!-- ============ PROJECT OF FOCUS (real projects — see content/projects/*.json) ============ -->
   <section class="features">
     <div class="features-wrap">
       <div class="features-head">
-        <button class="features-arrow" id="featPrev" aria-label="Previous properties">
+        <button class="features-arrow" id="featPrev" aria-label="Previous projects">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M15 6l-6 6 6 6"/></svg>
         </button>
-        <h2>Feature properties</h2>
-        <button class="features-arrow" id="featNext" aria-label="Next properties">
+        <h2>Project of Focus</h2>
+        <button class="features-arrow" id="featNext" aria-label="Next projects">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 6l6 6-6 6"/></svg>
         </button>
       </div>
 
       <div class="features-track" id="featTrack">
-        <div class="feature-card">
-          <img src="images/Featureproperties/1744800906394-853274353.jpeg" alt="Exquisite, furnished 2-bedroom apartment with full view of Palm & skyline">
-          <div class="feature-card-info">
-            <h3>Exquisite, Furnished 2-Bedroom Apartment With Full View Of Palm &amp; Skyline</h3>
-            <div class="feature-meta"><span>2,055 SQ. FT.</span><span class="dot">•</span><span>AED 19,997,304</span></div>
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <img src="images/Featureproperties/1744799409119-304166344.jpg" alt="The Opus Penthouse, a singular masterpiece in the sky">
-          <div class="feature-card-info">
-            <h3>The Opus Penthouse — A Singular Masterpiece In The Sky</h3>
-            <div class="feature-meta"><span>12,788 SQ. FT.</span><span class="dot">•</span><span>AED 149,979,772</span></div>
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <img src="images/Featureproperties/1744801798866-303325356.jpeg" alt="Palm Jumeirah villa, fully renovated">
-          <div class="feature-card-info">
-            <h3>Palm Jumeirah Villa — Fully Renovated</h3>
-            <div class="feature-meta"><span>6,800 SQ. FT.</span><span class="dot">•</span><span>AED 70,000,798</span></div>
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <img src="images/Featureproperties/1744803008524-912670174.png" alt="Luxurious renovated garden home on Palm Jumeirah">
-          <div class="feature-card-info">
-            <h3>Luxurious Renovated Garden Home On Palm Jumeirah</h3>
-            <div class="feature-meta"><span>5,800 SQ. FT.</span><span class="dot">•</span><span>AED 65,000,741</span></div>
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <img src="images/Featureproperties/1744804395478-266492069.jpg" alt="Waterfront villa with private marina views">
-          <div class="feature-card-info">
-            <h3>Waterfront Villa With Private Marina Views</h3>
-            <div class="feature-meta"><span>7,200 SQ. FT.</span><span class="dot">•</span><span>AED 58,500,000</span></div>
-          </div>
-        </div>
+        <div class="projects-loading">Loading projects…</div>
       </div>
 
       <div class="features-cta">
@@ -427,10 +389,30 @@
     <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>Contact Us</a>
   </div>
 
+  <script src="js/projects-loader.js"></script>
   <script>
     const featTrack = document.getElementById('featTrack');
     const featPrev = document.getElementById('featPrev');
     const featNext = document.getElementById('featNext');
+    const FEAT_PLACEHOLDER_IMG = 'data:image/svg+xml,' + encodeURIComponent(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><rect width="800" height="600" fill="#EFEDE4"/></svg>'
+    );
+
+    (async function loadProjectOfFocus(){
+      try {
+        const projects = await window.SSPProjects.fetchProjects();
+        featTrack.innerHTML = projects.map(p => `
+          <a class="feature-card" href="project.html?id=${encodeURIComponent(p.id)}">
+            <img src="${p.heroImage}" alt="${p.name}" onerror="this.src='${FEAT_PLACEHOLDER_IMG}'">
+            <div class="feature-card-info">
+              <h3>${p.name}</h3>
+              <div class="feature-meta"><span>${p.developer}</span><span class="dot">•</span><span>${p.community}</span></div>
+            </div>
+          </a>`).join('');
+      } catch (e) {
+        featTrack.innerHTML = '<div class="projects-loading">Couldn\'t load projects right now.</div>';
+      }
+    })();
 
     function featStep(){
       const card = featTrack.querySelector('.feature-card');

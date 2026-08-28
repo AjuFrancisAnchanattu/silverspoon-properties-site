@@ -54,6 +54,28 @@
 .filter-pill svg{ width:11px; height:11px; stroke:var(--ink); flex-shrink:0; }
 .filter-dot{ color:rgba(255,255,255,0.55); font-weight:400; }
 
+/* A real <select> styled to match .filter-pill's look (rather than a
+   decorative button opening a separate hidden select) — keeps the
+   native dropdown behavior/accessibility with none of the custom
+   popover logic to build and maintain. */
+.filter-pill-select{
+  appearance:none; -webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23141311' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 18px center; background-size:11px;
+  padding-right:44px;
+}
+
+/* Community-type theme toggle — the core positioning filter, so it
+   sits first/most prominent in the bar rather than tucked into More Filter. */
+.filter-theme{ display:flex; background:rgba(241,238,231,0.92); }
+.filter-theme-btn{
+  background:none; border:none; cursor:pointer;
+  font-family:var(--sans); font-weight:600; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--ink); padding:15px 20px; transition:background .2s ease, color .2s ease;
+}
+.filter-theme-btn:hover{ background:rgba(255,255,255,0.6); }
+.filter-theme-btn.is-active{ background:var(--ink); color:var(--white); }
+
 .filter-search{
   display:flex; align-items:center; gap:8px;
   background:var(--ink); color:var(--white);
@@ -112,6 +134,10 @@
   .hero-head{ padding:120px 24px 0; }
   .filter-bar{ padding:0 24px 32px; }
   .filter-bar-left{ gap:10px; }
+  .filter-theme{ width:100%; }
+  .filter-theme-btn{ flex:1; padding:13px 10px; font-size:11px; }
+  .filter-dot{ display:none; }
+  .filter-pill-select{ flex:1; }
   .filter-panel-inner{ padding:32px 24px; gap:28px; }
   .filter-update{ margin-left:0; width:100%; justify-content:center; }
 }
@@ -122,8 +148,18 @@
   padding:20px;
   background:var(--white);
 }
+.projects-loading{
+  grid-column:1 / -1; padding:80px 24px; text-align:center;
+  font-family:var(--sans); font-size:15px; color:var(--grey);
+}
+.projects-empty{
+  background:var(--white); padding:80px 24px 100px; text-align:center;
+}
+.projects-empty p{
+  font-family:var(--sans); font-size:16px; color:var(--grey); margin-bottom:24px;
+}
 .project-card{
-  position:relative; aspect-ratio:16/11; overflow:hidden; background:#100f0c;
+  display:block; position:relative; aspect-ratio:16/11; overflow:hidden; background:#100f0c;
 }
 .project-card img{
   position:absolute; inset:0; width:100%; height:100%; object-fit:cover;

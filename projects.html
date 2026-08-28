@@ -52,24 +52,23 @@
 
     <div class="hero-head">
       <h1>Search our curated developments</h1>
-      <p>Every project here has been personally vetted through Leena's developer partnerships — filter by type, area, price, and status.</p>
+      <p>Every project here has been personally vetted through Leena's developer partnerships — filter by community type, developer, area, and status.</p>
     </div>
 
     <div class="filter-bar">
       <div class="filter-bar-left">
-        <button class="filter-pill" type="button">
-          All Types
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
+        <div class="filter-theme" id="filterTheme" role="group" aria-label="Community type">
+          <button class="filter-theme-btn is-active" type="button" data-theme="all">All</button>
+          <button class="filter-theme-btn" type="button" data-theme="golf">Golf Community</button>
+          <button class="filter-theme-btn" type="button" data-theme="waterfront">Waterfront</button>
+        </div>
         <span class="filter-dot">•</span>
-        <button class="filter-pill" type="button">
-          All Areas
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <button class="filter-search" type="button">
-          Search
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
-        </button>
+        <select class="filter-pill filter-pill-select" id="filterDeveloper" aria-label="Filter by developer">
+          <option value="">All Developers</option>
+        </select>
+        <select class="filter-pill filter-pill-select" id="filterCommunity" aria-label="Filter by community">
+          <option value="">All Communities</option>
+        </select>
       </div>
 
       <button class="filter-more" id="filterMoreBtn" type="button" aria-expanded="false" aria-controls="filterPanel">
@@ -79,30 +78,26 @@
     </div>
   </section>
 
-  <!-- ============ EXPANDABLE FILTER PANEL (price / status) ============ -->
+  <!-- ============ EXPANDABLE FILTER PANEL (status / price) ============ -->
   <div class="filter-panel" id="filterPanel">
     <div class="filter-panel-inner">
       <div class="filter-group">
-        <label>Price Range (AED)</label>
-        <div class="filter-range">
-          <select><option>500,000</option><option>2,000,000</option><option>5,000,000</option></select>
-          <span>to</span>
-          <select><option>15,000,000</option><option>50,000,000</option><option>150,000,000+</option></select>
-        </div>
-      </div>
-      <div class="filter-group">
         <label>Status</label>
         <div class="filter-range">
-          <select><option>Any</option><option>Off-Plan</option><option>Ready</option><option>Off-Market</option></select>
+          <select id="filterStatus">
+            <option value="">Any</option>
+            <option value="off-plan">Off-Plan</option>
+            <option value="ready">Ready</option>
+          </select>
         </div>
       </div>
       <div class="filter-group">
-        <label>Developer</label>
+        <label>Price Range (AED)</label>
         <div class="filter-range">
-          <select><option>Any</option><option>Emaar</option><option>Nakheel</option><option>Aman</option></select>
+          <select disabled><option>Pricing not yet published</option></select>
         </div>
       </div>
-      <button class="filter-update" type="button">
+      <button class="filter-update" type="button" id="filterUpdateBtn">
         Update
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
       </button>
@@ -110,66 +105,12 @@
   </div>
 
   <!-- ============ PROJECTS GRID ============ -->
-  <div class="projects-grid">
-    <div class="project-card">
-      <img src="images/Featureproperties/1744800906394-853274353.jpeg" alt="Exquisite, furnished 2-bedroom apartment with full view of Palm & skyline">
-      <div class="project-card-info">
-        <h3>Exquisite, Furnished 2-Bedroom Apartment With Full View Of Palm &amp; Skyline</h3>
-        <div class="project-meta"><span>2,055 Sq. Ft.</span><span class="dot">•</span><span>2 Bed</span></div>
-        <div class="project-meta-2">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
-          <span>Palm Jumeirah</span><span class="dot">•</span><span>Price On Request</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <img src="images/Featureproperties/1744799409119-304166344.jpg" alt="The Opus Penthouse, a singular masterpiece in the sky">
-      <div class="project-card-info">
-        <h3>The Opus Penthouse — A Singular Masterpiece In The Sky</h3>
-        <div class="project-meta"><span>12,788 Sq. Ft.</span><span class="dot">•</span><span>5 Bed</span></div>
-        <div class="project-meta-2">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
-          <span>Business Bay</span><span class="dot">•</span><span>Price On Request</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <img src="images/Featureproperties/1744801798866-303325356.jpeg" alt="Palm Jumeirah villa, fully renovated">
-      <div class="project-card-info">
-        <h3>Palm Jumeirah Villa — Fully Renovated</h3>
-        <div class="project-meta"><span>6,800 Sq. Ft.</span><span class="dot">•</span><span>6 Bed</span></div>
-        <div class="project-meta-2">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
-          <span>Palm Jumeirah</span><span class="dot">•</span><span>Price On Request</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <img src="images/Featureproperties/1744803008524-912670174.png" alt="Luxurious renovated garden home on Palm Jumeirah">
-      <div class="project-card-info">
-        <h3>Luxurious Renovated Garden Home On Palm Jumeirah</h3>
-        <div class="project-meta"><span>5,800 Sq. Ft.</span><span class="dot">•</span><span>5 Bed</span></div>
-        <div class="project-meta-2">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
-          <span>Palm Jumeirah</span><span class="dot">•</span><span>Price On Request</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <img src="images/Featureproperties/1744804395478-266492069.jpg" alt="Waterfront villa with private marina views">
-      <div class="project-card-info">
-        <h3>Waterfront Villa With Private Marina Views</h3>
-        <div class="project-meta"><span>7,200 Sq. Ft.</span><span class="dot">•</span><span>6 Bed</span></div>
-        <div class="project-meta-2">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
-          <span>Dubai Marina</span><span class="dot">•</span><span>Price On Request</span>
-        </div>
-      </div>
-    </div>
+  <div class="projects-grid" id="projectsGrid">
+    <div class="projects-loading">Loading projects…</div>
+  </div>
+  <div class="projects-empty" id="projectsEmpty" style="display:none;">
+    <p>No projects match those filters right now.</p>
+    <button class="filter-update" type="button" id="projectsEmptyReset">Reset Filters</button>
   </div>
 
   <!-- ============ CLOSING CTA ============ -->
@@ -249,6 +190,108 @@
       const isOpen = filterPanel.classList.toggle('is-open');
       filterMoreBtn.setAttribute('aria-expanded', isOpen);
     });
+  </script>
+
+  <script src="js/projects-loader.js"></script>
+  <script>
+    const PLACEHOLDER_IMG = 'data:image/svg+xml,' + encodeURIComponent(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><rect width="800" height="600" fill="#EFEDE4"/></svg>'
+    );
+    const TAG_LABELS = { golf: 'Golf Community', waterfront: 'Waterfront' };
+
+    let allProjects = [];
+    let activeTheme = 'all';
+
+    const grid = document.getElementById('projectsGrid');
+    const emptyState = document.getElementById('projectsEmpty');
+    const developerSelect = document.getElementById('filterDeveloper');
+    const communitySelect = document.getElementById('filterCommunity');
+    const statusSelect = document.getElementById('filterStatus');
+    const themeGroup = document.getElementById('filterTheme');
+
+    function populateDropdown(select, values) {
+      values.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v; opt.textContent = v;
+        select.appendChild(opt);
+      });
+    }
+
+    function cardHTML(p) {
+      const tags = (p.tags || []).map(t => TAG_LABELS[t] || t).join(' • ');
+      const statusLabel = p.status === 'ready' ? 'Ready' : 'Off-Plan';
+      return `
+        <a class="project-card" href="project.html?id=${encodeURIComponent(p.id)}">
+          <img src="${p.heroImage}" alt="${p.name}" onerror="this.src='${PLACEHOLDER_IMG}'">
+          <div class="project-card-info">
+            <h3>${p.name}</h3>
+            <div class="project-meta"><span>${p.developer}</span><span class="dot">•</span><span>${statusLabel}</span></div>
+            <div class="project-meta-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+              <span>${p.community}</span>${tags ? `<span class="dot">•</span><span>${tags}</span>` : ''}
+            </div>
+          </div>
+        </a>`;
+    }
+
+    function applyFilters() {
+      const developer = developerSelect.value;
+      const community = communitySelect.value;
+      const status = statusSelect.value;
+
+      const filtered = allProjects.filter(p => {
+        if (activeTheme !== 'all' && !(p.tags || []).includes(activeTheme)) return false;
+        if (developer && p.developer !== developer) return false;
+        if (community && p.community !== community) return false;
+        if (status && p.status !== status) return false;
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        grid.style.display = 'none';
+        emptyState.style.display = 'block';
+      } else {
+        grid.style.display = 'grid';
+        emptyState.style.display = 'none';
+        grid.innerHTML = filtered.map(cardHTML).join('');
+      }
+    }
+
+    themeGroup.addEventListener('click', e => {
+      const btn = e.target.closest('.filter-theme-btn');
+      if (!btn) return;
+      themeGroup.querySelectorAll('.filter-theme-btn').forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      activeTheme = btn.dataset.theme;
+      applyFilters();
+    });
+    developerSelect.addEventListener('change', applyFilters);
+    communitySelect.addEventListener('change', applyFilters);
+    document.getElementById('filterUpdateBtn').addEventListener('click', () => {
+      applyFilters();
+      filterPanel.classList.remove('is-open');
+      filterMoreBtn.setAttribute('aria-expanded', 'false');
+    });
+    document.getElementById('projectsEmptyReset').addEventListener('click', () => {
+      activeTheme = 'all';
+      themeGroup.querySelectorAll('.filter-theme-btn').forEach(b => b.classList.toggle('is-active', b.dataset.theme === 'all'));
+      developerSelect.value = '';
+      communitySelect.value = '';
+      statusSelect.value = '';
+      applyFilters();
+    });
+
+    (async function init() {
+      try {
+        allProjects = await window.SSPProjects.fetchProjects();
+      } catch (e) {
+        grid.innerHTML = '<div class="projects-loading">Couldn\'t load projects right now — please refresh.</div>';
+        return;
+      }
+      populateDropdown(developerSelect, [...new Set(allProjects.map(p => p.developer))].sort());
+      populateDropdown(communitySelect, [...new Set(allProjects.map(p => p.community))].sort());
+      applyFilters();
+    })();
   </script>
 
   <script src="js/nav.js"></script>

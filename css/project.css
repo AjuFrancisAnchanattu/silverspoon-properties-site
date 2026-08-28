@@ -1,0 +1,229 @@
+/* =====================================================================
+   PROJECT.CSS — page-specific styles for project.html
+   The repeatable individual-project template. All content is rendered
+   client-side (see the <script> in project.html) from
+   content/projects/<id>.json via js/projects-loader.js — this file is
+   pure styling, no project-specific text lives here.
+   Shared nav (overlay variant) / contact pill / footer / buttons live
+   in base.css.
+   ===================================================================== */
+
+/* ============ HERO ============ */
+.hero{
+  position:relative; height:78vh; min-height:520px; overflow:hidden;
+  background:#100f0c;
+}
+.hero-fallback-bg{ z-index:0; }
+.hero img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;
+}
+.hero::after{
+  content:""; position:absolute; inset:0; z-index:2;
+  background:linear-gradient(180deg, rgba(16,15,12,0.15) 0%, rgba(16,15,12,0.2) 45%, rgba(16,15,12,0.78) 100%);
+}
+.hero-content{
+  position:relative; z-index:3; height:100%;
+  max-width:var(--container); margin:0 auto;
+  padding:0 48px 64px;
+  display:flex; flex-direction:column; justify-content:flex-end;
+}
+.hero-content .eyebrow{ color:#D8C89A; display:block; margin-bottom:14px; }
+.hero-content h1{
+  font-family:var(--serif); font-weight:400; color:var(--white);
+  font-size:clamp(32px,4.6vw,56px); line-height:1.06; letter-spacing:-.01em;
+  max-width:820px;
+}
+.hero-content .proj-location{
+  margin-top:14px; font-family:var(--sans); font-size:16px; color:rgba(255,255,255,0.82);
+}
+.proj-tags{ display:flex; gap:10px; margin-top:22px; }
+.proj-tag{
+  font-family:var(--sans); font-weight:600; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--white); border:1px solid rgba(255,255,255,0.45); padding:8px 16px;
+}
+
+@media (max-width:640px){
+  .hero-content{ padding:0 24px 48px; }
+}
+
+/* ============ OVERVIEW (price / payment / handover / status) ============ */
+.proj-overview{ background:var(--white); padding:80px 0; }
+.proj-overview-wrap{ max-width:var(--container); margin:0 auto; padding:0 48px; }
+.proj-overview-grid{
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline);
+  margin-bottom:48px;
+}
+.proj-stat{
+  padding:28px 24px; border-left:1px solid var(--hairline);
+}
+.proj-stat:first-child{ border-left:none; padding-left:0; }
+.proj-stat .label{
+  display:block; font-family:var(--sans); font-weight:600; font-size:11px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--grey); margin-bottom:10px;
+}
+.proj-stat .value{ font-family:var(--serif); font-size:21px; color:var(--ink); }
+.proj-overview-wrap > p{
+  font-family:var(--sans); font-size:17px; line-height:1.75; color:var(--ink); max-width:74ch;
+}
+
+@media (max-width:900px){
+  .proj-overview{ padding:56px 0; }
+  .proj-overview-grid{ grid-template-columns:1fr 1fr; }
+  .proj-stat{ border-left:none; border-top:1px solid var(--hairline); padding-left:0; }
+  .proj-stat:nth-child(odd){ padding-right:16px; }
+  .proj-stat:nth-child(1), .proj-stat:nth-child(2){ border-top:none; }
+}
+
+/* ============ UNIT TYPES ============ */
+.proj-units{ background:var(--cream); padding:80px 0; }
+.proj-units-wrap{ max-width:var(--container); margin:0 auto; padding:0 48px; }
+.proj-units-wrap h2{
+  font-family:var(--serif); font-weight:400; font-size:clamp(26px,3vw,34px); color:var(--ink); margin-bottom:40px;
+}
+.proj-units-table{ width:100%; border-collapse:collapse; }
+.proj-units-table th{
+  text-align:left; font-family:var(--sans); font-weight:600; font-size:11px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--grey); padding:0 16px 14px; border-bottom:1px solid var(--hairline);
+}
+.proj-units-table td{
+  font-family:var(--sans); font-size:15px; color:var(--ink); padding:16px;
+  border-bottom:1px solid var(--hairline);
+}
+.proj-units-table td:first-child, .proj-units-table th:first-child{ padding-left:0; }
+.proj-units-plain{ font-family:var(--sans); font-size:16px; color:var(--grey); }
+
+@media (max-width:640px){
+  .proj-units{ padding:56px 0; }
+  .proj-units-table{ display:block; overflow-x:auto; }
+}
+
+/* ============ GALLERY ============ */
+.proj-gallery{ background:var(--white); padding:80px 0; }
+.proj-gallery-wrap{ max-width:var(--container); margin:0 auto; padding:0 48px; }
+.proj-gallery-wrap h2{
+  font-family:var(--serif); font-weight:400; font-size:clamp(26px,3vw,34px); color:var(--ink); margin-bottom:40px;
+}
+.proj-gallery-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.proj-gallery-grid img{
+  width:100%; height:320px; object-fit:cover; background:var(--cream);
+}
+.proj-placeholder-note{
+  font-family:var(--sans); font-size:14px; color:var(--grey); font-style:italic;
+}
+
+@media (max-width:900px){
+  .proj-gallery-grid{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:640px){
+  .proj-gallery{ padding:56px 0; }
+  .proj-gallery-grid{ grid-template-columns:1fr; }
+  .proj-gallery-grid img{ height:240px; }
+}
+
+/* ============ FLOOR PLANS ============ */
+.proj-floorplans{ background:var(--cream); padding:80px 0; }
+.proj-floorplans-wrap{ max-width:var(--container); margin:0 auto; padding:0 48px; }
+.proj-floorplans-wrap h2{
+  font-family:var(--serif); font-weight:400; font-size:clamp(26px,3vw,34px); color:var(--ink); margin-bottom:40px;
+}
+.proj-floorplans-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.proj-floorplan-card img{
+  width:100%; height:280px; object-fit:contain; background:var(--white); border:1px solid var(--hairline);
+}
+.proj-floorplan-card .fp-label{
+  margin-top:14px; font-family:var(--sans); font-weight:600; font-size:13px; color:var(--ink);
+  text-align:center;
+}
+.proj-floorplans-wrap > a{
+  display:inline-flex; align-items:center; gap:8px; margin-top:40px;
+  font-family:var(--sans); font-weight:600; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--ink); border-bottom:1px solid var(--ink); padding-bottom:4px;
+}
+
+@media (max-width:900px){
+  .proj-floorplans-grid{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:640px){
+  .proj-floorplans{ padding:56px 0; }
+  .proj-floorplans-grid{ grid-template-columns:1fr; }
+}
+
+/* ============ LEENA'S TAKE ============ */
+.proj-take{ background:var(--white); padding:90px 0; }
+.proj-take-wrap{ max-width:820px; margin:0 auto; padding:0 48px; text-align:center; }
+.proj-take-wrap .eyebrow{ display:block; margin-bottom:20px; }
+.proj-take-wrap p{
+  font-family:var(--serif); font-weight:400; font-size:clamp(22px,2.6vw,30px); line-height:1.5; color:var(--ink);
+}
+
+/* ============ VIDEOS (optional) ============ */
+.proj-videos{ background:var(--cream); padding:80px 0; }
+.proj-videos-wrap{ max-width:var(--container); margin:0 auto; padding:0 48px; }
+.proj-videos-wrap h2{
+  font-family:var(--serif); font-weight:400; font-size:clamp(26px,3vw,34px); color:var(--ink); margin-bottom:40px;
+}
+.proj-videos-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+.proj-video-embed{ position:relative; width:100%; aspect-ratio:16/9; background:#100f0c; }
+.proj-video-embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+@media (max-width:900px){
+  .proj-videos-grid{ grid-template-columns:1fr; }
+}
+@media (max-width:640px){
+  .proj-videos{ padding:56px 0; }
+}
+
+/* ============ LOCATION MAP ============ */
+.proj-map{ background:var(--white); padding:80px 0; }
+.proj-map-wrap{ max-width:var(--container); margin:0 auto; padding:0 48px; }
+.proj-map-wrap h2{
+  font-family:var(--serif); font-weight:400; font-size:clamp(26px,3vw,34px); color:var(--ink); margin-bottom:40px;
+}
+.proj-map-placeholder{
+  min-height:360px; border:1px dashed var(--hairline); background:var(--cream);
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  font-family:var(--sans); font-size:14px; color:var(--grey); padding:40px;
+}
+
+/* ============ CLOSING CTA ============ */
+.proj-cta{
+  position:relative; overflow:hidden; min-height:280px;
+  display:flex; align-items:center;
+  background:radial-gradient(120% 100% at 85% 0%, #524a34 0%, #221f18 50%, #100f0c 100%);
+}
+.proj-cta-inner{
+  position:relative; z-index:2; width:100%;
+  max-width:var(--container); margin:0 auto; padding:70px 48px;
+}
+.proj-cta .eyebrow{ color:#D8C89A; display:block; margin-bottom:16px; }
+.proj-cta h2{
+  font-family:var(--serif); font-weight:400; color:var(--white);
+  font-size:clamp(26px,3.4vw,38px); max-width:640px;
+}
+.proj-cta-actions{ display:flex; gap:20px; flex-wrap:wrap; margin-top:36px; }
+
+@media (max-width:640px){
+  .proj-cta-inner{ padding:56px 24px; }
+  .proj-cta-actions{ flex-direction:column; align-items:flex-start; gap:16px; }
+}
+
+/* ============ LOADING / NOT FOUND STATES ============
+   Dark background is deliberate — the nav is the overlay (transparent,
+   white-text) variant, which assumes a dark hero behind it. The real
+   hero photo only appears once the project data resolves, so these
+   interim states need to stay dark too or the nav becomes unreadable. */
+.proj-loading, .proj-not-found{
+  min-height:100vh; background:var(--ink);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:120px 24px; gap:16px;
+}
+.proj-loading p{ font-family:var(--sans); font-size:14px; color:rgba(255,255,255,0.6); }
+.proj-spinner{
+  width:34px; height:34px; border-radius:50%;
+  border:2px solid rgba(255,255,255,0.2); border-top-color:var(--brass);
+  animation:projSpin .8s linear infinite;
+}
+@keyframes projSpin{ to{ transform:rotate(360deg); } }
+.proj-not-found h1{ font-family:var(--serif); font-weight:400; font-size:32px; color:var(--white); }
+.proj-not-found p{ font-family:var(--sans); font-size:16px; color:rgba(255,255,255,0.7); }

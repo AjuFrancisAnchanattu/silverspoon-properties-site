@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project | Silver Spoon Properties</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="images/favicon.png" type="image/png">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/project.css">
+</head>
+<body>
+
+  <!-- ============ NAV (overlay variant — transparent over hero photo) ============ -->
+  <header class="site-nav site-nav--overlay">
+    <div class="nav-inner">
+      <a href="home.html" class="logo">
+        <span class="w-light">silver</span><span class="w-bold">spoon</span><span class="w-light">properties</span>
+      </a>
+
+      <nav class="primary">
+        <a href="projects.html">Project Focus <span class="chevron"></span></a>
+        <span class="dot">•</span>
+        <a href="representation.html">Private Client Rep</a>
+        <span class="dot">•</span>
+        <a href="about.html">About</a>
+        <span class="dot">•</span>
+        <a href="coming-soon.html?page=Developer+Partners">Developers <span class="chevron"></span></a>
+        <span class="dot">•</span>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-icons">
+        <a class="icon-circle" href="https://wa.me/971527693333" aria-label="WhatsApp Leena">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>
+        </a>
+        <a class="icon-circle" href="#" aria-label="Language">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9s1.3-6.4 3.8-9Z"/></svg>
+        </a>
+        <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ LOADING STATE (shown until the project JSON resolves) ============ -->
+  <div class="proj-loading" id="projLoading">
+    <div class="proj-spinner"></div>
+    <p>Loading project…</p>
+  </div>
+
+  <!-- ============ NOT FOUND STATE ============ -->
+  <div class="proj-not-found" id="projNotFound" style="display:none;">
+    <h1>Project not found</h1>
+    <p>This project may have been removed or the link is out of date.</p>
+    <a class="btn-contact" href="projects.html">Back to Project Focus</a>
+  </div>
+
+  <!-- ============ PROJECT CONTENT (hidden until rendered) ============ -->
+  <div id="projContent" style="display:none;">
+
+    <section class="hero">
+      <div class="hero-fallback-bg"></div>
+      <img id="projHeroImg" alt="">
+      <div class="hero-content">
+        <span class="eyebrow" id="projDeveloper"></span>
+        <h1 id="projName"></h1>
+        <p class="proj-location" id="projCommunity"></p>
+        <div class="proj-tags" id="projTags"></div>
+      </div>
+    </section>
+
+    <section class="proj-overview">
+      <div class="proj-overview-wrap">
+        <div class="proj-overview-grid">
+          <div class="proj-stat"><span class="label">Price Range</span><span class="value" id="projPrice"></span></div>
+          <div class="proj-stat"><span class="label">Payment Plan</span><span class="value" id="projPayment"></span></div>
+          <div class="proj-stat"><span class="label">Handover</span><span class="value" id="projHandover"></span></div>
+          <div class="proj-stat"><span class="label">Status</span><span class="value" id="projStatus"></span></div>
+        </div>
+        <p id="projDescription"></p>
+      </div>
+    </section>
+
+    <section class="proj-units">
+      <div class="proj-units-wrap">
+        <h2>Unit Types</h2>
+        <div id="projUnitsContent"></div>
+      </div>
+    </section>
+
+    <section class="proj-gallery">
+      <div class="proj-gallery-wrap">
+        <h2>Gallery</h2>
+        <div class="proj-gallery-grid" id="projGalleryGrid"></div>
+      </div>
+    </section>
+
+    <section class="proj-floorplans" id="projFloorplansSection">
+      <div class="proj-floorplans-wrap">
+        <h2>Floor Plans</h2>
+        <div class="proj-floorplans-grid" id="projFloorplansGrid"></div>
+        <a id="projBrochureLink" href="#" target="_blank" rel="noopener" style="display:none;">
+          Download Brochure
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" width="12" height="12"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="proj-take">
+      <div class="proj-take-wrap">
+        <span class="eyebrow">Leena's Take</span>
+        <p id="projLeenasTake"></p>
+      </div>
+    </section>
+
+    <section class="proj-videos" id="projVideosSection" style="display:none;">
+      <div class="proj-videos-wrap">
+        <h2>Watch</h2>
+        <div class="proj-videos-grid" id="projVideosGrid"></div>
+      </div>
+    </section>
+
+    <section class="proj-map">
+      <div class="proj-map-wrap">
+        <h2>Location</h2>
+        <div class="proj-map-placeholder">Map embed placeholder — add once the exact plot/building location is confirmed</div>
+      </div>
+    </section>
+
+    <section class="proj-cta">
+      <div class="proj-cta-inner">
+        <span class="eyebrow">Interested In This Project?</span>
+        <h2 id="projCtaHeading">Let's talk about this one</h2>
+        <div class="proj-cta-actions">
+          <a class="btn-contact" id="projCtaCall" href="contact.html#book-a-call">Book a Call About This Project</a>
+          <a class="btn-wa-join" id="projCtaShortlist" href="contact.html#shortlist">Shortlist Me</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ============ FOOTER (standard — identical on every page) ============ -->
+  <footer class="site-footer">
+    <div class="footer-bg"></div>
+    <div class="footer-overlay"></div>
+    <div class="footer-content">
+      <div class="footer-top">
+        <div class="footer-cols">
+          <div class="footer-col">
+            <div class="flogo"><img src="images/logo/logo.png" alt="Silver Spoon Properties" class="logo-img"></div>
+            <a href="projects.html">Project Focus</a>
+            <a href="coming-soon.html?page=Developer+Partners">Developer Partners</a>
+            <a href="coming-soon.html?page=Secondary+Market">Secondary Market</a>
+          </div>
+          <div class="footer-col">
+            <a href="representation.html">Private Client Representation</a>
+            <a href="about.html">About Leena Parwani</a>
+            <a href="coming-soon.html?page=Testimonials">Testimonials</a>
+            <a href="coming-soon.html?page=Journal">Journal</a>
+          </div>
+          <div class="footer-col">
+            <a href="contact.html#book-a-call">Book a Call</a>
+            <a href="contact.html#shortlist">Get Shortlisted</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+
+        <div class="footer-card">
+          <p>Join the WhatsApp Channel for market insight — monthly reports, new launches, off-market alerts.</p>
+          <a class="btn-wa-join" href="#">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>
+            Join Channel
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <a href="coming-soon.html?page=Privacy+Policy">Privacy Policy</a><span>•</span><a href="coming-soon.html?page=Terms+%26+Conditions">Terms &amp; Conditions</a>
+        </div>
+        <div class="footer-social">
+          <a href="#"><span class="fs-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg></span>Instagram</a>
+          <a href="#"><span class="fs-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4.5a2 2 0 0 1 4 0V17M11 12.5V17"/></svg></span>LinkedIn</a>
+          <a href="#"><span class="fs-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10.5 10 4 2-4 2Z" fill="currentColor" stroke="none"/></svg></span>YouTube</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ FLOATING CONTACT PILL (persists across the whole site) ============ -->
+  <div class="contact-pill">
+    <a href="https://wa.me/971527693333"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>WhatsApp</a>
+    <div class="sep"></div>
+    <a href="tel:+971527693333"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2 2C9.5 21 3 14.5 3 6a2 2 0 0 1 1-2Z"/></svg>Call Us</a>
+    <div class="sep"></div>
+    <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>Contact Us</a>
+  </div>
+
+  <script src="js/projects-loader.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+    const PLACEHOLDER_IMG = 'data:image/svg+xml,' + encodeURIComponent(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><rect width="800" height="600" fill="#EFEDE4"/></svg>'
+    );
+
+    function isPlaceholderText(v){
+      return !v || v === 'Coming soon' || (Array.isArray(v) && (v.length === 0 || (v.length === 1 && v[0] === 'Coming soon'))) || (typeof v === 'object' && !Array.isArray(v) && Object.keys(v).length === 0);
+    }
+
+    // Swap a broken/missing image for a neutral placeholder rather than
+    // showing the browser's broken-image icon — folders are empty until
+    // Leena (or the CMS) drops real files in.
+    function withFallback(img){
+      img.addEventListener('error', () => { img.src = PLACEHOLDER_IMG; }, { once: true });
+      return img;
+    }
+
+    async function render(){
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+      const loading = document.getElementById('projLoading');
+      const notFound = document.getElementById('projNotFound');
+      const content = document.getElementById('projContent');
+
+      if (!id) { loading.style.display = 'none'; notFound.style.display = 'flex'; return; }
+
+      let project;
+      try {
+        project = await window.SSPProjects.fetchProject(id);
+      } catch (e) {
+        loading.style.display = 'none'; notFound.style.display = 'flex'; return;
+      }
+      if (!project) { loading.style.display = 'none'; notFound.style.display = 'flex'; return; }
+
+      document.title = `${project.name} | Silver Spoon Properties`;
+
+      // --- Hero ---
+      const heroImg = document.getElementById('projHeroImg');
+      heroImg.src = project.heroImage; heroImg.alt = project.name;
+      withFallback(heroImg);
+      document.getElementById('projDeveloper').textContent = project.developer;
+      document.getElementById('projName').textContent = project.name;
+      document.getElementById('projCommunity').textContent = project.community;
+      const tagLabels = { golf: 'Golf Community', waterfront: 'Waterfront' };
+      document.getElementById('projTags').innerHTML = (project.tags || [])
+        .map(t => `<span class="proj-tag">${tagLabels[t] || t}</span>`).join('');
+
+      // --- Overview ---
+      document.getElementById('projPrice').textContent = project.priceRange || 'Coming soon';
+      document.getElementById('projPayment').textContent = project.paymentPlan || 'Coming soon';
+      document.getElementById('projHandover').textContent = project.handoverDate || 'Coming soon';
+      document.getElementById('projStatus').textContent = project.status === 'ready' ? 'Ready' : 'Off-Plan';
+      document.getElementById('projDescription').textContent = project.description || '';
+
+      // --- Unit types ---
+      const unitsEl = document.getElementById('projUnitsContent');
+      if (isPlaceholderText(project.unitTypes)) {
+        unitsEl.innerHTML = '<p class="proj-units-plain">Unit type breakdown coming soon.</p>';
+      } else {
+        const hasCounts = !isPlaceholderText(project.unitCounts);
+        const hasPlot = !isPlaceholderText(project.plotArea);
+        const hasSaleable = !isPlaceholderText(project.saleableArea);
+        const rows = project.unitTypes.map(t => `
+          <tr>
+            <td>${t}</td>
+            ${hasCounts ? `<td>${project.unitCounts[t] ?? '—'}</td>` : ''}
+            ${hasPlot ? `<td>${project.plotArea[t] ?? '—'}</td>` : ''}
+            ${hasSaleable ? `<td>${project.saleableArea[t] ?? '—'}</td>` : ''}
+          </tr>`).join('');
+        unitsEl.innerHTML = `
+          <table class="proj-units-table">
+            <thead><tr>
+              <th>Unit Type</th>
+              ${hasCounts ? '<th>Units</th>' : ''}
+              ${hasPlot ? '<th>Plot Area</th>' : ''}
+              ${hasSaleable ? '<th>Saleable Area</th>' : ''}
+            </tr></thead>
+            <tbody>${rows}</tbody>
+          </table>`;
+      }
+
+      // --- Gallery ---
+      const galleryGrid = document.getElementById('projGalleryGrid');
+      if (isPlaceholderText(project.gallery)) {
+        galleryGrid.innerHTML = '<p class="proj-placeholder-note">Gallery coming soon.</p>';
+      } else {
+        galleryGrid.innerHTML = '';
+        project.gallery.forEach(src => {
+          const img = document.createElement('img');
+          img.src = src; img.alt = project.name;
+          withFallback(img);
+          galleryGrid.appendChild(img);
+        });
+      }
+
+      // --- Floor plans ---
+      const fpSection = document.getElementById('projFloorplansSection');
+      const fpGrid = document.getElementById('projFloorplansGrid');
+      if (isPlaceholderText(project.floorPlans)) {
+        fpSection.style.display = 'none';
+      } else {
+        fpGrid.innerHTML = '';
+        project.floorPlans.forEach(fp => {
+          const card = document.createElement('div');
+          card.className = 'proj-floorplan-card';
+          const img = document.createElement('img');
+          img.src = fp.image; img.alt = fp.label;
+          withFallback(img);
+          const label = document.createElement('div');
+          label.className = 'fp-label'; label.textContent = fp.label;
+          card.append(img, label);
+          fpGrid.appendChild(card);
+        });
+      }
+      const brochureLink = document.getElementById('projBrochureLink');
+      if (project.brochureUrl) {
+        brochureLink.href = project.brochureUrl;
+        brochureLink.style.display = 'inline-flex';
+      }
+
+      // --- Leena's take ---
+      document.getElementById('projLeenasTake').textContent = project.leenasTake || '';
+
+      // --- Videos (optional) ---
+      if (project.youtubeVideos && project.youtubeVideos.length) {
+        document.getElementById('projVideosSection').style.display = 'block';
+        const videosGrid = document.getElementById('projVideosGrid');
+        videosGrid.innerHTML = project.youtubeVideos.map(vid => `
+          <div class="proj-video-embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/${vid}" title="${project.name} video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>`).join('');
+      }
+
+      // --- CTAs (pre-fill project name into the Contact page) ---
+      const projParam = encodeURIComponent(project.name);
+      document.getElementById('projCtaCall').href = `contact.html?project=${projParam}#book-a-call`;
+      document.getElementById('projCtaShortlist').href = `contact.html?project=${projParam}#shortlist`;
+      document.getElementById('projCtaHeading').textContent = `Let's talk about ${project.name}`;
+
+      loading.style.display = 'none';
+      content.style.display = 'block';
+    }
+
+    render();
+  </script>
+
+</body>
+</html>
