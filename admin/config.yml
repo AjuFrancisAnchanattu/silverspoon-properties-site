@@ -16,6 +16,8 @@ collections:
     label: "Projects"
     label_singular: "Project"
     folder: "content/projects"
+    extension: "json"
+    format: "json"
     create: true
     delete: true
     slug: "{{id}}"
