@@ -5,11 +5,14 @@ backend:
   base_url: https://dawn-bird-577f.ajufrancisanchanattu.workers.dev
   auth_endpoint: auth
 
-# Every image/file a project entry uploads goes straight into that
-# project's own folder (images/projects/<slug>/), matching the folder
-# structure + README convention already in place for each project.
-media_folder: "images/projects/{{slug}}"
-public_folder: "/images/projects/{{slug}}"
+# Originally per-project ("images/projects/{{slug}}"), but {{slug}}
+# didn't resolve against this collection's custom slug template — it
+# uploaded real files correctly, just into a folder literally named
+# "{{slug}}" instead of the real project slug (hit this for real on
+# cedarwood-estates, fixed by hand). A single shared folder has no
+# templating to get wrong, so uploads always land somewhere real.
+media_folder: "images/projects/_uploads"
+public_folder: "/images/projects/_uploads"
 
 collections:
   - name: "projects"

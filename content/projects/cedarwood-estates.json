@@ -1,5 +1,5 @@
 {
-  "heroImage": "/images/projects/{{slug}}/cedarwood-estates.jpg",
+  "heroImage": "images/projects/cedarwood-estates/hero.jpg",
   "bedroomOptions": [
     4,
     5,
@@ -37,6 +37,9 @@
     },
     {
       "src": "images/projects/cedarwood-estates/gallery-03.jpg"
+    },
+    {
+      "src": "images/projects/cedarwood-estates/gallery-04.jpg"
     }
   ],
   "status": "off-plan",
