@@ -2,10 +2,7 @@ backend:
   name: github
   repo: AjuFrancisAnchanattu/silverspoon-properties-site
   branch: main
-  # Replace with the real URL once the Cloudflare Worker is deployed —
-  # see cms-oauth-worker/README.md. It'll look like
-  # https://ssp-cms-auth.<your-subdomain>.workers.dev
-  base_url: https://REPLACE-ME.workers.dev
+  base_url: https://dawn-bird-577f.ajufrancisanchanattu.workers.dev
   auth_endpoint: auth
 
 # Every image/file a project entry uploads goes straight into that
