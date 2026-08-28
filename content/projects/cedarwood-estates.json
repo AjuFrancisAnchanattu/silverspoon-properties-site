@@ -3,18 +3,33 @@
   "name": "Cedarwood Estates South",
   "developer": "Wasl",
   "community": "Jumeirah Golf Estates",
-  "tags": ["golf"],
+  "tags": [
+    "golf"
+  ],
   "status": "off-plan",
   "priceRange": "Coming soon",
   "paymentPlan": "Coming soon",
   "handoverDate": "Coming soon",
-  "unitTypes": ["4 Bedroom Villa", "5 Bedroom Villa", "6 Bedroom Villa"],
-  "bedroomOptions": [4, 5, 6],
-  "unitCounts": { "4 Bedroom Villa": 39, "5 Bedroom Villa": 13, "6 Bedroom Villa": 22, "Total": 74 },
+  "unitTypes": [
+    "4 Bedroom Villa",
+    "5 Bedroom Villa",
+    "6 Bedroom Villa"
+  ],
+  "bedroomOptions": [
+    4,
+    5,
+    6
+  ],
+  "unitCounts": {
+    "4 Bedroom Villa": 39,
+    "5 Bedroom Villa": 13,
+    "6 Bedroom Villa": 22,
+    "Total": 74
+  },
   "plotArea": {
-    "4 Bedroom Villa": "6,361 – 7,406 sq.ft.",
-    "5 Bedroom Villa": "9,472 – 18,091 sq.ft.",
-    "6 Bedroom Villa": "10,764 – 15,105 sq.ft."
+    "4 Bedroom Villa": "6,361 \u2013 7,406 sq.ft.",
+    "5 Bedroom Villa": "9,472 \u2013 18,091 sq.ft.",
+    "6 Bedroom Villa": "10,764 \u2013 15,105 sq.ft."
   },
   "saleableArea": {
     "4 Bedroom Villa": "6,085 sq.ft.",
@@ -22,22 +37,40 @@
     "6 Bedroom Villa": "9,212 sq.ft."
   },
   "buildingHeight": "G+1+R (14m)",
-  "amenities": ["Cycling Track", "Jogging Track"],
+  "amenities": [
+    "Cycling Track",
+    "Jogging Track"
+  ],
   "technicalSpec": "Stone cladding with paint on cement finish, laminated glass balustrade, double glass with aluminum window frames, WPC fluted cladding and WPC ceiling panel. VRF-based ducted cooling. Fully integrated home automation.",
   "description": "Cedarwood Estates South is Wasl's golf-community villa development within Jumeirah Golf Estates. Each villa has a private courtyard with a water feature, swimming pool, and outdoor seating area, with floor-to-ceiling windows framing the surrounding greenery.",
-  "leenasTake": "Placeholder — Leena's personal take on this project goes here.",
+  "leenasTake": "Placeholder \u2014 Leena's personal take on this project goes here.",
   "heroImage": "images/projects/cedarwood-estates/hero.jpg",
   "gallery": [
-    "images/projects/cedarwood-estates/gallery-01.jpg",
-    "images/projects/cedarwood-estates/gallery-02.jpg",
-    "images/projects/cedarwood-estates/gallery-03.jpg"
+    {
+      "src": "images/projects/cedarwood-estates/gallery-01.jpg"
+    },
+    {
+      "src": "images/projects/cedarwood-estates/gallery-02.jpg"
+    },
+    {
+      "src": "images/projects/cedarwood-estates/gallery-03.jpg"
+    }
   ],
   "floorPlans": [
-    { "label": "4 Bedroom Villa", "image": "images/projects/cedarwood-estates/floorplan-4br.jpg" },
-    { "label": "5 Bedroom Villa", "image": "images/projects/cedarwood-estates/floorplan-5br.jpg" },
-    { "label": "6 Bedroom Villa", "image": "images/projects/cedarwood-estates/floorplan-6br.jpg" }
+    {
+      "label": "4 Bedroom Villa",
+      "image": "images/projects/cedarwood-estates/floorplan-4br.jpg"
+    },
+    {
+      "label": "5 Bedroom Villa",
+      "image": "images/projects/cedarwood-estates/floorplan-5br.jpg"
+    },
+    {
+      "label": "6 Bedroom Villa",
+      "image": "images/projects/cedarwood-estates/floorplan-6br.jpg"
+    }
   ],
   "youtubeVideos": [],
   "brochureUrl": "images/projects/cedarwood-estates/brochure.pdf",
-  "sourceNote": "Specs sourced from Wasl's public Cedarwood Estates South fact sheet (wasl.ae/en/cedarwood-estates/brokers-kit). Pricing/payment plan not published there — confirm with Leena."
+  "sourceNote": "Specs sourced from Wasl's public Cedarwood Estates South fact sheet (wasl.ae/en/cedarwood-estates/brokers-kit). Pricing/payment plan not published there \u2014 confirm with Leena."
 }

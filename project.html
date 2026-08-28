@@ -290,9 +290,9 @@
         galleryGrid.innerHTML = '<p class="proj-placeholder-note">Gallery coming soon.</p>';
       } else {
         galleryGrid.innerHTML = '';
-        project.gallery.forEach(src => {
+        project.gallery.forEach(item => {
           const img = document.createElement('img');
-          img.src = src; img.alt = project.name;
+          img.src = typeof item === 'string' ? item : item.src; img.alt = project.name;
           withFallback(img);
           galleryGrid.appendChild(img);
         });

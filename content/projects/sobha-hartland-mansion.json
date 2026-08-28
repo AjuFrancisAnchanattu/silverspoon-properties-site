@@ -1,6 +1,6 @@
 {
   "id": "sobha-hartland-mansion",
-  "name": "Sobha Hartland — 6 Bed Mansion",
+  "name": "Sobha Hartland \u2014 6 Bed Mansion",
   "developer": "Sobha",
   "community": "Sobha Hartland",
   "tags": [],
@@ -8,8 +8,12 @@
   "priceRange": "Coming soon",
   "paymentPlan": "Coming soon",
   "handoverDate": "Coming soon",
-  "unitTypes": ["6 Bedroom Mansion"],
-  "bedroomOptions": [6],
+  "unitTypes": [
+    "6 Bedroom Mansion"
+  ],
+  "bedroomOptions": [
+    6
+  ],
   "unitCounts": {},
   "plotArea": {},
   "saleableArea": {},
@@ -17,16 +21,23 @@
   "amenities": [],
   "technicalSpec": "",
   "description": "A 6-bedroom mansion collection within Sobha Hartland. Full specs available on request.",
-  "leenasTake": "Placeholder — Leena's personal take on this project goes here.",
+  "leenasTake": "Placeholder \u2014 Leena's personal take on this project goes here.",
   "heroImage": "images/projects/sobha-hartland-mansion/hero.jpg",
   "gallery": [
-    "images/projects/sobha-hartland-mansion/gallery-01.jpg",
-    "images/projects/sobha-hartland-mansion/gallery-02.jpg"
+    {
+      "src": "images/projects/sobha-hartland-mansion/gallery-01.jpg"
+    },
+    {
+      "src": "images/projects/sobha-hartland-mansion/gallery-02.jpg"
+    }
   ],
   "floorPlans": [
-    { "label": "6 Bedroom Mansion", "image": "images/projects/sobha-hartland-mansion/floorplan-6br.jpg" }
+    {
+      "label": "6 Bedroom Mansion",
+      "image": "images/projects/sobha-hartland-mansion/floorplan-6br.jpg"
+    }
   ],
   "youtubeVideos": [],
   "brochureUrl": "images/projects/sobha-hartland-mansion/brochure.pdf",
-  "sourceNote": "Name/developer/community/bedroom count as given directly by Leena. Source material is a local Dropbox folder on a different machine — not accessible; Leena to provide specs and photos directly."
+  "sourceNote": "Name/developer/community/bedroom count as given directly by Leena. Source material is a local Dropbox folder on a different machine \u2014 not accessible; Leena to provide specs and photos directly."
 }

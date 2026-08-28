@@ -1,0 +1,100 @@
+backend:
+  name: github
+  repo: AjuFrancisAnchanattu/silverspoon-properties-site
+  branch: main
+  # Replace with the real URL once the Cloudflare Worker is deployed —
+  # see cms-oauth-worker/README.md. It'll look like
+  # https://ssp-cms-auth.<your-subdomain>.workers.dev
+  base_url: https://REPLACE-ME.workers.dev
+  auth_endpoint: auth
+
+# Every image/file a project entry uploads goes straight into that
+# project's own folder (images/projects/<slug>/), matching the folder
+# structure + README convention already in place for each project.
+media_folder: "images/projects/{{slug}}"
+public_folder: "/images/projects/{{slug}}"
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    label_singular: "Project"
+    folder: "content/projects"
+    create: true
+    delete: true
+    slug: "{{id}}"
+    identifier_field: name
+    summary: "{{name}} — {{developer}}"
+    fields:
+      - label: "Project ID (slug)"
+        name: "id"
+        widget: "string"
+        hint: "Lowercase, hyphens only, no spaces (e.g. cedarwood-estates). This becomes both the filename and the image folder name — don't change it after the project is live, or its images/URL will break."
+      - { label: "Project Name", name: "name", widget: "string" }
+      - { label: "Developer", name: "developer", widget: "string" }
+      - { label: "Community / Location", name: "community", widget: "string" }
+      - label: "Community Type"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        options: ["golf", "waterfront"]
+        required: false
+        hint: "Drives the Golf Community / Waterfront filter on the Project Focus page."
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options:
+          - { label: "Off-Plan", value: "off-plan" }
+          - { label: "Ready", value: "ready" }
+        default: "off-plan"
+      - { label: "Price Range", name: "priceRange", widget: "string", default: "Coming soon" }
+      - { label: "Payment Plan", name: "paymentPlan", widget: "string", default: "Coming soon" }
+      - { label: "Handover Date", name: "handoverDate", widget: "string", default: "Coming soon" }
+      - label: "Unit Types"
+        name: "unitTypes"
+        widget: "list"
+        default: ["Coming soon"]
+        hint: "e.g. 4 Bedroom Villa. Leave as \"Coming soon\" (single entry) if not confirmed yet."
+      - label: "Bedroom Options"
+        name: "bedroomOptions"
+        widget: "list"
+        required: false
+        hint: "One number per line, e.g. 4, 5, 6 — not currently shown on the site, informational only."
+      - label: "Unit Counts (optional)"
+        name: "unitCounts"
+        widget: "keyvalue"
+        required: false
+        hint: "Key = unit type (must match Unit Types above exactly), value = count. Leave empty if unknown."
+      - label: "Plot Area (optional)"
+        name: "plotArea"
+        widget: "keyvalue"
+        required: false
+        hint: "Key = unit type, value = area range e.g. \"6,361 – 7,406 sq.ft.\""
+      - label: "Saleable Area (optional)"
+        name: "saleableArea"
+        widget: "keyvalue"
+        required: false
+      - { label: "Building Height", name: "buildingHeight", widget: "string", required: false }
+      - { label: "Amenities", name: "amenities", widget: "list", required: false }
+      - { label: "Technical Spec", name: "technicalSpec", widget: "text", required: false }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Leena's Take", name: "leenasTake", widget: "text", hint: "Your own personal note on this project — shown as a pull-quote on the project page." }
+      - { label: "Hero Image", name: "heroImage", widget: "image" }
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        field: { label: "Image", name: "src", widget: "image" }
+        hint: "Add as many as you like — each becomes one tile in the gallery grid."
+      - label: "Floor Plans"
+        name: "floorPlans"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Label", name: "label", widget: "string", hint: "e.g. 4 Bedroom Villa" }
+          - { label: "Image", name: "image", widget: "image" }
+      - label: "YouTube Videos (optional)"
+        name: "youtubeVideos"
+        widget: "list"
+        required: false
+        field: { label: "YouTube Video ID", name: "id", widget: "string", hint: "Just the ID from the URL, e.g. dQw4w9WgXcQ — not the full link." }
+      - { label: "Brochure PDF (optional)", name: "brochureUrl", widget: "file", required: false }
+      - { label: "Internal Note (not shown on the site)", name: "sourceNote", widget: "text", required: false }
