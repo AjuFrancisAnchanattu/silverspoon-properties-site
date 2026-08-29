@@ -1,12 +1,17 @@
 {
   "heroImage": "images/projects/palm-jebel-ali-beach/hero.jpg",
-  "bedroomOptions": [],
+  "bedroomOptions": [
+    3,
+    4,
+    5,
+    6
+  ],
   "unitCounts": {},
   "community": "Palm Jebel Ali",
   "developer": "Nakheel",
   "name": "Palm Jebel Ali \u2014 The Beach Collection",
   "brochureUrl": "images/projects/palm-jebel-ali-beach/brochure.pdf",
-  "sourceNote": "Developer/location/collection name confirmed via palmjebelali.ae broker toolkit. Full spec sheet, floor plans, and gallery live behind a login-walled Box.com share \u2014 not accessible; Leena to provide specs and photos directly.",
+  "sourceNote": "Developer/location/collection name confirmed via palmjebelali.ae broker toolkit. Bedroom range (3-6BR) confirmed via palmjebelali.ae/beach-villas. Villa model names (Blue Horizon, Sapphire, etc.) are marketing names, not bedroom-count types, so not used as unit types here. Full spec sheet, exact areas, unit counts, floor plans and pricing live behind a login-walled Box.com share \u2014 not accessible; Leena to provide directly.",
   "plotArea": {},
   "saleableArea": {},
   "paymentPlan": "Coming soon",
