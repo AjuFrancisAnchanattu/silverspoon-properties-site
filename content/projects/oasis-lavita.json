@@ -1,36 +1,34 @@
 {
-  "id": "oasis-lavita",
-  "name": "Lavita at The Oasis",
-  "developer": "Emaar",
-  "community": "The Oasis",
-  "tags": [],
-  "status": "off-plan",
-  "priceRange": "Coming soon",
-  "paymentPlan": "Coming soon",
-  "handoverDate": "Coming soon",
-  "unitTypes": [
-    "Coming soon"
-  ],
+  "heroImage": "images/projects/oasis-lavita/hero.jpg",
   "bedroomOptions": [],
   "unitCounts": {},
+  "community": "The Oasis",
+  "developer": "Emaar",
+  "name": "Lavita at The Oasis",
+  "brochureUrl": "images/projects/oasis-lavita/brochure.pdf",
+  "sourceNote": "Name/developer/community/description as given directly by Leena. Source material is a Dropbox folder share — not accessible; Leena to provide specs and photos directly.",
   "plotArea": {},
   "saleableArea": {},
-  "buildingHeight": "",
-  "amenities": [],
-  "technicalSpec": "",
-  "description": "Lavita is the most expansive villa collection Emaar has built within The Oasis. Full specs available on request.",
-  "leenasTake": "Placeholder \u2014 Leena's personal take on this project goes here.",
-  "heroImage": "images/projects/oasis-lavita/hero.jpg",
+  "paymentPlan": "Coming soon",
+  "handoverDate": "Coming soon",
   "gallery": [
-    {
-      "src": "images/projects/oasis-lavita/gallery-01.jpg"
-    },
+    "/images/projects/_uploads/lavita-1.jpg",
     {
       "src": "images/projects/oasis-lavita/gallery-02.jpg"
     }
   ],
-  "floorPlans": [],
+  "status": "off-plan",
+  "priceRange": "Coming soon",
+  "unitTypes": [
+    "Coming soon"
+  ],
+  "amenities": [],
+  "technicalSpec": "",
+  "tags": [],
   "youtubeVideos": [],
-  "brochureUrl": "images/projects/oasis-lavita/brochure.pdf",
-  "sourceNote": "Name/developer/community/description as given directly by Leena. Source material is a Dropbox folder share \u2014 not accessible; Leena to provide specs and photos directly."
+  "buildingHeight": "",
+  "id": "oasis-lavita",
+  "leenasTake": "Placeholder — Leena's personal take on this project goes here.",
+  "description": "Lavita is the most expansive villa collection Emaar has built within The Oasis. Full specs available on request.",
+  "floorPlans": []
 }
