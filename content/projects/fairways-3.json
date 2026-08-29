@@ -1,28 +1,16 @@
 {
-  "id": "fairways-3",
-  "name": "Fairways 3",
-  "developer": "Emaar",
-  "community": "Emaar South",
-  "tags": [
-    "golf"
-  ],
-  "status": "off-plan",
-  "priceRange": "Coming soon",
-  "paymentPlan": "Coming soon",
-  "handoverDate": "Coming soon",
-  "unitTypes": [
-    "Coming soon"
-  ],
+  "heroImage": "images/projects/fairways-3/hero.jpg",
   "bedroomOptions": [],
   "unitCounts": {},
+  "community": "Emaar South",
+  "developer": "Emaar",
+  "name": "Fairways 3",
+  "brochureUrl": "images/projects/fairways-3/brochure.pdf",
+  "sourceNote": "Name/developer/community as given directly by Leena. Source material is a Dropbox folder share — not accessible; Leena to provide specs and photos directly.",
   "plotArea": {},
   "saleableArea": {},
-  "buildingHeight": "",
-  "amenities": [],
-  "technicalSpec": "",
-  "description": "Fairways 3 is a golf-facing villa collection within Emaar South, overlooking the community's golf course. Full specs available on request.",
-  "leenasTake": "Placeholder \u2014 Leena's personal take on this project goes here.",
-  "heroImage": "images/projects/fairways-3/hero.jpg",
+  "paymentPlan": "Coming soon",
+  "handoverDate": "Coming soon",
   "gallery": [
     {
       "src": "images/projects/fairways-3/gallery-01.jpg"
@@ -31,8 +19,20 @@
       "src": "images/projects/fairways-3/gallery-02.jpg"
     }
   ],
-  "floorPlans": [],
+  "status": "off-plan",
+  "priceRange": "Coming soon",
+  "unitTypes": [
+    "Coming soon"
+  ],
+  "amenities": [],
+  "technicalSpec": "",
+  "tags": [
+    "golf"
+  ],
   "youtubeVideos": [],
-  "brochureUrl": "images/projects/fairways-3/brochure.pdf",
-  "sourceNote": "Name/developer/community as given directly by Leena. Source material is a Dropbox folder share \u2014 not accessible; Leena to provide specs and photos directly."
+  "buildingHeight": "",
+  "id": "fairways-3",
+  "leenasTake": "Placeholder — Leena's personal take on this project goes here.",
+  "description": "Fairways 3 is a golf-facing villa collection within Emaar South, overlooking the community's golf course. Full specs available on request.",
+  "floorPlans": []
 }
