@@ -1,20 +1,26 @@
 {
-  "heroImage": "/images/projects/_uploads/featured_image_1744099560.jpg",
+  "heroImage": "images/projects/one-at-palm-jumeirah/hero.jpg",
   "bedroomOptions": [],
   "unitCounts": {},
   "community": "Palm Jumeirah",
   "developer": "Omniyat",
   "name": "One at Palm Jumeirah, Dorchester Collection",
   "brochureUrl": "images/projects/one-at-palm-jumeirah/brochure.pdf",
-  "sourceNote": "Name/developer/community as given directly by Leena. Source material is a Dropbox folder share — not accessible; Leena to provide specs and photos directly.",
+  "sourceNote": "Name/developer/community as given directly by Leena. Source material is a Dropbox folder share \u2014 not accessible; Leena to provide specs and photos directly.",
   "plotArea": {},
   "saleableArea": {},
   "paymentPlan": "Coming soon",
   "handoverDate": "Coming soon",
   "gallery": [
-    "/images/projects/_uploads/image_17440265634.jpg",
-    "/images/projects/_uploads/image_17440265633.jpg",
-    "/images/projects/_uploads/image_17440265630.jpg"
+    {
+      "src": "images/projects/one-at-palm-jumeirah/gallery-01.jpg"
+    },
+    {
+      "src": "images/projects/one-at-palm-jumeirah/gallery-02.jpg"
+    },
+    {
+      "src": "images/projects/one-at-palm-jumeirah/gallery-03.jpg"
+    }
   ],
   "status": "off-plan",
   "priceRange": "Coming soon",
@@ -29,7 +35,7 @@
   "youtubeVideos": [],
   "buildingHeight": "",
   "id": "one-at-palm-jumeirah",
-  "leenasTake": "Placeholder — Leena's personal take on this project goes here.",
+  "leenasTake": "Placeholder \u2014 Leena's personal take on this project goes here.",
   "description": "One at Palm Jumeirah is Omniyat's Dorchester Collection development at the very tip of Palm Jumeirah. Full specs available on request.",
   "floorPlans": []
 }
