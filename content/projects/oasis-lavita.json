@@ -1,5 +1,5 @@
 {
-  "heroImage": "/images/projects/{{fields.id}}/lavita-1.jpg",
+  "heroImage": "images/projects/oasis-lavita/hero.jpg",
   "bedroomOptions": [],
   "unitCounts": {},
   "community": "The Oasis",
@@ -12,10 +12,10 @@
   "paymentPlan": "Coming soon",
   "handoverDate": "Coming soon",
   "gallery": [
-    "/images/projects/{{fields.id}}/lavita-8.jpg",
-    "/images/projects/{{fields.id}}/lavita-7.jpg",
-    "/images/projects/{{fields.id}}/lavita-5.jpg",
-    "/images/projects/{{fields.id}}/lavita-4.jpg"
+    { "src": "images/projects/oasis-lavita/gallery-01.jpg" },
+    { "src": "images/projects/oasis-lavita/gallery-02.jpg" },
+    { "src": "images/projects/oasis-lavita/gallery-03.jpg" },
+    { "src": "images/projects/oasis-lavita/gallery-04.jpg" }
   ],
   "status": "off-plan",
   "priceRange": "Coming soon",
