@@ -1,36 +1,32 @@
 {
-  "id": "oasis-mareva",
-  "name": "Mareva at The Oasis",
-  "developer": "Emaar",
+  "heroImage": "/images/projects/_uploads/mareva_the_oasis_1.jpg",
+  "bedroomOptions": [],
+  "unitCounts": {},
   "community": "The Oasis",
-  "tags": [],
-  "status": "off-plan",
-  "priceRange": "Coming soon",
+  "developer": "Emaar",
+  "name": "Mareva at The Oasis",
+  "brochureUrl": "images/projects/oasis-mareva/brochure.pdf",
+  "sourceNote": "Name/developer/community as given directly by Leena. Source material is a Dropbox folder share — not accessible; Leena to provide specs and photos directly.",
+  "plotArea": {},
+  "saleableArea": {},
   "paymentPlan": "Coming soon",
   "handoverDate": "Coming soon",
+  "gallery": [
+    "/images/projects/_uploads/mareva_the_oasis_5.jpg",
+    "/images/projects/_uploads/mareva_the_oasis_1.jpg"
+  ],
+  "status": "off-plan",
+  "priceRange": "Coming soon",
   "unitTypes": [
     "Coming soon"
   ],
-  "bedroomOptions": [],
-  "unitCounts": {},
-  "plotArea": {},
-  "saleableArea": {},
-  "buildingHeight": "",
   "amenities": [],
   "technicalSpec": "",
-  "description": "Mareva is a villa collection within Emaar's The Oasis community. Full specs available on request.",
-  "leenasTake": "Placeholder \u2014 Leena's personal take on this project goes here.",
-  "heroImage": "images/projects/oasis-mareva/hero.jpg",
-  "gallery": [
-    {
-      "src": "images/projects/oasis-mareva/gallery-01.jpg"
-    },
-    {
-      "src": "images/projects/oasis-mareva/gallery-02.jpg"
-    }
-  ],
-  "floorPlans": [],
+  "tags": [],
   "youtubeVideos": [],
-  "brochureUrl": "images/projects/oasis-mareva/brochure.pdf",
-  "sourceNote": "Name/developer/community as given directly by Leena. Source material is a Dropbox folder share \u2014 not accessible; Leena to provide specs and photos directly."
+  "buildingHeight": "",
+  "id": "oasis-mareva",
+  "leenasTake": "Placeholder — Leena's personal take on this project goes here.",
+  "description": "Mareva is a villa collection within Emaar's The Oasis community. Full specs available on request.",
+  "floorPlans": []
 }
