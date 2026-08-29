@@ -1,16 +1,28 @@
 {
   "heroImage": "images/projects/one-at-palm-jumeirah/hero.jpg",
-  "bedroomOptions": [],
-  "unitCounts": {},
+  "bedroomOptions": [
+    3,
+    4,
+    6
+  ],
+  "unitCounts": {
+    "Residences": 91,
+    "Penthouses": 3,
+    "Total": 94
+  },
   "community": "Palm Jumeirah",
   "developer": "Omniyat",
   "name": "One at Palm Jumeirah, Dorchester Collection",
   "brochureUrl": "images/projects/one-at-palm-jumeirah/brochure.pdf",
-  "sourceNote": "Name/developer/community as given directly by Leena. Source material is a Dropbox folder share \u2014 not accessible; Leena to provide specs and photos directly.",
+  "sourceNote": "Unit mix, sizes, amenities and status sourced from Omniyat's public listing (omniyat.com/residential/one-at-palm-jumeirah). Price and payment plan not published \u2014 resale/private, confirm with Leena.",
   "plotArea": {},
-  "saleableArea": {},
-  "paymentPlan": "Coming soon",
-  "handoverDate": "Coming soon",
+  "saleableArea": {
+    "3 Bedroom Simplex": "2,782 \u2013 4,783 sq.ft.",
+    "4 Bedroom Simplex": "3,492 \u2013 10,100 sq.ft.",
+    "6 Bedroom Penthouse": "21,295 \u2013 29,994 sq.ft."
+  },
+  "paymentPlan": "Not applicable \u2014 completed, resale/private listing",
+  "handoverDate": "Completed (2021)",
   "gallery": [
     {
       "src": "images/projects/one-at-palm-jumeirah/gallery-01.jpg"
@@ -22,13 +34,25 @@
       "src": "images/projects/one-at-palm-jumeirah/gallery-03.jpg"
     }
   ],
-  "status": "off-plan",
-  "priceRange": "Coming soon",
+  "status": "ready",
+  "priceRange": "Price available on request",
   "unitTypes": [
-    "Coming soon"
+    "3 Bedroom Simplex",
+    "4 Bedroom Simplex",
+    "6 Bedroom Penthouse"
   ],
-  "amenities": [],
-  "technicalSpec": "",
+  "amenities": [
+    "Private Beach Access",
+    "Expansive Outdoor Pool",
+    "Private Cinema",
+    "Sauna",
+    "Indoor Vitality Pool",
+    "Spa",
+    "Dorchester Collection Concierge Services",
+    "Valet & Doorman",
+    "Housekeeping"
+  ],
+  "technicalSpec": "Landscape design by Vladimir Djurovic.",
   "tags": [
     "waterfront"
   ],
@@ -36,6 +60,6 @@
   "buildingHeight": "",
   "id": "one-at-palm-jumeirah",
   "leenasTake": "Placeholder \u2014 Leena's personal take on this project goes here.",
-  "description": "One at Palm Jumeirah is Omniyat's Dorchester Collection development at the very tip of Palm Jumeirah. Full specs available on request.",
+  "description": "One at Palm Jumeirah is Omniyat's completed residential icon at the very tip of Palm Jumeirah \u2014 91 branded Dorchester Collection residences and 3 penthouses with private beach access, resort-style amenities, and landscaping by Vladimir Djurovic.",
   "floorPlans": []
 }
