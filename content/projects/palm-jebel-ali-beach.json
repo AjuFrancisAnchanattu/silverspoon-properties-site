@@ -1,38 +1,36 @@
 {
-  "id": "palm-jebel-ali-beach",
-  "name": "Palm Jebel Ali \u2014 The Beach Collection",
-  "developer": "Nakheel",
+  "heroImage": "/images/projects/_uploads/img74.jpg",
+  "bedroomOptions": [],
+  "unitCounts": {},
   "community": "Palm Jebel Ali",
-  "tags": [
-    "waterfront"
+  "developer": "Nakheel",
+  "name": "Palm Jebel Ali — The Beach Collection",
+  "brochureUrl": "images/projects/palm-jebel-ali-beach/brochure.pdf",
+  "sourceNote": "Developer/location/collection name confirmed via palmjebelali.ae broker toolkit. Full spec sheet, floor plans, and gallery live behind a login-walled Box.com share — not accessible; Leena to provide specs and photos directly.",
+  "plotArea": {},
+  "saleableArea": {},
+  "paymentPlan": "Coming soon",
+  "handoverDate": "Coming soon",
+  "gallery": [
+    "/images/projects/_uploads/img242.jpg",
+    "/images/projects/_uploads/img178.jpg",
+    "/images/projects/_uploads/img160.jpg",
+    "/images/projects/_uploads/img129.jpg"
   ],
   "status": "off-plan",
   "priceRange": "Coming soon",
-  "paymentPlan": "Coming soon",
-  "handoverDate": "Coming soon",
   "unitTypes": [
     "Coming soon"
   ],
-  "bedroomOptions": [],
-  "unitCounts": {},
-  "plotArea": {},
-  "saleableArea": {},
-  "buildingHeight": "",
   "amenities": [],
   "technicalSpec": "",
-  "description": "The Beach Collection is one of two villa collections within Nakheel's Palm Jebel Ali villa development \u2014 Dubai's second palm island. Full specs available on request.",
-  "leenasTake": "Placeholder \u2014 Leena's personal take on this project goes here.",
-  "heroImage": "images/projects/palm-jebel-ali-beach/hero.jpg",
-  "gallery": [
-    {
-      "src": "images/projects/palm-jebel-ali-beach/gallery-01.jpg"
-    },
-    {
-      "src": "images/projects/palm-jebel-ali-beach/gallery-02.jpg"
-    }
+  "tags": [
+    "waterfront"
   ],
-  "floorPlans": [],
   "youtubeVideos": [],
-  "brochureUrl": "images/projects/palm-jebel-ali-beach/brochure.pdf",
-  "sourceNote": "Developer/location/collection name confirmed via palmjebelali.ae broker toolkit. Full spec sheet, floor plans, and gallery live behind a login-walled Box.com share \u2014 not accessible; Leena to provide specs and photos directly."
+  "buildingHeight": "",
+  "id": "palm-jebel-ali-beach",
+  "leenasTake": "Placeholder — Leena's personal take on this project goes here.",
+  "description": "The Beach Collection is one of two villa collections within Nakheel's Palm Jebel Ali villa development — Dubai's second palm island. Full specs available on request.",
+  "floorPlans": []
 }
