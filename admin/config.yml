@@ -5,14 +5,22 @@ backend:
   base_url: https://dawn-bird-577f.ajufrancisanchanattu.workers.dev
   auth_endpoint: auth
 
-# Originally per-project ("images/projects/{{slug}}"), but {{slug}}
-# didn't resolve against this collection's custom slug template — it
-# uploaded real files correctly, just into a folder literally named
-# "{{slug}}" instead of the real project slug (hit this for real on
-# cedarwood-estates, fixed by hand). A single shared folder has no
-# templating to get wrong, so uploads always land somewhere real.
-media_folder: "images/projects/_uploads"
-public_folder: "/images/projects/_uploads"
+# Per-project folders, using {{fields.id}} rather than {{slug}}.
+# {{slug}} (this collection's computed entry slug) silently failed to
+# resolve — it uploaded real files, just into a folder literally named
+# "{{slug}}" (hit this for real on cedarwood-estates). A single shared
+# folder avoided that, but created a worse problem: with everything in
+# one pool, the media picker let Cedarwood's photos get attached to
+# Fairways 3's gallery by mistake (hit this for real too).
+# {{fields.id}} reads the "id" field's current value directly instead
+# of going through slug computation — every entry's id field has saved
+# correctly every time so far, so this should be more reliable. If
+# uploads land in a literal "{{fields.id}}" folder again, that theory
+# was wrong; go back to the single shared folder and rely on the
+# hero.jpg / gallery-01.jpg / etc. naming convention in each project's
+# own images/projects/<slug>/README.txt to avoid mixing projects up.
+media_folder: "images/projects/{{fields.id}}"
+public_folder: "/images/projects/{{fields.id}}"
 
 collections:
   - name: "projects"
