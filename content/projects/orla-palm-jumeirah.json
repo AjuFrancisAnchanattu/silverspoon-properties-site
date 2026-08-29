@@ -1,38 +1,36 @@
 {
-  "id": "orla-palm-jumeirah",
-  "name": "Orla, Dorchester Collection",
-  "developer": "Omniyat",
-  "community": "Palm Jumeirah",
-  "tags": [
-    "waterfront"
-  ],
-  "status": "off-plan",
-  "priceRange": "Coming soon",
-  "paymentPlan": "Coming soon",
-  "handoverDate": "Coming soon",
-  "unitTypes": [
-    "Coming soon"
-  ],
+  "heroImage": "/images/projects/_uploads/mareva_the_oasis_1.jpg",
   "bedroomOptions": [],
   "unitCounts": {},
+  "community": "Palm Jumeirah",
+  "developer": "Omniyat",
+  "name": "Orla, Dorchester Collection",
+  "brochureUrl": "images/projects/orla-palm-jumeirah/brochure.pdf",
+  "sourceNote": "Name/developer/community as given directly by Leena. Source material is a Dropbox folder share — not accessible; Leena to provide specs and photos directly.",
   "plotArea": {},
   "saleableArea": {},
-  "buildingHeight": "",
-  "amenities": [],
-  "technicalSpec": "",
-  "description": "Orla is Omniyat's luxury Dorchester Collection development on Palm Jumeirah. Full specs available on request.",
-  "leenasTake": "Placeholder \u2014 Leena's personal take on this project goes here.",
-  "heroImage": "images/projects/orla-palm-jumeirah/hero.jpg",
+  "paymentPlan": "Coming soon",
+  "handoverDate": "Coming soon",
   "gallery": [
     {
       "src": "images/projects/orla-palm-jumeirah/gallery-01.jpg"
     },
-    {
-      "src": "images/projects/orla-palm-jumeirah/gallery-02.jpg"
-    }
+    "/images/projects/_uploads/image_17440265635.jpg"
   ],
-  "floorPlans": [],
+  "status": "off-plan",
+  "priceRange": "Coming soon",
+  "unitTypes": [
+    "Coming soon"
+  ],
+  "amenities": [],
+  "technicalSpec": "",
+  "tags": [
+    "waterfront"
+  ],
   "youtubeVideos": [],
-  "brochureUrl": "images/projects/orla-palm-jumeirah/brochure.pdf",
-  "sourceNote": "Name/developer/community as given directly by Leena. Source material is a Dropbox folder share \u2014 not accessible; Leena to provide specs and photos directly."
+  "buildingHeight": "",
+  "id": "orla-palm-jumeirah",
+  "leenasTake": "Placeholder — Leena's personal take on this project goes here.",
+  "description": "Orla is Omniyat's luxury Dorchester Collection development on Palm Jumeirah. Full specs available on request.",
+  "floorPlans": []
 }
