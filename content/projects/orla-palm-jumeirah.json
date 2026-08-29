@@ -1,5 +1,5 @@
 {
-  "heroImage": "/images/projects/_uploads/mareva_the_oasis_1.jpg",
+  "heroImage": "images/projects/orla-palm-jumeirah/hero.jpg",
   "bedroomOptions": [],
   "unitCounts": {},
   "community": "Palm Jumeirah",
@@ -12,9 +12,6 @@
   "paymentPlan": "Coming soon",
   "handoverDate": "Coming soon",
   "gallery": [
-    {
-      "src": "images/projects/orla-palm-jumeirah/gallery-01.jpg"
-    },
     {
       "src": "images/projects/orla-palm-jumeirah/gallery-01.jpg"
     }

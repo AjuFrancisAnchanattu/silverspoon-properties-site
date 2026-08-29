@@ -26,16 +26,25 @@ def normalize(path_str):
     return path_str.lstrip("/")
 
 
-def next_number(dest_dir, prefix):
-    if not dest_dir.exists():
-        return 1
+def claimed_numbers(dest_dir, prefix, refs):
+    """Numbers already spoken for, whether or not the file exists yet —
+    a dangling placeholder reference (e.g. gallery-01.jpg from before any
+    real photo was uploaded) still reserves its number, otherwise a real
+    new upload could be renamed to collide with it."""
     pattern = re.compile(rf"^{re.escape(prefix)}-(\d+)\.")
-    used = []
-    for f in dest_dir.iterdir():
-        m = pattern.match(f.name)
+    used = set()
+    if dest_dir.exists():
+        for f in dest_dir.iterdir():
+            m = pattern.match(f.name)
+            if m:
+                used.add(int(m.group(1)))
+    for ref in refs:
+        if not ref:
+            continue
+        m = pattern.match(Path(normalize(ref)).name)
         if m:
-            used.append(int(m.group(1)))
-    return (max(used) + 1) if used else 1
+            used.add(int(m.group(1)))
+    return used
 
 
 def move_file(rel_path, dest_dir, new_stem):
@@ -67,16 +76,19 @@ def process_project(json_path):
             changed = True
 
     gallery = data.get("gallery") or []
+    gallery_refs = [item.get("src") if isinstance(item, dict) else item for item in gallery]
+    used = claimed_numbers(dest_dir, "gallery", gallery_refs)
+    next_num = (max(used) + 1) if used else 1
     for i, item in enumerate(gallery):
         is_dict = isinstance(item, dict)
         src = item.get("src") if is_dict else item
         if not src or already_placed(src, project_id):
             continue
-        num = next_number(dest_dir, "gallery")
-        new_path = move_file(src, dest_dir, f"gallery-{num:02d}")
+        new_path = move_file(src, dest_dir, f"gallery-{next_num:02d}")
         if new_path:
             gallery[i] = {"src": new_path}
             changed = True
+            next_num += 1
         elif not is_dict:
             gallery[i] = {"src": src}
             changed = True
@@ -84,15 +96,18 @@ def process_project(json_path):
         data["gallery"] = gallery
 
     floor_plans = data.get("floorPlans") or []
+    fp_refs = [item.get("image") if isinstance(item, dict) else None for item in floor_plans]
+    used = claimed_numbers(dest_dir, "floorplan", fp_refs)
+    next_num = (max(used) + 1) if used else 1
     for i, item in enumerate(floor_plans):
         img = item.get("image") if isinstance(item, dict) else None
         if not img or already_placed(img, project_id):
             continue
-        num = next_number(dest_dir, "floorplan")
-        new_path = move_file(img, dest_dir, f"floorplan-{num:02d}")
+        new_path = move_file(img, dest_dir, f"floorplan-{next_num:02d}")
         if new_path:
             item["image"] = new_path
             changed = True
+            next_num += 1
 
     brochure = data.get("brochureUrl")
     if brochure and not already_placed(brochure, project_id):
