@@ -98,6 +98,30 @@
   .proj-units-table{ display:block; overflow-x:auto; }
 }
 
+/* ============ AMENITIES ============ */
+.proj-amenities{ background:var(--white); padding:80px 0; }
+.proj-amenities-wrap{ max-width:var(--container); margin:0 auto; padding:0 48px; }
+.proj-amenities-wrap h2{
+  font-family:var(--serif); font-weight:400; font-size:clamp(26px,3vw,34px); color:var(--ink); margin-bottom:40px;
+}
+.proj-amenities-list{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:16px 32px; list-style:none; margin:0; padding:0;
+}
+.proj-amenities-list li{
+  font-family:var(--sans); font-size:15px; color:var(--ink); padding-left:22px; position:relative;
+}
+.proj-amenities-list li::before{
+  content:''; position:absolute; left:0; top:9px; width:8px; height:8px; border-radius:50%; background:var(--brass);
+}
+
+@media (max-width:900px){
+  .proj-amenities-list{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:640px){
+  .proj-amenities{ padding:56px 0; }
+  .proj-amenities-list{ grid-template-columns:1fr; }
+}
+
 /* ============ GALLERY ============ */
 .proj-gallery{ background:var(--white); padding:80px 0; }
 .proj-gallery-wrap{ max-width:var(--container); margin:0 auto; padding:0 48px; }

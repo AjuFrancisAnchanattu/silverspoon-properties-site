@@ -92,6 +92,13 @@
       </div>
     </section>
 
+    <section class="proj-amenities" id="projAmenitiesSection">
+      <div class="proj-amenities-wrap">
+        <h2>Amenities</h2>
+        <ul class="proj-amenities-list" id="projAmenitiesList"></ul>
+      </div>
+    </section>
+
     <section class="proj-gallery">
       <div class="proj-gallery-wrap">
         <h2>Gallery</h2>
@@ -282,6 +289,15 @@
             </tr></thead>
             <tbody>${rows}</tbody>
           </table>`;
+      }
+
+      // --- Amenities ---
+      const amenitiesSection = document.getElementById('projAmenitiesSection');
+      if (isPlaceholderText(project.amenities)) {
+        amenitiesSection.style.display = 'none';
+      } else {
+        document.getElementById('projAmenitiesList').innerHTML = project.amenities
+          .map(a => `<li>${a}</li>`).join('');
       }
 
       // --- Gallery ---
