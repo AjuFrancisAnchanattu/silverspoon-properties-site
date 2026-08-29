@@ -5,17 +5,25 @@ backend:
   base_url: https://dawn-bird-577f.ajufrancisanchanattu.workers.dev
   auth_endpoint: auth
 
-# Both {{slug}} and {{fields.id}} were tried for automatic per-project
-# upload folders. Both silently failed to resolve on this CMS/hosting
-# setup — real files uploaded fine, but into a folder literally named
-# "{{slug}}" or "{{fields.id}}" instead of the intended project folder
-# (hit this for real 3 times: cedarwood-estates, fairways-3, oasis-lavita).
-# Decap has no reliable per-project auto-folder option here, so uploads
-# go to one shared pool instead. After each upload, files get manually
-# sorted into their project's images/projects/<slug>/ folder (matching
-# the hero.jpg / gallery-01.jpg naming convention in each project's
-# README.txt) as part of reviewing the change — don't rely on the path
-# Decap writes into the JSON being correct until that's done.
+# CONFIRMED (not a guess — checked decapcms.org docs + decaporg/decap-cms
+# issue #6990 on GitHub): {{slug}}/{{fields.id}}/etc. template tags in
+# media_folder are NOT an implemented Decap CMS feature — it's an open
+# feature request that's never shipped. That's why both were tried here
+# and both silently produced a folder literally named "{{slug}}" or
+# "{{fields.id}}" instead of resolving (hit this for real 3 times:
+# cedarwood-estates, fairways-3, oasis-lavita). Don't try a 4th template
+# variant — it will fail the same way.
+#
+# The only way to get Decap to scope the media picker to one project
+# folder for real is restructuring each entry into its own folder
+# (collection `path` option + relative media_folder) — a bigger
+# migration the user explicitly chose to skip in favor of this simpler
+# setup. So: all uploads go to one shared pool, and
+# .github/workflows/sort-project-media.yml auto-moves each file into its
+# project's images/projects/<slug>/ folder (hero.jpg / gallery-01.jpg
+# naming convention, see each project's README.txt) within ~30-60s of
+# save. Accepted trade-off: right after uploading, the media picker may
+# briefly show another project's not-yet-swept file.
 media_folder: "images/projects/_uploads"
 public_folder: "/images/projects/_uploads"
 
