@@ -68,9 +68,25 @@ def process_project(json_path):
     data = json.loads(json_path.read_text())
     changed = False
 
+    # Same source file can be picked for more than one field (e.g. the same
+    # photo set as both hero and a gallery entry). Moving is destructive —
+    # the second field to process it would find nothing left at the
+    # original path. Track what's already been moved this run and reuse
+    # the destination instead of trying to move an already-moved file.
+    moved = {}
+
+    def resolve(src, new_stem):
+        key = normalize(src)
+        if key in moved:
+            return moved[key], False
+        new_path = move_file(src, dest_dir, new_stem)
+        if new_path:
+            moved[key] = new_path
+        return new_path, True
+
     hero = data.get("heroImage")
     if hero and not already_placed(hero, project_id):
-        new_path = move_file(hero, dest_dir, "hero")
+        new_path, _ = resolve(hero, "hero")
         if new_path:
             data["heroImage"] = new_path
             changed = True
@@ -84,11 +100,12 @@ def process_project(json_path):
         src = item.get("src") if is_dict else item
         if not src or already_placed(src, project_id):
             continue
-        new_path = move_file(src, dest_dir, f"gallery-{next_num:02d}")
+        new_path, is_new = resolve(src, f"gallery-{next_num:02d}")
         if new_path:
             gallery[i] = {"src": new_path}
             changed = True
-            next_num += 1
+            if is_new:
+                next_num += 1
         elif not is_dict:
             gallery[i] = {"src": src}
             changed = True
@@ -103,15 +120,16 @@ def process_project(json_path):
         img = item.get("image") if isinstance(item, dict) else None
         if not img or already_placed(img, project_id):
             continue
-        new_path = move_file(img, dest_dir, f"floorplan-{next_num:02d}")
+        new_path, is_new = resolve(img, f"floorplan-{next_num:02d}")
         if new_path:
             item["image"] = new_path
             changed = True
-            next_num += 1
+            if is_new:
+                next_num += 1
 
     brochure = data.get("brochureUrl")
     if brochure and not already_placed(brochure, project_id):
-        new_path = move_file(brochure, dest_dir, "brochure")
+        new_path, _ = resolve(brochure, "brochure")
         if new_path:
             data["brochureUrl"] = new_path
             changed = True
