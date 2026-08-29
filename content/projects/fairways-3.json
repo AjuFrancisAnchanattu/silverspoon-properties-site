@@ -1,5 +1,5 @@
 {
-  "heroImage": "/images/projects/_uploads/381089_hero_slide_4_81de8f95e8-1-.avif",
+  "heroImage": "images/projects/fairways-3/hero.avif",
   "bedroomOptions": [],
   "unitCounts": {},
   "community": "Emaar South",
@@ -12,9 +12,9 @@
   "paymentPlan": "Coming soon",
   "handoverDate": "Coming soon",
   "gallery": [
-    "/images/projects/_uploads/381197_hero_slide_2_27ce1c3066.avif",
-    "/images/projects/_uploads/381188_hero_slide_1_c4a666d383.avif",
-    "/images/projects/_uploads/381089_hero_slide_4_81de8f95e8-1-.avif"
+    { "src": "images/projects/fairways-3/gallery-01.avif" },
+    { "src": "images/projects/fairways-3/gallery-02.avif" },
+    { "src": "images/projects/fairways-3/gallery-03.avif" }
   ],
   "status": "off-plan",
   "priceRange": "Coming soon",

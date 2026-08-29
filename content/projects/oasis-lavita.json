@@ -12,7 +12,9 @@
   "paymentPlan": "Coming soon",
   "handoverDate": "Coming soon",
   "gallery": [
-    "/images/projects/_uploads/lavita-1.jpg",
+    {
+      "src": "images/projects/oasis-lavita/gallery-01.jpg"
+    },
     {
       "src": "images/projects/oasis-lavita/gallery-02.jpg"
     }
