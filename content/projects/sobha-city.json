@@ -1,5 +1,5 @@
 {
-  "heroImage": "/images/projects/_uploads/20.webp",
+  "heroImage": "images/projects/sobha-city/hero.webp",
   "bedroomOptions": [],
   "unitCounts": {},
   "community": "Sobha City",
@@ -12,10 +12,18 @@
   "paymentPlan": "Coming soon",
   "handoverDate": "Coming soon",
   "gallery": [
-    "/images/projects/_uploads/161.webp",
-    "/images/projects/_uploads/154.webp",
-    "/images/projects/_uploads/136.webp",
-    "/images/projects/_uploads/87-1.webp"
+    {
+      "src": "images/projects/sobha-city/gallery-01.webp"
+    },
+    {
+      "src": "images/projects/sobha-city/gallery-02.webp"
+    },
+    {
+      "src": "images/projects/sobha-city/gallery-03.webp"
+    },
+    {
+      "src": "images/projects/sobha-city/gallery-04.webp"
+    }
   ],
   "status": "off-plan",
   "priceRange": "Coming soon",
