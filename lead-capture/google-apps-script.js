@@ -28,6 +28,9 @@ const HEADERS = [
   'Project Name (from project page)',
   'IP Address',
   'Country',
+  'Message', // added for the project-page "Enquire Now" modal — kept
+             // last so existing rows in an already-live sheet stay
+             // aligned; only new submissions populate this column.
 ];
 
 function doPost(e) {
@@ -50,6 +53,7 @@ function doPost(e) {
     data.projectName || '',
     data.ip || '',
     data.country || '',
+    data.message || '',
   ]);
 
   return ContentService

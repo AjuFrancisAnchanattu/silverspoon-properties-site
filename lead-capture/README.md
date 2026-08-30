@@ -1,5 +1,19 @@
 # Lead capture — one-time setup
 
+## Update (already deployed this before?)
+
+Project pages now have their own "Enquire Now" popup (opens in place,
+no navigating away) that also saves to this same Sheet — it adds one
+new field, **Message**, that the original Shortlist form didn't have.
+If you already completed the steps below once:
+
+1. Re-paste the updated `google-apps-script.js` into the Apps Script editor (Extensions → Apps Script on the Sheet), **Deploy → Manage deployments → edit (pencil) → Deploy** on the *existing* deployment (not a new one — that would change the URL and break the Worker's existing secret).
+2. Re-paste the updated `cms-oauth-worker/worker.js` into the Cloudflare Worker, **Save and Deploy**.
+3. In the Sheet itself, manually type `Message` into the first empty column header (column N) — the script only auto-creates headers on a brand-new empty sheet, it won't retroactively add a column to a sheet that already has data.
+
+If you're setting this up for the first time, ignore the above and just follow the numbered steps below — the current `google-apps-script.js` already includes the Message column from the start.
+
+
 Every submission on the "Get Shortlisted" form now gets saved permanently
 to a Google Sheet — with the visitor's IP address, country, which page
 they came from, and the project name if they arrived from a project page —

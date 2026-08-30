@@ -1,14 +1,24 @@
 /* Shared across every page — builds the "Enquire Now" contact modal once,
    appends it to <body>, and wires it up to any element carrying
    data-contact-modal (the floating pill's "Contact Us" item, the
-   footer's "Contact Us" link, etc.) so those open the modal in place
-   instead of navigating to the coming-soon placeholder. See
-   css/base.css for the .contact-modal* rules this markup relies on. */
+   footer's "Contact Us" link, project-page enquiry buttons, etc.) so
+   those open the modal in place instead of navigating away. See
+   css/base.css for the .contact-modal* rules this markup relies on.
+
+   If window.SSPCurrentProjectName is set (project.html sets this once
+   its project data loads), the modal shows which project the enquiry
+   is regarding and includes it in the saved submission — same
+   /submit-lead backend contact.html's Shortlist form uses (Cloudflare
+   Worker -> Google Sheet), so every lead lands in one place regardless
+   of which form or page it came from. */
 (function () {
   const WHATSAPP_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>';
   const PHONE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2 2C9.5 21 3 14.5 3 6a2 2 0 0 1 1-2Z"/></svg>';
   const EMAIL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>';
   const CLOSE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+
+  const LEAD_EMAIL = 'Info@silverspoonprop.com';
+  const LEAD_WORKER_URL = 'https://dawn-bird-577f.ajufrancisanchanattu.workers.dev/submit-lead';
 
   const overlay = document.createElement('div');
   overlay.className = 'contact-modal-overlay';
@@ -16,7 +26,10 @@
     <button class="contact-modal-close" type="button" aria-label="Close">${CLOSE_ICON}</button>
     <div class="contact-modal" role="dialog" aria-modal="true" aria-label="Enquire now">
       <div class="cm-head">
-        <h2>Enquire now</h2>
+        <div>
+          <h2>Enquire now</h2>
+          <p class="cm-project-context" id="cmProjectContext" style="display:none;"></p>
+        </div>
         <div class="cm-icons">
           <a href="https://wa.me/971527693333" aria-label="WhatsApp Leena">${WHATSAPP_ICON}</a>
           <a href="tel:+971527693333" aria-label="Call Leena">${PHONE_ICON}</a>
@@ -54,9 +67,19 @@
   const modal = overlay.querySelector('.contact-modal');
   const closeBtn = overlay.querySelector('.contact-modal-close');
   const form = overlay.querySelector('form');
+  const projectContext = overlay.querySelector('#cmProjectContext');
 
   function openModal(e) {
     if (e) e.preventDefault();
+    modal.classList.remove('is-sent');
+    form.reset();
+    const projectName = window.SSPCurrentProjectName || '';
+    if (projectName) {
+      projectContext.textContent = `Regarding: ${projectName}`;
+      projectContext.style.display = 'block';
+    } else {
+      projectContext.style.display = 'none';
+    }
     overlay.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   }
@@ -74,6 +97,40 @@
 
   form.addEventListener('submit', e => {
     e.preventDefault();
+
+    const fields = {
+      formType: 'Enquire Now (Modal)',
+      name: `${document.getElementById('cmName').value} ${document.getElementById('cmLastName').value}`.trim(),
+      phone: document.getElementById('cmPhone').value,
+      email: document.getElementById('cmEmail').value,
+      projectOrDeveloper: document.getElementById('cmAreas').value,
+      message: document.getElementById('cmMessage').value,
+      sourcePage: window.location.href,
+      projectName: window.SSPCurrentProjectName || '',
+    };
+
+    const body = [
+      `Name: ${fields.name}`,
+      `Phone: ${fields.phone}`,
+      `Email: ${fields.email}`,
+      `Areas / Developments: ${fields.projectOrDeveloper || '—'}`,
+      `Message: ${fields.message || '—'}`,
+      fields.projectName ? `Regarding Project: ${fields.projectName}` : '',
+    ].filter(Boolean).join('\n');
+    const subject = fields.projectName
+      ? `New Enquiry — ${fields.projectName} — Silver Spoon Properties`
+      : 'New Enquiry — Silver Spoon Properties';
+    window.location.href = `mailto:${LEAD_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Fire-and-forget — a failed/blocked save shouldn't stop the visitor
+    // from seeing the thank-you state, since the email fallback above
+    // already carries the enquiry either way.
+    fetch(LEAD_WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(fields),
+    }).catch(() => {});
+
     modal.classList.add('is-sent');
   });
 })();

@@ -84,6 +84,7 @@ async function handleSubmitLead(request, env) {
     timeline: body.timeline || '',
     sourcePage: body.sourcePage || '',
     projectName: body.projectName || '',
+    message: body.message || '',
     ip: request.headers.get('cf-connecting-ip') || 'Unknown',
     country: request.cf && request.cf.country ? request.cf.country : 'Unknown',
   };

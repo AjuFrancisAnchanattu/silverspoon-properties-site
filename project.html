@@ -82,6 +82,9 @@
           <div class="proj-stat"><span class="label">Status</span><span class="value" id="projStatus"></span></div>
         </div>
         <p id="projDescription"></p>
+        <div class="proj-inline-cta">
+          <a class="btn-contact" href="#" data-contact-modal>Enquire About This Project</a>
+        </div>
       </div>
     </section>
 
@@ -89,6 +92,9 @@
       <div class="proj-units-wrap">
         <h2>Unit Types</h2>
         <div id="projUnitsContent"></div>
+        <div class="proj-inline-cta">
+          <a class="btn-contact" href="#" data-contact-modal>Ask About Pricing &amp; Availability</a>
+        </div>
       </div>
     </section>
 
@@ -154,7 +160,7 @@
         <h2 id="projCtaHeading">Let's talk about this one</h2>
         <div class="proj-cta-actions">
           <a class="btn-contact" id="projCtaCall" href="contact.html#book-a-call">Book a Call About This Project</a>
-          <a class="btn-wa-join" id="projCtaShortlist" href="contact.html#shortlist">Shortlist Me</a>
+          <a class="btn-wa-join" href="#" data-contact-modal>Shortlist Me</a>
         </div>
       </div>
     </section>
@@ -220,6 +226,7 @@
 
   <script src="js/projects-loader.js"></script>
   <script src="js/nav.js"></script>
+  <script src="js/contact-modal.js"></script>
   <script>
     const PLACEHOLDER_IMG = 'data:image/svg+xml,' + encodeURIComponent(
       '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><rect width="800" height="600" fill="#EFEDE4"/></svg>'
@@ -255,6 +262,7 @@
       if (!project) { loading.style.display = 'none'; notFound.style.display = 'flex'; return; }
 
       document.title = `${project.name} | Silver Spoon Properties`;
+      window.SSPCurrentProjectName = project.name;
 
       // --- Hero ---
       const heroImg = document.getElementById('projHeroImg');
@@ -377,7 +385,6 @@
       // --- CTAs (pre-fill project name into the Contact page) ---
       const projParam = encodeURIComponent(project.name);
       document.getElementById('projCtaCall').href = `contact.html?project=${projParam}#book-a-call`;
-      document.getElementById('projCtaShortlist').href = `contact.html?project=${projParam}#shortlist`;
       document.getElementById('projCtaHeading').textContent = `Let's talk about ${project.name}`;
 
       loading.style.display = 'none';
