@@ -73,25 +73,53 @@
 }
 .bio-copy p:last-of-type{ margin-bottom:0; }
 
+/* Career milestone strip — breaks up the opening narrative */
+.bio-milestones{
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:32px;
+  margin:8px 0 34px; padding:32px 0; border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline);
+}
+.milestone-num{ font-family:var(--serif); font-weight:400; font-size:30px; color:var(--brass); line-height:1; }
+.milestone-label{
+  margin-top:10px; font-family:var(--sans); font-weight:400; font-size:13.5px; line-height:1.5; color:var(--grey);
+}
+
+/* What I Bring — icon grid */
 .bio-brings-head{
-  font-family:var(--sans); font-weight:700; font-size:13px; letter-spacing:.06em;
-  text-transform:uppercase; color:var(--ink); margin:8px 0 22px;
+  font-family:var(--serif); font-weight:400; font-size:clamp(24px,2.4vw,28px);
+  color:var(--ink); margin:8px 0 32px;
 }
-.bio-brings-list{
-  list-style:none; margin:0 0 34px; padding:0;
-  display:flex; flex-direction:column; gap:16px;
+.bio-brings-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:34px 40px;
+  margin-bottom:40px;
 }
-.bio-brings-list li{
-  font-family:var(--sans); font-size:16.5px; line-height:1.7; color:var(--ink);
-  max-width:60ch; padding-left:22px; position:relative;
+.bring-icon{
+  width:44px; height:44px; border-radius:50%;
+  background:var(--cream); display:flex; align-items:center; justify-content:center;
+  margin-bottom:18px;
 }
-.bio-brings-list li::before{
-  content:''; position:absolute; left:0; top:8px; width:8px; height:8px;
-  border-radius:50%; background:var(--brass);
+.bring-icon svg{ width:19px; height:19px; stroke:var(--brass); }
+.bring-item h4{
+  font-family:var(--sans); font-weight:700; font-size:15px; color:var(--ink); margin-bottom:8px;
 }
-.bio-brings-list strong{ font-weight:700; }
+.bring-item p{
+  font-family:var(--sans); font-weight:400; font-size:15px; line-height:1.65; color:var(--grey);
+  max-width:none; margin-bottom:0;
+}
+
+/* Closing pull-quote */
+.bio-pullquote{
+  margin:0 0 40px; padding-left:28px; border-left:2px solid var(--brass);
+  font-family:var(--serif); font-style:italic; font-weight:400; font-size:22px; line-height:1.55;
+  color:var(--ink); max-width:58ch;
+}
 
 .bio-cta{ margin-top:48px; }
+
+@media (max-width:640px){
+  .bio-milestones{ grid-template-columns:1fr; gap:24px; }
+  .bio-brings-grid{ grid-template-columns:1fr; }
+  .bio-pullquote{ font-size:19px; }
+}
 
 .stat-col{ display:flex; flex-direction:column; }
 .stat-item{ padding:34px 0; }
