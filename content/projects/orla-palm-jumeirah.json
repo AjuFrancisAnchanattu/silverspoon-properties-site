@@ -1,5 +1,5 @@
 {
-  "heroImage": "images/projects/orla-palm-jumeirah/hero.jpg",
+  "heroImage": "/images/projects/_uploads/imgi_88_last_photo.jpg",
   "bedroomOptions": [],
   "unitCounts": {},
   "community": "Palm Jumeirah",
@@ -11,7 +11,11 @@
   "saleableArea": {},
   "paymentPlan": "Coming soon",
   "handoverDate": "Coming soon",
-  "gallery": [],
+  "gallery": [
+    "/images/projects/_uploads/imgi_83_omniyat_orla_photos_1.jpg",
+    "/images/projects/_uploads/imgi_77_driveway.jpg",
+    "/images/projects/_uploads/imgi_84_omniyat_orla_photos_2.jpg"
+  ],
   "status": "off-plan",
   "priceRange": "Coming soon",
   "unitTypes": [
