@@ -10,7 +10,7 @@
   overflow:hidden;
   background:#100f0c; /* fallback while video/poster loads */
 }
-.hero video{
+.hero video, .hero-fallback-img{
   position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;
 }
 .hero::after{

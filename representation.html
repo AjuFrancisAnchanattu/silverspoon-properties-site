@@ -50,11 +50,12 @@
   <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="hero-fallback-bg"></div>
-    <video autoplay muted loop playsinline>
-      <source src="videos/representation-hero.mp4" type="video/mp4">
+    <video id="repHeroVideo" autoplay muted loop playsinline>
+      <source id="repHeroVideoSource" src="videos/representation-hero.mp4" type="video/mp4">
     </video>
+    <img id="repHeroFallbackImg" class="hero-fallback-img" src="images/clientmeeting.jpeg" alt="Leena Parwani meeting with private clients" style="display:none;">
 
-    <p class="hero-note">Video placeholder — videos/representation-hero.mp4</p>
+    <p class="hero-note">Video placeholder — videos/representation-hero.mp4. Falls back to images/clientmeeting.jpeg if the video is missing.</p>
 
     <div class="hero-content">
       <h1>Private Client Representation</h1>
@@ -322,6 +323,32 @@
     <div class="sep"></div>
     <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>Contact Us</a>
   </div>
+
+  <script>
+    // If videos/representation-hero.mp4 is missing (or fails to load for
+    // any reason), fall back to a real photo instead of leaving the hero
+    // showing nothing but the gradient background.
+    const repHeroVideo = document.getElementById('repHeroVideo');
+    let repHeroFallbackShown = false;
+    function showRepHeroFallback() {
+      if (repHeroFallbackShown) return;
+      repHeroFallbackShown = true;
+      repHeroVideo.style.display = 'none';
+      document.getElementById('repHeroFallbackImg').style.display = 'block';
+    }
+    // A missing/unloadable <source> doesn't reliably fire "error" on the
+    // <video> element itself across browsers — it sets networkState to
+    // NETWORK_NO_SOURCE (3) instead, often silently. Listen for both the
+    // error event (belt) and check networkState after a short delay
+    // (suspenders) so a missing video always falls back to the photo.
+    repHeroVideo.addEventListener('error', showRepHeroFallback, true);
+    document.getElementById('repHeroVideoSource').addEventListener('error', showRepHeroFallback);
+    setTimeout(() => {
+      if (repHeroVideo.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) {
+        showRepHeroFallback();
+      }
+    }, 2000);
+  </script>
 
   <script src="js/nav.js"></script>
 
