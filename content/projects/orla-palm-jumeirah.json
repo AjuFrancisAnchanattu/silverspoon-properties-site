@@ -1,16 +1,28 @@
 {
   "heroImage": "images/projects/orla-palm-jumeirah/hero.jpg",
-  "bedroomOptions": [],
-  "unitCounts": {},
+  "bedroomOptions": [
+    2,
+    3,
+    4
+  ],
+  "unitCounts": {
+    "Total": 93
+  },
   "community": "Palm Jumeirah",
   "developer": "Omniyat",
   "name": "Orla, Dorchester Collection",
   "brochureUrl": "images/projects/orla-palm-jumeirah/brochure.pdf",
-  "sourceNote": "Name/developer/community as given directly by Leena. Source material is a Dropbox folder share — not accessible; Leena to provide specs and photos directly.",
+  "sourceNote": "Price, payment plan, handover, unit types/areas and amenities sourced from opr.ae's listing (opr.ae/projects/omniyat-orla-dorchester-collection-apartments-on-palm-jumeirah-dubai) per Leena's request — this is a broker/portal listing, not Omniyat's own site, so treat as indicative until confirmed against the official spec sheet. Total unit count (93) given, but no breakdown by type; building height and exact technical specs not published there.",
   "plotArea": {},
-  "saleableArea": {},
-  "paymentPlan": "Coming soon",
-  "handoverDate": "Coming soon",
+  "saleableArea": {
+    "2 Bedroom Apartment": "4,163 sq.ft.",
+    "3 Bedroom Apartment": "4,055 sq.ft.",
+    "4 Bedroom Apartment": "7,675 sq.ft.",
+    "3-4 Bedroom Duplex": "Up to 11,749 sq.ft.",
+    "Sky Palace": "Up to 58,476 sq.ft."
+  },
+  "paymentPlan": "50/50: 25% down payment, 25% during construction, 50% on handover",
+  "handoverDate": "Q4 2026",
   "gallery": [
     {
       "src": "images/projects/orla-palm-jumeirah/gallery-01.jpg"
@@ -23,12 +35,29 @@
     }
   ],
   "status": "off-plan",
-  "priceRange": "Coming soon",
+  "priceRange": "From AED 72M",
   "unitTypes": [
-    "Coming soon"
+    "2 Bedroom Apartment",
+    "3 Bedroom Apartment",
+    "4 Bedroom Apartment",
+    "3-4 Bedroom Duplex",
+    "Sky Palace"
   ],
-  "amenities": [],
-  "technicalSpec": "",
+  "amenities": [
+    "150m Private Beach",
+    "Infinity Pools",
+    "25m Lap Pool",
+    "Spa",
+    "Fitness Center",
+    "Yoga & Cycling Studios",
+    "Private Cinema",
+    "Cigar Lounge",
+    "Library",
+    "24/7 Concierge",
+    "Valet Parking",
+    "Private Elevator per Residence"
+  ],
+  "technicalSpec": "Architecture by Foster + Partners, with residence services managed by Dorchester Collection. Freehold, available to international buyers.",
   "tags": [
     "waterfront"
   ],
@@ -36,6 +65,6 @@
   "buildingHeight": "",
   "id": "orla-palm-jumeirah",
   "leenasTake": "Placeholder — Leena's personal take on this project goes here.",
-  "description": "Orla is Omniyat's luxury Dorchester Collection development on Palm Jumeirah. Full specs available on request.",
+  "description": "Orla is Omniyat's ultra-luxury beachfront residence at the apex of Palm Jumeirah, designed by Foster + Partners with services managed by Dorchester Collection. 93 residences spanning apartments, duplexes, and Sky Palaces, each with 270-degree panoramic views and a private elevator.",
   "floorPlans": []
 }
