@@ -134,7 +134,10 @@
     <section class="proj-map">
       <div class="proj-map-wrap">
         <h2>Location</h2>
-        <div class="proj-map-placeholder">Map embed placeholder — add once the exact plot/building location is confirmed</div>
+        <div class="proj-map-frame">
+          <iframe id="projMapEmbed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <p class="proj-map-note">Showing the community's general location — contact Leena for the exact plot/building.</p>
       </div>
     </section>
 
@@ -338,6 +341,10 @@
         brochureLink.href = project.brochureUrl;
         brochureLink.style.display = 'inline-flex';
       }
+
+      // --- Location map (community-level — no exact plot/address on file) ---
+      const mapQuery = encodeURIComponent(`${project.community}, Dubai, UAE`);
+      document.getElementById('projMapEmbed').src = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
 
       // --- Leena's take ---
       document.getElementById('projLeenasTake').textContent = project.leenasTake || '';
