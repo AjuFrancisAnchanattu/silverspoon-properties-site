@@ -27,7 +27,7 @@
         <span class="dot">•</span>
         <a href="about.html">About</a>
         <span class="dot">•</span>
-        <a href="coming-soon.html?page=Developer+Partners">Developers <span class="chevron"></span></a>
+        <a href="developers.html">Developers <span class="chevron"></span></a>
         <span class="dot">•</span>
         <a href="contact.html">Contact</a>
       </nav>
@@ -135,7 +135,7 @@
           <div class="footer-col">
             <div class="flogo"><img src="images/logo/logo.png" alt="Silver Spoon Properties" class="logo-img"></div>
             <a href="projects.html">Project Focus</a>
-            <a href="coming-soon.html?page=Developer+Partners">Developer Partners</a>
+            <a href="developers.html">Developer Partners</a>
             <a href="coming-soon.html?page=Secondary+Market">Secondary Market</a>
           </div>
           <div class="footer-col">
@@ -290,6 +290,15 @@
       }
       populateDropdown(developerSelect, [...new Set(allProjects.map(p => p.developer))].sort());
       populateDropdown(communitySelect, [...new Set(allProjects.map(p => p.community))].sort());
+
+      // Deep-link support, e.g. developers.html cards link here as
+      // projects.html?developer=Emaar to arrive pre-filtered.
+      const urlParams = new URLSearchParams(window.location.search);
+      const developerParam = urlParams.get('developer');
+      if (developerParam && [...developerSelect.options].some(o => o.value === developerParam)) {
+        developerSelect.value = developerParam;
+      }
+
       applyFilters();
     })();
   </script>

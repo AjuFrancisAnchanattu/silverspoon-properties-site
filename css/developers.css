@@ -1,0 +1,91 @@
+/* =====================================================================
+   DEVELOPERS.CSS — page-specific styles for developers.html
+   Shared nav / contact pill / footer / buttons live in base.css.
+   ===================================================================== */
+
+/* ============ HERO (static, no video — light nav variant) ============ */
+.dev-hero{ background:var(--cream); padding:150px 0 110px; }
+.dev-hero-wrap{ max-width:820px; margin:0 auto; padding:0 48px; }
+.dev-hero-wrap .eyebrow{ display:block; margin-bottom:18px; }
+.dev-hero-wrap h1{
+  font-family:var(--serif); font-weight:400; font-size:clamp(36px,5vw,58px);
+  color:var(--ink); line-height:1.1;
+}
+.dev-hero-wrap p{
+  margin-top:22px; max-width:64ch; font-family:var(--sans); font-weight:400;
+  font-size:17px; line-height:1.75; color:var(--grey);
+}
+
+@media (max-width:640px){
+  .dev-hero{ padding:100px 0 72px; }
+}
+
+/* ============ DEVELOPER GRID ============ */
+.dev-grid-section{ background:var(--white); padding:100px 0 130px; }
+.dev-grid-wrap{ max-width:var(--container); margin:0 auto; padding:0 48px; }
+.dev-grid{
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:28px;
+}
+
+.dev-card{
+  border:1px solid var(--hairline); padding:36px 28px;
+  display:flex; flex-direction:column; align-items:flex-start; gap:20px;
+  transition:border-color .2s ease;
+}
+.dev-card:hover{ border-color:var(--brass); }
+
+.dev-card-logo{
+  height:56px; width:100%; display:flex; align-items:center;
+}
+.dev-card-logo img{ max-height:56px; max-width:100%; object-fit:contain; }
+.dev-logo-placeholder{
+  font-family:var(--serif); font-weight:400; font-size:19px; font-style:italic;
+  color:var(--grey);
+}
+
+.dev-card-name{
+  font-family:var(--sans); font-weight:700; font-size:13.5px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--ink);
+}
+
+.dev-card-link{
+  display:flex; align-items:center; gap:8px;
+  font-family:var(--sans); font-weight:600; font-size:13.5px; color:var(--brass);
+}
+.dev-card-link svg{ width:14px; height:14px; stroke:var(--brass); transition:transform .2s ease; }
+.dev-card:hover .dev-card-link svg{ transform:translateX(3px); }
+.dev-card-link--soon{ color:var(--grey); font-weight:400; font-style:italic; }
+
+@media (max-width:1080px){
+  .dev-grid{ grid-template-columns:repeat(3, 1fr); }
+}
+@media (max-width:768px){
+  .dev-grid-section{ padding:70px 0 90px; }
+  .dev-grid{ grid-template-columns:1fr 1fr; gap:20px; }
+  .dev-card{ padding:28px 22px; }
+}
+@media (max-width:480px){
+  .dev-grid{ grid-template-columns:1fr; }
+}
+
+/* ============ CLOSING CTA ============ */
+.dev-cta{
+  position:relative; overflow:hidden; min-height:280px;
+  display:flex; align-items:center;
+  background:radial-gradient(120% 100% at 85% 0%, #524a34 0%, #221f18 50%, #100f0c 100%);
+}
+.dev-cta-inner{
+  position:relative; z-index:2; width:100%;
+  max-width:var(--container); margin:0 auto; padding:90px 48px;
+}
+.dev-cta .eyebrow{ color:#D8C89A; display:block; margin-bottom:16px; }
+.dev-cta h2{
+  font-family:var(--serif); font-weight:400; color:var(--white);
+  font-size:clamp(28px,3.6vw,42px); max-width:680px;
+}
+.dev-cta-actions{ display:flex; gap:20px; flex-wrap:wrap; margin-top:40px; }
+
+@media (max-width:640px){
+  .dev-cta-inner{ padding:64px 24px; }
+  .dev-cta-actions{ flex-direction:column; align-items:flex-start; gap:16px; }
+}

@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coming Soon | Silver Spoon Properties</title>
+<title>Developer Partners | Silver Spoon Properties</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="images/favicon.png" type="image/png">
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/coming-soon.css">
+<link rel="stylesheet" href="css/developers.css">
 </head>
 <body>
 
@@ -27,7 +27,7 @@
         <span class="dot">•</span>
         <a href="about.html">About</a>
         <span class="dot">•</span>
-        <a href="developers.html">Developers <span class="chevron"></span></a>
+        <a href="developers.html">Developers</a>
         <span class="dot">•</span>
         <a href="contact.html">Contact</a>
       </nav>
@@ -47,14 +47,30 @@
   </header>
   <div class="nav-spacer"></div>
 
-  <!-- ============ COMING SOON ============ -->
-  <section class="soon">
-    <div class="soon-inner">
-      <span class="eyebrow">Coming Soon</span>
-      <h1 id="soonTitle">This Page</h1>
-      <p>We're still building this part of the site. In the meantime, reach out directly using WhatsApp or Call Us below and Leena will help you personally.</p>
-      <div class="soon-cta">
-        <a class="btn-contact" href="home.html">Back To Home</a>
+  <!-- ============ HERO ============ -->
+  <section class="dev-hero">
+    <div class="dev-hero-wrap">
+      <span class="eyebrow">Developer Partners</span>
+      <h1>Direct relationships, not cold outreach</h1>
+      <p>Every developer below is a working relationship built over years, not a name on a list — the reason private clients get access before a project reaches the public market.</p>
+    </div>
+  </section>
+
+  <!-- ============ DEVELOPER GRID ============ -->
+  <section class="dev-grid-section">
+    <div class="dev-grid-wrap">
+      <div class="dev-grid" id="devGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING CTA ============ -->
+  <section class="dev-cta">
+    <div class="dev-cta-inner">
+      <span class="eyebrow">Looking For Something Specific?</span>
+      <h2>Tell Leena which developer or community you have in mind</h2>
+      <div class="dev-cta-actions">
+        <a class="btn-contact" href="contact.html#book-a-call">Book a Call</a>
+        <a class="btn-wa-join" href="contact.html#shortlist">Get Shortlisted</a>
       </div>
     </div>
   </section>
@@ -86,7 +102,7 @@
         </div>
 
         <div class="footer-card">
-          <p>Join the WhatsApp Channel for market insight — monthly reports, new launches, off-market alerts.</p>
+          <p>Join the WhatsApp Channel for market insight: monthly reports, new launches, off-market alerts.</p>
           <a class="btn-wa-join" href="#">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>
             Join Channel
@@ -116,11 +132,57 @@
     <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>Contact Us</a>
   </div>
 
+  <script src="js/projects-loader.js"></script>
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const pageName = params.get('page') || 'This Page';
-    document.getElementById('soonTitle').textContent = pageName;
-    document.title = pageName + ' — Coming Soon | Silver Spoon Properties';
+    // Developer roster as given directly by Leena. logo: null means no
+    // real logo file has been supplied yet — renders a text placeholder
+    // tile instead of a missing/broken image. "match" is the exact
+    // string used in content/projects/*.json's "developer" field, used
+    // to link straight into a pre-filtered Project Focus view and to
+    // count real live projects.
+    const DEVELOPERS = [
+      { name: 'Emaar',          logo: 'images/DeveloperLogo/emaar-dubai.jpg',   match: 'Emaar' },
+      { name: 'Nakheel',        logo: 'images/DeveloperLogo/nakheel.jpg',       match: 'Nakheel' },
+      { name: 'Sobha',          logo: 'images/DeveloperLogo/sobha-realty.jpg',  match: 'Sobha' },
+      { name: 'Omniyat',        logo: null,                                     match: 'Omniyat' },
+      { name: 'Wasl',           logo: null,                                     match: 'Wasl' },
+      { name: 'Aldar',          logo: 'images/DeveloperLogo/aldar.jpg',         match: 'Aldar' },
+      { name: 'Damac',          logo: 'images/DeveloperLogo/damac.jpg',         match: 'Damac' },
+      { name: 'MAF',            logo: 'images/DeveloperLogo/maf-logo.jpg',      match: 'MAF' },
+      { name: 'Meraas',         logo: 'images/DeveloperLogo/meraas.jpg',        match: 'Meraas' },
+      { name: 'Dubai Holding',  logo: null,                                     match: 'Dubai Holding' },
+      { name: 'Mudon',          logo: null,                                     match: 'Mudon' },
+      { name: 'Mira Developer', logo: null,                                     match: 'Mira Developer' },
+    ];
+
+    function cardHTML(dev, count) {
+      const logoBlock = dev.logo
+        ? `<img src="${dev.logo}" alt="${dev.name}">`
+        : `<span class="dev-logo-placeholder">${dev.name}</span>`;
+      const linkBlock = count > 0
+        ? `<a class="dev-card-link" href="projects.html?developer=${encodeURIComponent(dev.match)}">${count} Project${count > 1 ? 's' : ''} Available<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>`
+        : `<span class="dev-card-link dev-card-link--soon">Projects Coming Soon</span>`;
+      return `
+        <div class="dev-card">
+          <div class="dev-card-logo">${logoBlock}</div>
+          <div class="dev-card-name">${dev.name}</div>
+          ${linkBlock}
+        </div>`;
+    }
+
+    (async function init() {
+      let counts = {};
+      try {
+        const allProjects = await window.SSPProjects.fetchProjects();
+        allProjects.forEach(p => { counts[p.developer] = (counts[p.developer] || 0) + 1; });
+      } catch (e) {
+        // If the project data fails to load, still show the developer
+        // roster itself — every card just falls back to "Coming Soon".
+      }
+      document.getElementById('devGrid').innerHTML = DEVELOPERS
+        .map(dev => cardHTML(dev, counts[dev.match] || 0))
+        .join('');
+    })();
   </script>
 
   <script src="js/nav.js"></script>
