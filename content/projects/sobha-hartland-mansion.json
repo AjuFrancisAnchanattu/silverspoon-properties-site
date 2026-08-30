@@ -1,5 +1,5 @@
 {
-  "heroImage": "/images/projects/_uploads/mask-group-15327_9.jpg.webp",
+  "heroImage": "images/projects/sobha-hartland-mansion/hero.webp",
   "bedroomOptions": [
     6
   ],
@@ -14,10 +14,18 @@
   "paymentPlan": "Coming soon",
   "handoverDate": "Coming soon",
   "gallery": [
-    "/images/projects/_uploads/mask-group-15249_18.jpg.webp",
-    "/images/projects/_uploads/mask-group-15365.jpg.webp",
-    "/images/projects/_uploads/mask-group-15366_0.jpg.webp",
-    "/images/projects/_uploads/mask-group-15365.jpg.webp"
+    {
+      "src": "images/projects/sobha-hartland-mansion/gallery-01.webp"
+    },
+    {
+      "src": "images/projects/sobha-hartland-mansion/gallery-02.webp"
+    },
+    {
+      "src": "images/projects/sobha-hartland-mansion/gallery-03.webp"
+    },
+    {
+      "src": "images/projects/sobha-hartland-mansion/gallery-02.webp"
+    }
   ],
   "status": "off-plan",
   "priceRange": "Coming soon",
