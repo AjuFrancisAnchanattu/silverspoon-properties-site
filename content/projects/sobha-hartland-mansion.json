@@ -1,16 +1,21 @@
 {
   "heroImage": "images/projects/sobha-hartland-mansion/hero.webp",
   "bedroomOptions": [
+    5,
     6
   ],
   "unitCounts": {},
-  "community": "Sobha Hartland",
+  "community": "Sobha Hartland II, MBR City",
   "developer": "Sobha",
-  "name": "Sobha Hartland — 6 Bed Mansion",
+  "name": "Sobha Estates, Sobha Hartland II",
   "brochureUrl": "images/projects/sobha-hartland-mansion/brochure.pdf",
-  "sourceNote": "Name/developer/community/bedroom count as given directly by Leena. Source material is a local Dropbox folder on a different machine — not accessible; Leena to provide specs and photos directly.",
+  "sourceNote": "Unit types/areas, amenities and description sourced from sobharealty.com/properties-in-dubai/sobha-hartland-2/sobha-estates per Leena's request. NOTE: original brief called this a '6 Bed Mansion' collection, but the real project (Sobha Estates) is actually a mix of 5 and 6-bedroom villas — name/bedroom range updated accordingly, flag to Leena if that doesn't match what she meant. Price, payment plan and handover are not published on Sobha's own site — Leena to confirm.",
   "plotArea": {},
-  "saleableArea": {},
+  "saleableArea": {
+    "5 Bedroom Villa (Type A)": "8,438.80 sq.ft.",
+    "5 Bedroom Villa (Type B)": "8,490.79 sq.ft.",
+    "5 Bedroom Villa (Type C)": "8,413.39 sq.ft."
+  },
   "paymentPlan": "Coming soon",
   "handoverDate": "Coming soon",
   "gallery": [
@@ -22,23 +27,35 @@
     },
     {
       "src": "images/projects/sobha-hartland-mansion/gallery-03.webp"
-    },
-    {
-      "src": "images/projects/sobha-hartland-mansion/gallery-02.webp"
     }
   ],
   "status": "off-plan",
   "priceRange": "Coming soon",
   "unitTypes": [
-    "6 Bedroom Mansion"
+    "5 Bedroom Villa (Type A)",
+    "5 Bedroom Villa (Type B)",
+    "5 Bedroom Villa (Type C)",
+    "6 Bedroom Villa"
   ],
-  "amenities": [],
-  "technicalSpec": "",
+  "amenities": [
+    "Lagoon",
+    "Parks",
+    "Boardwalk",
+    "Gym",
+    "Cycling Track",
+    "Sports Arena",
+    "Forest Walks",
+    "Skate Park",
+    "Seasonal Gardens",
+    "Tree-Lined Walkways",
+    "Jogging Track"
+  ],
+  "technicalSpec": "Three-storey villas with a rooftop terrace and grand entrance court, each including maid's and guest rooms.",
   "tags": [],
   "youtubeVideos": [],
   "buildingHeight": "",
   "id": "sobha-hartland-mansion",
   "leenasTake": "Placeholder — Leena's personal take on this project goes here.",
-  "description": "A 6-bedroom mansion collection within Sobha Hartland. Full specs available on request.",
+  "description": "Sobha Estates is a private, gated villa community within Sobha Hartland II, MBR City — a collection of meticulously crafted 5 and 6-bedroom villas, each spanning three floors with a rooftop terrace and grand entrance court, set along the community's lagoon and boardwalk.",
   "floorPlans": []
 }
