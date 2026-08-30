@@ -1,16 +1,27 @@
 {
   "heroImage": "images/projects/sobha-city/hero.webp",
-  "bedroomOptions": [],
+  "bedroomOptions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
   "unitCounts": {},
-  "community": "Sobha City",
+  "community": "Al Bahyah, Abu Dhabi",
   "developer": "Sobha",
   "name": "Sobha City",
   "brochureUrl": "images/projects/sobha-city/brochure.pdf",
-  "sourceNote": "Name/developer/community/description as given directly by Leena (golf course community, waterfront apartments). Source material is a local Dropbox folder on a different machine — not accessible; Leena to provide specs and photos directly.",
+  "sourceNote": "Price, payment plan, handover, unit types/areas and amenities sourced from metropolitan.realestate/al-bahyah/sobha-city-sobha-realty-abu-dhabi (per Leena's request) and cross-checked against thepropinvestor.com — both agree closely. IMPORTANT: this is in Al Bahyah, Abu Dhabi, not Dubai — original brief said 'golf course community, waterfront apartments' but no public source mentions a golf course for this specific project (waterfront/canals are confirmed). 'golf' tag kept pending Leena's confirmation — may need removing.",
   "plotArea": {},
-  "saleableArea": {},
-  "paymentPlan": "Coming soon",
-  "handoverDate": "Coming soon",
+  "saleableArea": {
+    "1-2 Bedroom Apartment (River Cove Residences)": "566 – 1,212 sq.ft.",
+    "3-4 Bedroom Garden Villa (The Terraces)": "2,578 – 4,524 sq.ft.",
+    "4-6 Bedroom Estate Villa (The Orchard)": "4,309 – 6,383 sq.ft."
+  },
+  "paymentPlan": "60/40 — 20% on booking, 40% during construction (8 x 5% instalments over 36 months), 40% on handover",
+  "handoverDate": "December 2029",
   "gallery": [
     {
       "src": "images/projects/sobha-city/gallery-01.webp"
@@ -26,12 +37,25 @@
     }
   ],
   "status": "off-plan",
-  "priceRange": "Coming soon",
+  "priceRange": "From AED 1.31M (apartments) — AED 9.05M+ (estate villas)",
   "unitTypes": [
-    "Coming soon"
+    "1-2 Bedroom Apartment (River Cove Residences)",
+    "3-4 Bedroom Garden Villa (The Terraces)",
+    "4-6 Bedroom Estate Villa (The Orchard)"
   ],
-  "amenities": [],
-  "technicalSpec": "",
+  "amenities": [
+    "Waterfront Promenade & Canals",
+    "Amphitheatre",
+    "Multi-Purpose Lawns",
+    "Sculptural Gardens",
+    "Jogging & Cycling Loop",
+    "Open-Air Fitness Zones",
+    "Meditation Areas",
+    "Climbing Park",
+    "Children's Play Areas",
+    "Retail & Courtyards"
+  ],
+  "technicalSpec": "Three residential components: River Cove Residences (apartments), The Terraces (garden villas), and The Orchard (estate villas), connected by a canal-laced waterfront promenade running through the community.",
   "tags": [
     "golf",
     "waterfront"
@@ -40,6 +64,6 @@
   "buildingHeight": "",
   "id": "sobha-city",
   "leenasTake": "Placeholder — Leena's personal take on this project goes here.",
-  "description": "Sobha City is a golf-course community with waterfront apartments. Full specs available on request.",
+  "description": "Sobha City is a large-scale waterfront master community by Sobha Realty in Al Bahyah, Abu Dhabi, near Yas Island — spanning apartments, garden villas, and estate villas along a canal-laced waterfront promenade.",
   "floorPlans": []
 }
