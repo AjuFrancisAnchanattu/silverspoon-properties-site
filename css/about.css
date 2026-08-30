@@ -52,6 +52,7 @@
   color:var(--ink); margin-bottom:26px;
 }
 .company-wrap p:last-child{ margin-bottom:0; }
+.company-wrap .highlight{ color:var(--brass); font-weight:600; }
 
 @media (max-width:640px){
   .company-section{ padding:80px 0; }
