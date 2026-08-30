@@ -1,22 +1,26 @@
 {
-  "heroImage": "/images/projects/_uploads/img147.jpg",
+  "heroImage": "images/projects/palm-jebel-ali-coral/hero.jpg",
   "bedroomOptions": [],
   "unitCounts": {},
   "community": "Palm Jebel Ali",
   "developer": "Nakheel",
-  "name": "Palm Jebel Ali — The Coral Collection",
+  "name": "Palm Jebel Ali \u2014 The Coral Collection",
   "brochureUrl": "images/projects/palm-jebel-ali-coral/brochure.pdf",
-  "sourceNote": "Developer/location/collection name confirmed via palmjebelali.ae broker toolkit. Full spec sheet, floor plans, and gallery live behind a login-walled Box.com share — not accessible; Leena to provide specs and photos directly.",
+  "sourceNote": "Developer/location/collection name confirmed via palmjebelali.ae broker toolkit. Full spec sheet, floor plans, and gallery live behind a login-walled Box.com share \u2014 not accessible; Leena to provide specs and photos directly.",
   "plotArea": {},
   "saleableArea": {},
   "paymentPlan": "Coming soon",
   "handoverDate": "Coming soon",
   "gallery": [
-    "/images/projects/_uploads/img150.jpg",
+    {
+      "src": "images/projects/palm-jebel-ali-coral/gallery-03.jpg"
+    },
     {
       "src": "images/projects/palm-jebel-ali-coral/gallery-02.jpg"
     },
-    "/images/projects/_uploads/img75.jpg"
+    {
+      "src": "images/projects/palm-jebel-ali-coral/gallery-04.jpg"
+    }
   ],
   "status": "off-plan",
   "priceRange": "Coming soon",
@@ -31,7 +35,7 @@
   "youtubeVideos": [],
   "buildingHeight": "",
   "id": "palm-jebel-ali-coral",
-  "leenasTake": "Placeholder — Leena's personal take on this project goes here.",
-  "description": "The Coral Collection is the second of two villa collections within Nakheel's Palm Jebel Ali villa development — Dubai's second palm island. Full specs available on request.",
+  "leenasTake": "Placeholder \u2014 Leena's personal take on this project goes here.",
+  "description": "The Coral Collection is the second of two villa collections within Nakheel's Palm Jebel Ali villa development \u2014 Dubai's second palm island. Full specs available on request.",
   "floorPlans": []
 }
