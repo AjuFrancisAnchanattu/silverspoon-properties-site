@@ -235,9 +235,20 @@
 .teaser-inner{
   position:relative; z-index:2; width:100%;
   max-width:var(--container); margin:0 auto; padding:64px 48px 100px;
+  display:flex; align-items:center; justify-content:space-between; gap:48px;
 }
+.teaser-text{ flex:1; min-width:0; }
 .teaser .eyebrow{ color:#D8C89A; display:block; margin-bottom:16px; }
 .teaser h2{ font-family:var(--serif); font-weight:400; color:var(--white); font-size:clamp(30px,4vw,46px); }
+
+.teaser-logo{ flex-shrink:0; }
+.teaser-logo img{
+  height:clamp(90px, 9vw, 140px); width:auto; display:block; opacity:0.92;
+}
+
+@media (max-width:900px){
+  .teaser-logo{ display:none; }
+}
 
 /* ============ VALUE PROPS 2x2 ============ */
 .approach{ background:var(--white); padding:150px 0 130px; }
