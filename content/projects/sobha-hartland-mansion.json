@@ -1,31 +1,36 @@
 {
-  "id": "sobha-hartland-mansion",
-  "name": "Sobha Hartland — 6 Bed Mansion",
-  "developer": "Sobha",
-  "community": "Sobha Hartland",
-  "tags": [],
-  "status": "off-plan",
-  "priceRange": "Coming soon",
-  "paymentPlan": "Coming soon",
-  "handoverDate": "Coming soon",
-  "unitTypes": [
-    "6 Bedroom Mansion"
-  ],
+  "heroImage": "/images/projects/_uploads/mask-group-15327_9.jpg.webp",
   "bedroomOptions": [
     6
   ],
   "unitCounts": {},
+  "community": "Sobha Hartland",
+  "developer": "Sobha",
+  "name": "Sobha Hartland — 6 Bed Mansion",
+  "brochureUrl": "images/projects/sobha-hartland-mansion/brochure.pdf",
+  "sourceNote": "Name/developer/community/bedroom count as given directly by Leena. Source material is a local Dropbox folder on a different machine — not accessible; Leena to provide specs and photos directly.",
   "plotArea": {},
   "saleableArea": {},
-  "buildingHeight": "",
+  "paymentPlan": "Coming soon",
+  "handoverDate": "Coming soon",
+  "gallery": [
+    "/images/projects/_uploads/mask-group-15249_18.jpg.webp",
+    "/images/projects/_uploads/mask-group-15365.jpg.webp",
+    "/images/projects/_uploads/mask-group-15366_0.jpg.webp",
+    "/images/projects/_uploads/mask-group-15365.jpg.webp"
+  ],
+  "status": "off-plan",
+  "priceRange": "Coming soon",
+  "unitTypes": [
+    "6 Bedroom Mansion"
+  ],
   "amenities": [],
   "technicalSpec": "",
-  "description": "A 6-bedroom mansion collection within Sobha Hartland. Full specs available on request.",
-  "leenasTake": "Placeholder — Leena's personal take on this project goes here.",
-  "heroImage": "images/projects/sobha-hartland-mansion/hero.jpg",
-  "gallery": [],
-  "floorPlans": [],
+  "tags": [],
   "youtubeVideos": [],
-  "brochureUrl": "images/projects/sobha-hartland-mansion/brochure.pdf",
-  "sourceNote": "Name/developer/community/bedroom count as given directly by Leena. Source material is a local Dropbox folder on a different machine — not accessible; Leena to provide specs and photos directly."
+  "buildingHeight": "",
+  "id": "sobha-hartland-mansion",
+  "leenasTake": "Placeholder — Leena's personal take on this project goes here.",
+  "description": "A 6-bedroom mansion collection within Sobha Hartland. Full specs available on request.",
+  "floorPlans": []
 }
