@@ -62,6 +62,11 @@ def already_placed(rel_path, project_id):
     return normalize(rel_path).startswith(f"images/projects/{project_id}/")
 
 
+def file_exists(rel_path):
+    full = REPO_ROOT / normalize(rel_path)
+    return full.exists() and full.is_file()
+
+
 def process_project(json_path):
     project_id = json_path.stem
     dest_dir = IMAGES_ROOT / project_id
@@ -95,37 +100,59 @@ def process_project(json_path):
     gallery_refs = [item.get("src") if isinstance(item, dict) else item for item in gallery]
     used = claimed_numbers(dest_dir, "gallery", gallery_refs)
     next_num = (max(used) + 1) if used else 1
-    for i, item in enumerate(gallery):
+    new_gallery = []
+    for item in gallery:
         is_dict = isinstance(item, dict)
         src = item.get("src") if is_dict else item
-        if not src or already_placed(src, project_id):
+        if not src:
+            changed = True
+            continue
+        if already_placed(src, project_id):
+            if file_exists(src):
+                new_gallery.append(item if is_dict else {"src": src})
+            else:
+                # a placeholder slot nobody ever filled — drop it rather
+                # than leave a permanently-broken tile in the gallery
+                changed = True
             continue
         new_path, is_new = resolve(src, f"gallery-{next_num:02d}")
         if new_path:
-            gallery[i] = {"src": new_path}
+            new_gallery.append({"src": new_path})
             changed = True
             if is_new:
                 next_num += 1
-        elif not is_dict:
-            gallery[i] = {"src": src}
-            changed = True
+        else:
+            changed = True  # source doesn't exist either — drop it
     if changed:
-        data["gallery"] = gallery
+        data["gallery"] = new_gallery
 
     floor_plans = data.get("floorPlans") or []
     fp_refs = [item.get("image") if isinstance(item, dict) else None for item in floor_plans]
     used = claimed_numbers(dest_dir, "floorplan", fp_refs)
     next_num = (max(used) + 1) if used else 1
-    for i, item in enumerate(floor_plans):
+    new_floor_plans = []
+    for item in floor_plans:
         img = item.get("image") if isinstance(item, dict) else None
-        if not img or already_placed(img, project_id):
+        if not img:
+            changed = True
+            continue
+        if already_placed(img, project_id):
+            if file_exists(img):
+                new_floor_plans.append(item)
+            else:
+                changed = True
             continue
         new_path, is_new = resolve(img, f"floorplan-{next_num:02d}")
         if new_path:
             item["image"] = new_path
+            new_floor_plans.append(item)
             changed = True
             if is_new:
                 next_num += 1
+        else:
+            changed = True
+    if changed:
+        data["floorPlans"] = new_floor_plans
 
     brochure = data.get("brochureUrl")
     if brochure and not already_placed(brochure, project_id):
@@ -135,7 +162,7 @@ def process_project(json_path):
             changed = True
 
     if changed:
-        json_path.write_text(json.dumps(data, indent=2) + "\n")
+        json_path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
         print(f"Sorted media for {project_id}")
     return changed
 

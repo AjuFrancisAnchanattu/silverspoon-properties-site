@@ -1,34 +1,53 @@
 {
   "heroImage": "images/projects/palm-jebel-ali-coral/hero.jpg",
-  "bedroomOptions": [],
+  "bedroomOptions": [
+    6,
+    7
+  ],
   "unitCounts": {},
   "community": "Palm Jebel Ali",
   "developer": "Nakheel",
   "name": "Palm Jebel Ali \u2014 The Coral Collection",
   "brochureUrl": "images/projects/palm-jebel-ali-coral/brochure.pdf",
-  "sourceNote": "Developer/location/collection name confirmed via palmjebelali.ae broker toolkit. Full spec sheet, floor plans, and gallery live behind a login-walled Box.com share \u2014 not accessible; Leena to provide specs and photos directly.",
-  "plotArea": {},
-  "saleableArea": {},
-  "paymentPlan": "Coming soon",
-  "handoverDate": "Coming soon",
+  "sourceNote": "Pricing, payment plan, handover, unit types and areas sourced from opr.ae's listing (opr.ae/projects/the-coral-collection-by-nakheel-properties-on-palm-jebel-ali) per Leena's request \u2014 this is a broker/portal listing, not Nakheel's own site, so treat as indicative until confirmed against the official Box.com spec sheet. Exact total unit count and building height not published there.",
+  "plotArea": {
+    "Coral Dune (6 Bed)": "16,745 \u2013 21,944 sq.ft."
+  },
+  "saleableArea": {
+    "Coral Dune (6 Bed)": "11,635 sq.ft.",
+    "Sunset Mirage (6 Bed)": "11,701 sq.ft.",
+    "Red Aurora (7 Bed)": "11,670 sq.ft.",
+    "Redwood (7 Bed)": "12,010 sq.ft.",
+    "Porcelain Roses (7 Bed)": "11,519 sq.ft."
+  },
+  "paymentPlan": "70/30 \u2014 20% on booking, 50% during construction (staged), 30% on handover",
+  "handoverDate": "January 2030",
   "gallery": [
     {
       "src": "images/projects/palm-jebel-ali-coral/gallery-03.jpg"
-    },
-    {
-      "src": "images/projects/palm-jebel-ali-coral/gallery-02.jpg"
     },
     {
       "src": "images/projects/palm-jebel-ali-coral/gallery-04.jpg"
     }
   ],
   "status": "off-plan",
-  "priceRange": "Coming soon",
+  "priceRange": "From AED 47.9M",
   "unitTypes": [
-    "Coming soon"
+    "Coral Dune (6 Bed)",
+    "Sunset Mirage (6 Bed)",
+    "Red Aurora (7 Bed)",
+    "Redwood (7 Bed)",
+    "Porcelain Roses (7 Bed)"
   ],
-  "amenities": [],
-  "technicalSpec": "",
+  "amenities": [
+    "Private Beach Access",
+    "Private Swimming Pool (per villa)",
+    "Yacht Club Access",
+    "Leisure Park",
+    "Wellness Resort Access",
+    "Waterfront Dining & Retail"
+  ],
+  "technicalSpec": "Double-height entrances, formal and family lounges, private studies, and rooftop terraces across all five villa designs, each with a private pool, landscaped garden, fire pit, and direct beach access.",
   "tags": [
     "waterfront"
   ],
@@ -36,6 +55,6 @@
   "buildingHeight": "",
   "id": "palm-jebel-ali-coral",
   "leenasTake": "Placeholder \u2014 Leena's personal take on this project goes here.",
-  "description": "The Coral Collection is the second of two villa collections within Nakheel's Palm Jebel Ali villa development \u2014 Dubai's second palm island. Full specs available on request.",
+  "description": "The Coral Collection is the second of two villa collections within Nakheel's Palm Jebel Ali villa development \u2014 Dubai's second palm island. Five 6-7 bedroom villa designs on the outer fronds, each with private beach access, a private pool, and direct access to the development's Yacht Club, Leisure Park, and Wellness Resort.",
   "floorPlans": []
 }

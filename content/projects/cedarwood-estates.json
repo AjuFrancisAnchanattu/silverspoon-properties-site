@@ -62,18 +62,5 @@
   "id": "cedarwood-estates",
   "leenasTake": "Placeholder — Leena's personal take on this project goes here.",
   "description": "Cedarwood Estates South is Wasl's golf-community villa development within Jumeirah Golf Estates. Each villa has a private courtyard with a water feature, swimming pool, and outdoor seating area, with floor-to-ceiling windows framing the surrounding greenery.",
-  "floorPlans": [
-    {
-      "label": "4 Bedroom Villa",
-      "image": "images/projects/cedarwood-estates/floorplan-4br.jpg"
-    },
-    {
-      "label": "5 Bedroom Villa",
-      "image": "images/projects/cedarwood-estates/floorplan-5br.jpg"
-    },
-    {
-      "label": "6 Bedroom Villa",
-      "image": "images/projects/cedarwood-estates/floorplan-6br.jpg"
-    }
-  ]
+  "floorPlans": []
 }

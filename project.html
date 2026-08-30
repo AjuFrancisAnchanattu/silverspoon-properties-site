@@ -99,6 +99,13 @@
       </div>
     </section>
 
+    <section class="proj-techspec" id="projTechSpecSection">
+      <div class="proj-techspec-wrap">
+        <h2>Specifications</h2>
+        <p id="projTechSpecText"></p>
+      </div>
+    </section>
+
     <section class="proj-gallery">
       <div class="proj-gallery-wrap">
         <h2>Gallery</h2>
@@ -301,6 +308,14 @@
       } else {
         document.getElementById('projAmenitiesList').innerHTML = project.amenities
           .map(a => `<li>${a}</li>`).join('');
+      }
+
+      // --- Technical spec ---
+      const techSpecSection = document.getElementById('projTechSpecSection');
+      if (isPlaceholderText(project.technicalSpec)) {
+        techSpecSection.style.display = 'none';
+      } else {
+        document.getElementById('projTechSpecText').textContent = project.technicalSpec;
       }
 
       // --- Gallery ---

@@ -122,6 +122,20 @@
   .proj-amenities-list{ grid-template-columns:1fr; }
 }
 
+/* ============ TECHNICAL SPEC ============ */
+.proj-techspec{ background:var(--cream); padding:80px 0; }
+.proj-techspec-wrap{ max-width:820px; margin:0 auto; padding:0 48px; }
+.proj-techspec-wrap h2{
+  font-family:var(--serif); font-weight:400; font-size:clamp(26px,3vw,34px); color:var(--ink); margin-bottom:24px;
+}
+.proj-techspec-wrap p{
+  font-family:var(--sans); font-size:16px; line-height:1.7; color:var(--ink);
+}
+
+@media (max-width:640px){
+  .proj-techspec{ padding:56px 0; }
+}
+
 /* ============ GALLERY ============ */
 .proj-gallery{ background:var(--white); padding:80px 0; }
 .proj-gallery-wrap{ max-width:var(--container); margin:0 auto; padding:0 48px; }
