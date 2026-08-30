@@ -199,28 +199,55 @@
     // Pre-fill "Project / Developer of Interest" when arriving from a
     // project page or Developer Partners link, e.g. contact.html?project=Aman+Residences+Dubai#shortlist
     const params = new URLSearchParams(window.location.search);
-    const prefill = params.get('project') || params.get('developer');
-    if (prefill) document.getElementById('scProject').value = prefill;
+    const projectFromUrl = params.get('project') || params.get('developer') || '';
+    if (projectFromUrl) document.getElementById('scProject').value = projectFromUrl;
 
-    // No backend exists to receive this form, so on submit we open a
-    // pre-filled email to Leena's lead inbox (the user's own mail client
-    // sends it) as a real, working fallback — then show the thank-you state.
+    // Every submission is sent two ways: (1) a pre-filled email to Leena's
+    // lead inbox via the visitor's own mail client — works with zero backend,
+    // shows up immediately; (2) a POST to the Cloudflare Worker's
+    // /submit-lead route, which stamps on the visitor's IP/country (read
+    // straight off the request, no client-side geolocation needed) and
+    // appends a row to Leena's lead-tracking Google Sheet — the permanent,
+    // searchable record. See lead-capture/README.md for how that's wired up.
     const LEAD_EMAIL = 'Info@silverspoonprop.com';
+    const LEAD_WORKER_URL = 'https://dawn-bird-577f.ajufrancisanchanattu.workers.dev/submit-lead';
     const shortlistCard = document.querySelector('.shortlist-card');
     document.getElementById('shortlistForm').addEventListener('submit', e => {
       e.preventDefault();
 
+      const fields = {
+        formType: 'Get Shortlisted',
+        name: document.getElementById('scName').value,
+        phone: document.getElementById('scPhone').value,
+        email: document.getElementById('scEmail').value,
+        budgetRange: document.getElementById('scBudget').value,
+        projectOrDeveloper: document.getElementById('scProject').value,
+        purpose: document.getElementById('scPurpose').value,
+        timeline: document.getElementById('scTimeline').value,
+        sourcePage: document.referrer || window.location.href,
+        projectName: projectFromUrl,
+      };
+
       const body = [
-        `Name: ${document.getElementById('scName').value}`,
-        `Phone / WhatsApp: ${document.getElementById('scPhone').value}`,
-        `Email: ${document.getElementById('scEmail').value}`,
-        `Budget Range: ${document.getElementById('scBudget').value}`,
-        `Project / Developer of Interest: ${document.getElementById('scProject').value || '—'}`,
-        `Purchase Purpose: ${document.getElementById('scPurpose').value}`,
-        `Timeline: ${document.getElementById('scTimeline').value}`,
+        `Name: ${fields.name}`,
+        `Phone / WhatsApp: ${fields.phone}`,
+        `Email: ${fields.email}`,
+        `Budget Range: ${fields.budgetRange}`,
+        `Project / Developer of Interest: ${fields.projectOrDeveloper || '—'}`,
+        `Purchase Purpose: ${fields.purpose}`,
+        `Timeline: ${fields.timeline}`,
       ].join('\n');
       const subject = 'New Shortlist Enquiry — Silver Spoon Properties';
       window.location.href = `mailto:${LEAD_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      // Fire-and-forget — a failed/blocked save shouldn't stop the visitor
+      // from seeing the thank-you state, since the email fallback above
+      // already carries the enquiry either way.
+      fetch(LEAD_WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(fields),
+      }).catch(() => {});
 
       shortlistCard.classList.add('is-sent');
     });
