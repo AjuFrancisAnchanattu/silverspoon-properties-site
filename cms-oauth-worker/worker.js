@@ -37,6 +37,8 @@ const GITHUB_TOKEN_URL = 'https://github.com/login/oauth/access_token';
 // domains.
 const ALLOWED_ORIGINS = [
   'https://ajufrancisanchanattu.github.io',
+  'https://silverspoonprop.com',
+  'https://www.silverspoonprop.com',
   'http://localhost:8910',
 ];
 
