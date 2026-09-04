@@ -1,5 +1,5 @@
 /* Shared across every page that needs project data (projects.html,
-   project.html, home.html's Project of Focus cards, developers.html).
+   project.html, index.html's Project of Focus cards, developers.html).
 
    There's no build step on this site, so project listings aren't baked
    into the HTML — they're fetched at runtime from content/projects/*.json
