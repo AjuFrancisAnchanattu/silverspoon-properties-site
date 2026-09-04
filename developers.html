@@ -21,15 +21,15 @@
       </a>
 
       <nav class="primary">
-        <a href="projects.html">Project Focus <span class="chevron"></span></a>
+        <a href="/projects">Project Focus <span class="chevron"></span></a>
         <span class="dot">•</span>
-        <a href="representation.html">Private Client Rep</a>
+        <a href="/representation">Private Client Rep</a>
         <span class="dot">•</span>
-        <a href="about.html">About</a>
+        <a href="/about">About</a>
         <span class="dot">•</span>
-        <a href="developers.html">Developers</a>
+        <a href="/developers">Developers</a>
         <span class="dot">•</span>
-        <a href="contact.html">Contact</a>
+        <a href="/contact">Contact</a>
       </nav>
 
       <div class="nav-icons">
@@ -69,8 +69,8 @@
       <span class="eyebrow">Looking For Something Specific?</span>
       <h2>Tell Leena which developer or community you have in mind</h2>
       <div class="dev-cta-actions">
-        <a class="btn-contact" href="contact.html#book-a-call">Book a Call</a>
-        <a class="btn-wa-join" href="contact.html#shortlist">Get Shortlisted</a>
+        <a class="btn-contact" href="/contact#book-a-call">Book a Call</a>
+        <a class="btn-wa-join" href="/contact#shortlist">Get Shortlisted</a>
       </div>
     </div>
   </section>
@@ -84,20 +84,20 @@
         <div class="footer-cols">
           <div class="footer-col">
             <div class="flogo"><img src="images/logo/logo.png" alt="Silver Spoon Properties" class="logo-img"></div>
-            <a href="projects.html">Project Focus</a>
-            <a href="developers.html">Developer Partners</a>
-            <a href="coming-soon.html?page=Secondary+Market">Secondary Market</a>
+            <a href="/projects">Project Focus</a>
+            <a href="/developers">Developer Partners</a>
+            <a href="/coming-soon?page=Secondary+Market">Secondary Market</a>
           </div>
           <div class="footer-col">
-            <a href="representation.html">Private Client Representation</a>
-            <a href="about.html">About Leena Parwani</a>
-            <a href="coming-soon.html?page=Testimonials">Testimonials</a>
-            <a href="coming-soon.html?page=Journal">Journal</a>
+            <a href="/representation">Private Client Representation</a>
+            <a href="/about">About Leena Parwani</a>
+            <a href="/coming-soon?page=Testimonials">Testimonials</a>
+            <a href="/coming-soon?page=Journal">Journal</a>
           </div>
           <div class="footer-col">
-            <a href="contact.html#book-a-call">Book a Call</a>
-            <a href="contact.html#shortlist">Get Shortlisted</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="/contact#book-a-call">Book a Call</a>
+            <a href="/contact#shortlist">Get Shortlisted</a>
+            <a href="/contact">Contact Us</a>
           </div>
         </div>
 
@@ -112,7 +112,7 @@
 
       <div class="footer-bottom">
         <div class="footer-legal">
-          <a href="coming-soon.html?page=Privacy+Policy">Privacy Policy</a><span>•</span><a href="coming-soon.html?page=Terms+%26+Conditions">Terms &amp; Conditions</a>
+          <a href="/coming-soon?page=Privacy+Policy">Privacy Policy</a><span>•</span><a href="/coming-soon?page=Terms+%26+Conditions">Terms &amp; Conditions</a>
         </div>
         <div class="footer-social">
           <a href="#"><span class="fs-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg></span>Instagram</a>
@@ -129,7 +129,7 @@
     <div class="sep"></div>
     <a href="tel:+971527693333"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2 2C9.5 21 3 14.5 3 6a2 2 0 0 1 1-2Z"/></svg>Call Us</a>
     <div class="sep"></div>
-    <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>Contact Us</a>
+    <a href="/contact"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>Contact Us</a>
   </div>
 
   <script src="js/projects-loader.js"></script>
@@ -160,7 +160,7 @@
         ? `<img src="${dev.logo}" alt="${dev.name}">`
         : `<span class="dev-logo-placeholder">${dev.name}</span>`;
       const linkBlock = count > 0
-        ? `<a class="dev-card-link" href="projects.html?developer=${encodeURIComponent(dev.match)}">${count} Project${count > 1 ? 's' : ''} Available<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>`
+        ? `<a class="dev-card-link" href="/projects?developer=${encodeURIComponent(dev.match)}">${count} Project${count > 1 ? 's' : ''} Available<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>`
         : `<span class="dev-card-link dev-card-link--soon">Projects Coming Soon</span>`;
       return `
         <div class="dev-card">
