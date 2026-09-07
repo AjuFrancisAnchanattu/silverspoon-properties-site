@@ -1,0 +1,47 @@
+/* =====================================================================
+   LEGAL.CSS — shared page-specific styles for privacy.html / terms.html
+   Shared nav / contact pill / footer live in base.css.
+   ===================================================================== */
+
+.legal-intro{ background:var(--cream); padding:150px 0 70px; text-align:center; }
+.legal-intro-wrap{ max-width:720px; margin:0 auto; padding:0 48px; }
+.legal-intro .eyebrow{ display:block; margin-bottom:16px; }
+.legal-intro h1{
+  font-family:var(--serif); font-weight:400; font-size:clamp(32px,4vw,48px);
+  color:var(--ink); line-height:1.15;
+}
+.legal-intro p{
+  margin-top:16px; font-family:var(--sans); font-weight:400; font-size:15px;
+  color:var(--grey);
+}
+
+.legal-body{ background:var(--white); padding:80px 0 130px; }
+.legal-body-wrap{ max-width:760px; margin:0 auto; padding:0 48px; }
+
+.legal-body h2{
+  font-family:var(--serif); font-weight:400; font-size:clamp(20px,2.2vw,26px);
+  color:var(--ink); margin:52px 0 16px;
+}
+.legal-body h2:first-child{ margin-top:0; }
+.legal-body p{
+  font-family:var(--sans); font-size:15.5px; line-height:1.8; color:var(--grey);
+  margin-bottom:16px;
+}
+.legal-body ul{
+  margin:0 0 16px; padding-left:22px;
+  font-family:var(--sans); font-size:15.5px; line-height:1.8; color:var(--grey);
+}
+.legal-body li{ margin-bottom:8px; }
+.legal-body strong{ color:var(--ink); font-weight:600; }
+.legal-body a{ color:var(--ink); text-decoration:underline; text-underline-offset:2px; }
+
+.legal-note{
+  margin-top:56px; padding:20px 24px;
+  background:var(--cream); border-left:3px solid var(--hairline);
+  font-family:var(--sans); font-size:13.5px; line-height:1.7; color:var(--grey);
+}
+
+@media (max-width:640px){
+  .legal-intro{ padding:110px 0 56px; }
+  .legal-body{ padding:56px 0 90px; }
+}
