@@ -44,6 +44,33 @@
 .contact-book-wa:hover{ background:var(--cream); border-color:var(--ink); }
 .contact-book-wa svg{ width:15px; height:15px; stroke:var(--ink); }
 
+/* ============ WHATSAPP CTA ============ */
+.contact-whatsapp{ background:var(--white); padding:120px 0; }
+.contact-whatsapp-wrap{ max-width:640px; margin:0 auto; padding:0 48px; text-align:center; }
+.contact-whatsapp-wrap .eyebrow{ display:block; margin-bottom:16px; }
+.contact-whatsapp-wrap h2{
+  font-family:var(--serif); font-weight:400; font-size:clamp(30px,3.6vw,42px); color:var(--ink);
+}
+.contact-whatsapp-wrap > p{
+  margin:18px auto 0; max-width:48ch;
+  font-family:var(--sans); font-size:16px; line-height:1.7; color:var(--grey);
+}
+.btn-whatsapp-big{
+  display:flex; align-items:center; justify-content:center; gap:14px;
+  margin:44px auto 0; width:100%; max-width:440px;
+  background:#25D366; color:#fff;
+  font-family:var(--sans); font-weight:700; font-size:17px; letter-spacing:.01em;
+  padding:22px 28px; border-radius:6px;
+  box-shadow:0 10px 28px rgba(37,211,102,0.3);
+  transition:background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.btn-whatsapp-big:hover{ background:#1ebe5a; transform:translateY(-2px); box-shadow:0 14px 32px rgba(37,211,102,0.38); }
+.btn-whatsapp-big svg{ width:24px; height:24px; stroke:#fff; flex-shrink:0; }
+.contact-whatsapp-note{
+  display:block; margin-top:18px;
+  font-family:var(--sans); font-size:13px; color:var(--grey);
+}
+
 /* ============ DIVIDER ============ */
 .contact-divider{
   display:flex; align-items:center; gap:20px;
@@ -76,7 +103,8 @@
 
 @media (max-width:640px){
   .contact-intro{ padding:110px 0 64px; }
-  .contact-book, .contact-shortlist{ padding:72px 0; }
+  .contact-book, .contact-shortlist, .contact-whatsapp{ padding:72px 0; }
   .calendly-inline-widget{ min-width:0; height:580px !important; margin-top:32px; }
   .shortlist-card form{ margin-top:40px; }
+  .btn-whatsapp-big{ padding:20px 22px; font-size:16px; margin-top:36px; }
 }
