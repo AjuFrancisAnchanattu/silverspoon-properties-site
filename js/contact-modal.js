@@ -31,8 +31,8 @@
           <p class="cm-project-context" id="cmProjectContext" style="display:none;"></p>
         </div>
         <div class="cm-icons">
-          <a href="https://wa.me/971507693333" aria-label="WhatsApp Leena">${WHATSAPP_ICON}</a>
-          <a href="tel:+971507693333" aria-label="Call Leena">${PHONE_ICON}</a>
+          <a href="https://wa.me/971527693333" aria-label="WhatsApp Leena">${WHATSAPP_ICON}</a>
+          <a href="tel:+971527693333" aria-label="Call Leena">${PHONE_ICON}</a>
           <a href="mailto:Info@silverspoonprop.com" aria-label="Email Leena">${EMAIL_ICON}</a>
         </div>
       </div>
