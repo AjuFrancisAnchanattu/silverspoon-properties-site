@@ -76,18 +76,76 @@
   <!-- ============ WHATSAPP CTA ============ -->
   <section class="contact-whatsapp" id="book-a-call">
     <div class="contact-whatsapp-wrap">
-      <span class="eyebrow">Talk to Leena</span>
-      <h2>Message Leena on WhatsApp</h2>
-      <p>The fastest way to reach her directly — no forms, no waiting. Tap below and start the conversation now.</p>
+      <span class="eyebrow">Speak with Leena</span>
+      <h2>Looking to buy or invest in Dubai?</h2>
+      <p>Send me a quick WhatsApp message with what you're looking for. I'll review it personally and we can arrange a call at a suitable time.</p>
 
-      <a class="btn-whatsapp-big" href="https://wa.me/971527693333?text=Hi%20Leena%2C%20I%27d%20like%20to%20get%20in%20touch%20about%20Dubai%20properties.">
+      <button type="button" class="btn-whatsapp-big" id="waTriggerBtn">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>
-        Chat with Leena Now
-      </a>
+        Request a Call on WhatsApp →
+      </button>
 
       <span class="contact-whatsapp-note">Usually replies personally within a few hours</span>
     </div>
   </section>
+
+  <!-- ============ WHATSAPP PRE-QUALIFICATION MODAL ============
+       Opened by #waTriggerBtn above. Collects a few quick details, then
+       builds a pre-filled WhatsApp message from them so Leena gets useful
+       context instead of a blank "hi" — the visitor still taps Send
+       themselves once WhatsApp opens. ============ -->
+  <div class="wa-modal-overlay" id="waModalOverlay">
+    <div class="wa-modal" role="dialog" aria-modal="true" aria-labelledby="waModalTitle">
+      <button type="button" class="wa-modal-close" id="waModalClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+
+      <span class="eyebrow">Quick Details</span>
+      <h2 id="waModalTitle">A little context helps</h2>
+      <p>Answer four quick questions and I'll open WhatsApp with your message ready to send.</p>
+
+      <form id="waForm">
+        <div class="cm-row">
+          <div class="cm-field">
+            <label for="waBudget">Investment Range</label>
+            <select id="waBudget" required>
+              <option value="" disabled selected>Select a range</option>
+              <option>Under AED 2M</option>
+              <option>AED 2M – 5M</option>
+              <option>AED 5M – 10M</option>
+              <option>AED 10M – 20M</option>
+              <option>AED 20M+</option>
+              <option>Prefer to discuss</option>
+            </select>
+          </div>
+          <div class="cm-field">
+            <label for="waPropertyType">Property Type</label>
+            <select id="waPropertyType" required>
+              <option value="" disabled selected>Select a type</option>
+              <option>Apartment</option>
+              <option>Villa</option>
+              <option>Townhouse</option>
+              <option>Penthouse</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+        </div>
+        <div class="cm-row">
+          <div class="cm-field">
+            <label for="waLocation">Preferred Location</label>
+            <input id="waLocation" type="text" placeholder="e.g. Downtown, Palm Jumeirah" required>
+          </div>
+          <div class="cm-field">
+            <label for="waCountry">Country</label>
+            <input id="waCountry" type="text" placeholder="Country of residence" required>
+          </div>
+        </div>
+        <div class="cm-actions">
+          <button class="cm-send" type="submit">Continue to WhatsApp →</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <div class="contact-divider"><span>Or</span></div>
 
@@ -218,6 +276,42 @@
     const params = new URLSearchParams(window.location.search);
     const projectFromUrl = params.get('project') || params.get('developer') || '';
     if (projectFromUrl) document.getElementById('scProject').value = projectFromUrl;
+
+    // ============ WHATSAPP PRE-QUALIFICATION MODAL ============
+    const WA_NUMBER = '971527693333';
+    const waOverlay = document.getElementById('waModalOverlay');
+    const waTriggerBtn = document.getElementById('waTriggerBtn');
+    const waModalClose = document.getElementById('waModalClose');
+    const waForm = document.getElementById('waForm');
+
+    function openWaModal() {
+      waOverlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeWaModal() {
+      waOverlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    waTriggerBtn.addEventListener('click', openWaModal);
+    waModalClose.addEventListener('click', closeWaModal);
+    waOverlay.addEventListener('click', e => { if (e.target === waOverlay) closeWaModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && waOverlay.classList.contains('is-open')) closeWaModal(); });
+
+    waForm.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const message = [
+        `Hi Leena, I'd like to arrange a call about a property in Dubai.`,
+        `Investment Range: ${document.getElementById('waBudget').value}`,
+        `Property Type: ${document.getElementById('waPropertyType').value}`,
+        `Preferred Location: ${document.getElementById('waLocation').value}`,
+        `Country: ${document.getElementById('waCountry').value}`,
+      ].join('\n');
+
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+      closeWaModal();
+      waForm.reset();
+    });
 
     // Every submission is sent two ways: (1) a pre-filled email to Leena's
     // lead inbox via the visitor's own mail client — works with zero backend,
