@@ -92,12 +92,23 @@ async function handleSubmitLead(request, env) {
   };
 
   try {
+    // Apps Script's /exec URL always answers a successful POST with a 302
+    // redirect (to script.googleusercontent.com/macros/echo, which serves
+    // the actual response body) — the sheet write itself already happened
+    // by the time that redirect comes back. Following it (fetch's default)
+    // turns the POST into a GET at a URL that expects a real Google
+    // session, which an anonymous server-to-server call doesn't have, and
+    // that dead end was getting misread as a failure — even though the
+    // row had already been written. redirect:'manual' stops at the 302 and
+    // treats it as the success signal it actually is; only a status
+    // outside 200/302 is a real failure.
     const sheetRes = await fetch(env.SHEETS_WEBHOOK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(enriched),
+      redirect: 'manual',
     });
-    if (!sheetRes.ok) {
+    if (sheetRes.status !== 200 && sheetRes.status !== 302) {
       const text = await sheetRes.text();
       return new Response(JSON.stringify({ error: 'Sheet write failed', detail: text }), { status: 502, headers });
     }
