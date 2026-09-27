@@ -113,3 +113,36 @@ collections:
         field: { label: "YouTube Video ID", name: "id", widget: "string", hint: "Just the ID from the URL, e.g. dQw4w9WgXcQ — not the full link." }
       - { label: "Brochure PDF (optional)", name: "brochureUrl", widget: "file", required: false }
       - { label: "Internal Note (not shown on the site)", name: "sourceNote", widget: "text", required: false }
+
+  # Singleton settings file (not a folder of entries, just one file) —
+  # lets Leena add/change Google Ads and Analytics tags herself for a
+  # new campaign, without needing a code change. js/tracking.js reads
+  # this same file on every page load; a blank field there is just a
+  # no-op, nothing breaks if it's left empty.
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "tracking"
+        label: "Analytics & Ads Tracking"
+        file: "content/settings/tracking.json"
+        fields:
+          - label: "Google Tag ID(s)"
+            name: "googleTagIds"
+            widget: "string"
+            required: false
+            hint: "The gtag.js ID(s) from Google Ads or Google Analytics, e.g. AW-123456789 or G-ABC1234. If you use both a Google Ads tag and a GA4 tag, enter both separated by a comma, e.g. \"AW-123456789, G-ABC1234\". Find this in Google Ads under Tools > Conversions > (your action) > Tag setup, or in Google Analytics under Admin > Data Streams."
+          - label: "Google Ads Conversion ID"
+            name: "googleAdsConversionId"
+            widget: "string"
+            required: false
+            hint: "e.g. AW-123456789 — from the same conversion action's tag setup screen. Needed together with the Conversion Label below to track form submissions as conversions."
+          - label: "Google Ads Conversion Label"
+            name: "googleAdsConversionLabel"
+            widget: "string"
+            required: false
+            hint: "The part after the slash in the 'send_to' value Google Ads shows you, e.g. for send_to: \"AW-123456789/AbC-D_efGh12\", the label is AbC-D_efGh12. When both this and the Conversion ID above are filled in, every Get Shortlisted / Enquire Now / WhatsApp form submission on the site is automatically reported to Google Ads as a conversion."
+          - label: "Google Tag Manager Container ID (optional)"
+            name: "gtmContainerId"
+            widget: "string"
+            required: false
+            hint: "e.g. GTM-XXXXXXX. Only needed if you manage tags through Google Tag Manager instead of (or alongside) the fields above — most campaigns won't need this."

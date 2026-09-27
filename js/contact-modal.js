@@ -131,6 +131,7 @@
       body: JSON.stringify(fields),
     }).catch(() => {});
 
+    if (typeof window.SSPFireConversion === 'function') window.SSPFireConversion();
     modal.classList.add('is-sent');
   });
 })();
