@@ -1,5 +1,16 @@
 # Lead capture — one-time setup
 
+## Update: email notification on every new lead
+
+`google-apps-script.js` now emails you a full summary (every field,
+nicely formatted) the moment a new lead lands — sent to the same
+Google account that owns this script/Sheet, no separate email address
+to configure. To turn this on if you already had the script deployed:
+
+1. Re-paste the updated `google-apps-script.js` into the Apps Script editor, then **Deploy → Manage deployments → edit (pencil) → Deploy** on the *existing* deployment (same reasoning as below — a *new* deployment would change the URL and break the Worker's secret).
+2. Google will very likely show a fresh authorization prompt this time — this code now asks for a permission it never needed before ("send email as you"). Click through it fully (**Review permissions → your account → Advanced → Go to [project name] (unsafe) → Allow**). If you skip this, the Sheet will keep saving leads fine, but no emails will go out, silently.
+3. Test it: submit a real (or test) lead through the site and confirm an email arrives in the inbox of whichever Google account you used to deploy the script. Google's free daily email quota for a personal account is 100/day via this method — more than enough for lead notifications, but worth knowing if it's ever silent on a very high-volume day.
+
 ## Update (already deployed this before?)
 
 Project pages now have their own "Enquire Now" popup (opens in place,
