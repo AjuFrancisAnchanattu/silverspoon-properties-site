@@ -1,9 +1,9 @@
-/* Shared across every page — toggles "is-scrolled" on the fixed header
+/* Shared across every page, toggles "is-scrolled" on the fixed header
    once the page scrolls, so the overlay nav variant (transparent over a
    hero) gains an opaque background and stays legible. See css/base.css
    for the header.site-nav / header.site-nav--overlay(.is-scrolled) rules.
    Also drives the mobile hamburger menu (header.site-nav .menu-toggle /
-   nav.primary — see the max-width:1080px rules in base.css). */
+   nav.primary, see the max-width:1080px rules in base.css). */
 (function () {
   const nav = document.querySelector('header.site-nav');
   if (!nav) return;

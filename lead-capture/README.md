@@ -1,38 +1,38 @@
-# Lead capture — one-time setup
+# Lead capture, one-time setup
 
 ## Update: email notification on every new lead
 
 `google-apps-script.js` now emails you a full summary (every field,
-nicely formatted) the moment a new lead lands — sent to the same
+nicely formatted) the moment a new lead lands, sent to the same
 Google account that owns this script/Sheet, no separate email address
 to configure. To turn this on if you already had the script deployed:
 
-1. Re-paste the updated `google-apps-script.js` into the Apps Script editor, then **Deploy → Manage deployments → edit (pencil) → Deploy** on the *existing* deployment (same reasoning as below — a *new* deployment would change the URL and break the Worker's secret).
-2. Google will very likely show a fresh authorization prompt this time — this code now asks for a permission it never needed before ("send email as you"). Click through it fully (**Review permissions → your account → Advanced → Go to [project name] (unsafe) → Allow**). If you skip this, the Sheet will keep saving leads fine, but no emails will go out, silently.
-3. Test it: submit a real (or test) lead through the site and confirm an email arrives in the inbox of whichever Google account you used to deploy the script. Google's free daily email quota for a personal account is 100/day via this method — more than enough for lead notifications, but worth knowing if it's ever silent on a very high-volume day.
+1. Re-paste the updated `google-apps-script.js` into the Apps Script editor, then **Deploy → Manage deployments → edit (pencil) → Deploy** on the *existing* deployment (same reasoning as below, a *new* deployment would change the URL and break the Worker's secret).
+2. Google will very likely show a fresh authorization prompt this time, this code now asks for a permission it never needed before ("send email as you"). Click through it fully (**Review permissions → your account → Advanced → Go to [project name] (unsafe) → Allow**). If you skip this, the Sheet will keep saving leads fine, but no emails will go out, silently.
+3. Test it: submit a real (or test) lead through the site and confirm an email arrives in the inbox of whichever Google account you used to deploy the script. Google's free daily email quota for a personal account is 100/day via this method, more than enough for lead notifications, but worth knowing if it's ever silent on a very high-volume day.
 
 ## Update (already deployed this before?)
 
 Project pages now have their own "Enquire Now" popup (opens in place,
-no navigating away) that also saves to this same Sheet — it adds one
+no navigating away) that also saves to this same Sheet, it adds one
 new field, **Message**, that the original Shortlist form didn't have.
 If you already completed the steps below once:
 
-1. Re-paste the updated `google-apps-script.js` into the Apps Script editor (Extensions → Apps Script on the Sheet), **Deploy → Manage deployments → edit (pencil) → Deploy** on the *existing* deployment (not a new one — that would change the URL and break the Worker's existing secret).
+1. Re-paste the updated `google-apps-script.js` into the Apps Script editor (Extensions → Apps Script on the Sheet), **Deploy → Manage deployments → edit (pencil) → Deploy** on the *existing* deployment (not a new one, that would change the URL and break the Worker's existing secret).
 2. Re-paste the updated `cms-oauth-worker/worker.js` into the Cloudflare Worker, **Save and Deploy**.
-3. In the Sheet itself, manually type `Message` into the first empty column header (column N) — the script only auto-creates headers on a brand-new empty sheet, it won't retroactively add a column to a sheet that already has data.
+3. In the Sheet itself, manually type `Message` into the first empty column header (column N), the script only auto-creates headers on a brand-new empty sheet, it won't retroactively add a column to a sheet that already has data.
 
-If you're setting this up for the first time, ignore the above and just follow the numbered steps below — the current `google-apps-script.js` already includes the Message column from the start.
+If you're setting this up for the first time, ignore the above and just follow the numbered steps below, the current `google-apps-script.js` already includes the Message column from the start.
 
 
 Every submission on the "Get Shortlisted" form now gets saved permanently
-to a Google Sheet — with the visitor's IP address, country, which page
-they came from, and the project name if they arrived from a project page —
+to a Google Sheet, with the visitor's IP address, country, which page
+they came from, and the project name if they arrived from a project page,
 in addition to the pre-filled email it already sends to your inbox.
 
 This reuses the same Cloudflare Worker already running the CMS login
-(`cms-oauth-worker/worker.js` — it now has a third route, `/submit-lead`,
-alongside the two it already had). None of this needs coding knowledge —
+(`cms-oauth-worker/worker.js`, it now has a third route, `/submit-lead`,
+alongside the two it already had). None of this needs coding knowledge,
 every value you need to enter is spelled out exactly below.
 
 ## Steps
@@ -40,8 +40,8 @@ every value you need to enter is spelled out exactly below.
 **1. Create the Google Sheet**
 
 - Go to [sheets.google.com](https://sheets.google.com) and create a new blank spreadsheet.
-- Name it something like `Silver Spoon Properties — Leads`.
-- Leave it empty — the script in the next step creates the header row automatically the first time a lead comes in.
+- Name it something like `Silver Spoon Properties, Leads`.
+- Leave it empty, the script in the next step creates the header row automatically the first time a lead comes in.
 
 **2. Add the Apps Script**
 
@@ -58,32 +58,32 @@ every value you need to enter is spelled out exactly below.
   - **Execute as**: `Me`
   - **Who has access**: `Anyone`
 - Click **Deploy**.
-- Google will ask you to authorize the script — click through the consent screen (it'll warn "Google hasn't verified this app" since it's your own private script; click **Advanced → Go to Lead Capture (unsafe)** to proceed, this is expected for a script only you deployed).
-- Copy the **Web app URL** it gives you — something like `https://script.google.com/macros/s/AKfycb.../exec`. **You'll need this in step 4.**
+- Google will ask you to authorize the script, click through the consent screen (it'll warn "Google hasn't verified this app" since it's your own private script; click **Advanced → Go to Lead Capture (unsafe)** to proceed, this is expected for a script only you deployed).
+- Copy the **Web app URL** it gives you, something like `https://script.google.com/macros/s/AKfycb.../exec`. **You'll need this in step 4.**
 
 **4. Add the URL to the Worker**
 
 - Go to [dash.cloudflare.com](https://dash.cloudflare.com) → **Workers & Pages** → open the same Worker you already deployed for the CMS login (e.g. `ssp-cms-auth`).
-- Click **Edit code**. Select everything in the editor, delete it, and paste in the full updated contents of `worker.js` (the file in `cms-oauth-worker/`, next to this folder) — it now has the lead-capture route built in.
+- Click **Edit code**. Select everything in the editor, delete it, and paste in the full updated contents of `worker.js` (the file in `cms-oauth-worker/`, next to this folder), it now has the lead-capture route built in.
 - Click **Save and Deploy**.
 - Go to **Settings → Variables and Secrets** → **Add** a new **Secret** variable:
   - `SHEETS_WEBHOOK_URL` → paste the Web app URL from step 3.
-- Save — the Worker redeploys automatically with the new secret available.
+- Save, the Worker redeploys automatically with the new secret available.
 
 **5. Test it**
 
 - Go to the live site's contact page, fill out and submit the "Get Shortlisted" form with test details.
-- Check the Google Sheet — a new row should appear within a few seconds, including an IP address and country.
+- Check the Google Sheet, a new row should appear within a few seconds, including an IP address and country.
 - You can delete that test row once confirmed.
 
 ## Why it has to work this way
 
-GitHub Pages can only serve static files — it can't run code to save form
+GitHub Pages can only serve static files, it can't run code to save form
 submissions anywhere, or see a visitor's IP address. The Cloudflare Worker
 sits in between: the browser sends the form data to it, the Worker reads
 the visitor's real IP and country straight off Cloudflare's own request
 metadata (no third-party geolocation lookup needed), and forwards the
 whole thing to the Google Apps Script, which appends it as a row. If the
 Worker or the Sheet is ever unreachable, the visitor still gets the
-pre-filled email fallback — the Sheet write happens silently in the
+pre-filled email fallback, the Sheet write happens silently in the
 background and never blocks the form from completing.

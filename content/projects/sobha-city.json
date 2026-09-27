@@ -13,14 +13,14 @@
   "developer": "Sobha",
   "name": "Sobha City",
   "brochureUrl": "images/projects/sobha-city/brochure.pdf",
-  "sourceNote": "Price, payment plan, handover, unit types/areas and amenities sourced from metropolitan.realestate/al-bahyah/sobha-city-sobha-realty-abu-dhabi (per Leena's request) and cross-checked against thepropinvestor.com — both agree closely. IMPORTANT: this is in Al Bahyah, Abu Dhabi, not Dubai — original brief said 'golf course community, waterfront apartments' but no public source mentions a golf course for this specific project (waterfront/canals are confirmed). 'golf' tag kept pending Leena's confirmation — may need removing.",
+  "sourceNote": "Price, payment plan, handover, unit types/areas and amenities sourced from metropolitan.realestate/al-bahyah/sobha-city-sobha-realty-abu-dhabi (per Leena's request) and cross-checked against thepropinvestor.com, both agree closely. IMPORTANT: this is in Al Bahyah, Abu Dhabi, not Dubai, original brief said 'golf course community, waterfront apartments' but no public source mentions a golf course for this specific project (waterfront/canals are confirmed). 'golf' tag kept pending Leena's confirmation, may need removing.",
   "plotArea": {},
   "saleableArea": {
     "1-2 Bedroom Apartment (River Cove Residences)": "566 – 1,212 sq.ft.",
     "3-4 Bedroom Garden Villa (The Terraces)": "2,578 – 4,524 sq.ft.",
     "4-6 Bedroom Estate Villa (The Orchard)": "4,309 – 6,383 sq.ft."
   },
-  "paymentPlan": "60/40 — 20% on booking, 40% during construction (8 x 5% instalments over 36 months), 40% on handover",
+  "paymentPlan": "60/40, 20% on booking, 40% during construction (8 x 5% instalments over 36 months), 40% on handover",
   "handoverDate": "December 2029",
   "gallery": [
     {
@@ -37,7 +37,7 @@
     }
   ],
   "status": "off-plan",
-  "priceRange": "From AED 1.31M (apartments) — AED 9.05M+ (estate villas)",
+  "priceRange": "From AED 1.31M (apartments), AED 9.05M+ (estate villas)",
   "unitTypes": [
     "1-2 Bedroom Apartment (River Cove Residences)",
     "3-4 Bedroom Garden Villa (The Terraces)",
@@ -63,7 +63,7 @@
   "youtubeVideos": [],
   "buildingHeight": "",
   "id": "sobha-city",
-  "leenasTake": "Placeholder — Leena's personal take on this project goes here.",
-  "description": "Sobha City is a large-scale waterfront master community by Sobha Realty in Al Bahyah, Abu Dhabi, near Yas Island — spanning apartments, garden villas, and estate villas along a canal-laced waterfront promenade.",
+  "leenasTake": "Placeholder, Leena's personal take on this project goes here.",
+  "description": "Sobha City is a large-scale waterfront master community by Sobha Realty in Al Bahyah, Abu Dhabi, near Yas Island, spanning apartments, garden villas, and estate villas along a canal-laced waterfront promenade.",
   "floorPlans": []
 }

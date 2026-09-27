@@ -13,7 +13,7 @@
 </head>
 <body>
 
-  <!-- ============ NAV (overlay variant — transparent over hero photo) ============ -->
+  <!-- ============ NAV (overlay variant, transparent over hero photo) ============ -->
   <header class="site-nav site-nav--overlay">
     <div class="nav-inner">
       <a href="/" class="logo">
@@ -150,7 +150,7 @@
         <div class="proj-map-frame">
           <iframe id="projMapEmbed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>
-        <p class="proj-map-note">Showing the community's general location — contact Leena for the exact plot/building.</p>
+        <p class="proj-map-note">Showing the community's general location, contact Leena for the exact plot/building.</p>
       </div>
     </section>
 
@@ -167,7 +167,7 @@
 
   </div>
 
-  <!-- ============ FOOTER (standard — identical on every page) ============ -->
+  <!-- ============ FOOTER (standard, identical on every page) ============ -->
   <footer class="site-footer">
     <div class="footer-bg"></div>
     <div class="footer-overlay"></div>
@@ -194,7 +194,7 @@
         </div>
 
         <div class="footer-card">
-          <p>Join the WhatsApp Channel for market insight — monthly reports, new launches, off-market alerts.</p>
+          <p>Join the WhatsApp Channel for market insight, monthly reports, new launches, off-market alerts.</p>
           <a class="btn-wa-join" href="#">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>
             Join Channel
@@ -237,7 +237,7 @@
     }
 
     // Swap a broken/missing image for a neutral placeholder rather than
-    // showing the browser's broken-image icon — folders are empty until
+    // showing the browser's broken-image icon, folders are empty until
     // Leena (or the CMS) drops real files in.
     function withFallback(img){
       img.addEventListener('error', () => { img.src = PLACEHOLDER_IMG; }, { once: true });
@@ -365,7 +365,7 @@
         brochureLink.style.display = 'inline-flex';
       }
 
-      // --- Location map (community-level — no exact plot/address on file) ---
+      // --- Location map (community-level, no exact plot/address on file) ---
       const mapQuery = encodeURIComponent(`${project.community}, Dubai, UAE`);
       document.getElementById('projMapEmbed').src = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
 

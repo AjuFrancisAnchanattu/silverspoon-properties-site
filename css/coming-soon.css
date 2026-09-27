@@ -1,8 +1,8 @@
 /* =====================================================================
-   COMING-SOON.CSS — page-specific styles for coming-soon.html
+   COMING-SOON.CSS, page-specific styles for coming-soon.html
    Shared nav / contact pill / footer / buttons live in base.css.
    One generic page, reused across every not-yet-built route via a
-   ?page= query param (read client-side — see the <script> in the HTML).
+   ?page= query param (read client-side, see the <script> in the HTML).
    ===================================================================== */
 
 .soon{

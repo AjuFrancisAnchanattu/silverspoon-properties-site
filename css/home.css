@@ -1,5 +1,5 @@
 /* =====================================================================
-   HOME.CSS — page-specific styles for home.html
+   HOME.CSS, page-specific styles for home.html
    Shared nav (overlay variant) / contact pill / footer / buttons live
    in base.css.
    ===================================================================== */
@@ -74,7 +74,7 @@
 }
 
 /* Right-to-left loop: same seamless-marquee technique as .trust-track
-   (see Trust Wall further down) — margin-right on every tile (not flex
+   (see Trust Wall further down), margin-right on every tile (not flex
    gap) so the duplicated set repeats at exactly half the track width. */
 .trust-strip-track{
   display:flex; align-items:center; width:max-content;
@@ -267,7 +267,7 @@
   .home-testimonials-grid{ grid-template-columns:1fr; gap:20px; margin-bottom:36px; }
 }
 
-/* ============ JOIN WHATSAPP CHANNEL (dedicated Home block — footer also has one) ============ */
+/* ============ JOIN WHATSAPP CHANNEL (dedicated Home block, footer also has one) ============ */
 .wa-channel{
   background:radial-gradient(120% 140% at 15% 0%, #3a3624 0%, #201e16 55%, #100f0c 100%);
   padding:70px 0;
@@ -291,7 +291,7 @@
   .wa-channel-wrap{ flex-direction:column; align-items:flex-start; }
 }
 
-/* ============ CURATION (sign-up split — text left, full-bleed graphic right) ============ */
+/* ============ CURATION (sign-up split, text left, full-bleed graphic right) ============ */
 .curation{ background:var(--cream); overflow:hidden; }
 .curation-row{
   display:flex; align-items:center; gap:40px;
@@ -423,7 +423,7 @@
   to{ transform:translateX(-50%); }
 }
 /* margin-right (not flex `gap`) so the duplicated set has an even number
-   of gaps — with `gap`, 2x6 items = 11 gaps, an odd count that makes
+   of gaps, with `gap`, 2x6 items = 11 gaps, an odd count that makes
    -50% land half a gap short of one full period and snap at the loop
    restart. A trailing margin on every tile (incl. the last) keeps the
    period exactly half the track's total width, so the loop is seamless. */
@@ -469,7 +469,7 @@
 
 .reel-card{
   position:relative; flex:0 0 auto;
-  width:240px; height:427px; /* 9:16 — native Shorts aspect */
+  width:240px; height:427px; /* 9:16, native Shorts aspect */
   background:#100f0c; overflow:hidden;
 }
 .reel-play{

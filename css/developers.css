@@ -1,9 +1,9 @@
 /* =====================================================================
-   DEVELOPERS.CSS — page-specific styles for developers.html
+   DEVELOPERS.CSS, page-specific styles for developers.html
    Shared nav / contact pill / footer / buttons live in base.css.
    ===================================================================== */
 
-/* ============ HERO (static, no video — light nav variant) ============ */
+/* ============ HERO (static, no video, light nav variant) ============ */
 .dev-hero{ background:var(--cream); padding:150px 0 110px; }
 .dev-hero-wrap{ max-width:820px; margin:0 auto; padding:0 48px; }
 .dev-hero-wrap .eyebrow{ display:block; margin-bottom:18px; }

@@ -52,7 +52,7 @@
     <div class="dev-hero-wrap">
       <span class="eyebrow">Developer Partners</span>
       <h1>Direct relationships, not cold outreach</h1>
-      <p>Every developer below is a working relationship built over years, not a name on a list — the reason private clients get access before a project reaches the public market.</p>
+      <p>Every developer below is a working relationship built over years, not a name on a list, the reason private clients get access before a project reaches the public market.</p>
     </div>
   </section>
 
@@ -75,7 +75,7 @@
     </div>
   </section>
 
-  <!-- ============ FOOTER (standard — identical on every page) ============ -->
+  <!-- ============ FOOTER (standard, identical on every page) ============ -->
   <footer class="site-footer">
     <div class="footer-bg"></div>
     <div class="footer-overlay"></div>
@@ -135,7 +135,7 @@
   <script src="js/projects-loader.js"></script>
   <script>
     // Developer roster as given directly by Leena. logo: null means no
-    // real logo file has been supplied yet — renders a text placeholder
+    // real logo file has been supplied yet, renders a text placeholder
     // tile instead of a missing/broken image. "match" is the exact
     // string used in content/projects/*.json's "developer" field, used
     // to link straight into a pre-filtered Project Focus view and to
@@ -177,7 +177,7 @@
         allProjects.forEach(p => { counts[p.developer] = (counts[p.developer] || 0) + 1; });
       } catch (e) {
         // If the project data fails to load, still show the developer
-        // roster itself — every card just falls back to "Coming Soon".
+        // roster itself, every card just falls back to "Coming Soon".
       }
       document.getElementById('devGrid').innerHTML = DEVELOPERS
         .map(dev => cardHTML(dev, counts[dev.match] || 0))

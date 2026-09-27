@@ -1,5 +1,5 @@
 /**
- * Google Apps Script — receives lead submissions from the Cloudflare Worker
+ * Google Apps Script, receives lead submissions from the Cloudflare Worker
  * (cms-oauth-worker/worker.js, /submit-lead route), appends each one as a
  * new row in this Google Sheet, and emails the Sheet's owner a summary of
  * every new lead.
@@ -11,10 +11,10 @@
  *   4. Deploy > New deployment > type "Web app".
  *        - Execute as: Me
  *        - Who has access: Anyone
- *   5. Copy the deployment URL — that's the SHEETS_WEBHOOK_URL secret the
+ *   5. Copy the deployment URL, that's the SHEETS_WEBHOOK_URL secret the
  *      Cloudflare Worker needs.
  *
- * Email notifications need no extra setup — they're sent via MailApp,
+ * Email notifications need no extra setup, they're sent via MailApp,
  * using the Google account that owns this script/Sheet (the same "Execute
  * as: Me" identity from deployment), straight to that same account's own
  * inbox. Free, within Google's normal daily email quota for that account.
@@ -34,7 +34,7 @@ const HEADERS = [
   'Project Name (from project page)',
   'IP Address',
   'Country',
-  'Message', // added for the project-page "Enquire Now" modal — kept
+  'Message', // added for the project-page "Enquire Now" modal, kept
              // last so existing rows in an already-live sheet stay
              // aligned; only new submissions populate this column.
 ];
@@ -63,7 +63,7 @@ function doPost(e) {
   ]);
 
   // A failed/quota-exhausted email should never make the lead itself look
-  // like it failed to save — the row above already landed regardless.
+  // like it failed to save, the row above already landed regardless.
   try {
     notifyOwner(data);
   } catch (err) {
@@ -79,7 +79,7 @@ function notifyOwner(data) {
   const ownerEmail = Session.getEffectiveUser().getEmail();
   if (!ownerEmail) return;
 
-  const projectLine = data.projectName ? ` — ${data.projectName}` : '';
+  const projectLine = data.projectName ? `, ${data.projectName}` : '';
   const subject = `New Lead: ${data.name || 'Unknown'}${projectLine}`;
 
   const rows = [

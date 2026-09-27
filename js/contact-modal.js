@@ -1,4 +1,4 @@
-/* Shared across every page — builds the "Enquire Now" contact modal once,
+/* Shared across every page, builds the "Enquire Now" contact modal once,
    appends it to <body>, and wires it up to any element carrying
    data-contact-modal (the floating pill's "Contact Us" item, the
    footer's "Contact Us" link, project-page enquiry buttons, etc.) so
@@ -7,7 +7,7 @@
 
    If window.SSPCurrentProjectName is set (project.html sets this once
    its project data loads), the modal shows which project the enquiry
-   is regarding and includes it in the saved submission — same
+   is regarding and includes it in the saved submission, same
    /submit-lead backend contact.html's Shortlist form uses (Cloudflare
    Worker -> Google Sheet), so every lead lands in one place regardless
    of which form or page it came from. */
@@ -59,7 +59,7 @@
         </div>
       </form>
 
-      <div class="cm-success">Thank you — Leena will be in touch shortly.</div>
+      <div class="cm-success">Thank you, Leena will be in touch shortly.</div>
     </div>
   `;
   document.body.appendChild(overlay);
@@ -118,11 +118,11 @@
       fields.projectName ? `Regarding Project: ${fields.projectName}` : '',
     ].filter(Boolean).join('\n');
     const subject = fields.projectName
-      ? `New Enquiry — ${fields.projectName} — Silver Spoon Properties`
-      : 'New Enquiry — Silver Spoon Properties';
+      ? `New Enquiry, ${fields.projectName}, Silver Spoon Properties`
+      : 'New Enquiry, Silver Spoon Properties';
     window.location.href = `mailto:${LEAD_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    // Fire-and-forget — a failed/blocked save shouldn't stop the visitor
+    // Fire-and-forget, a failed/blocked save shouldn't stop the visitor
     // from seeing the thank-you state, since the email fallback above
     // already carries the enquiry either way.
     fetch(LEAD_WORKER_URL, {

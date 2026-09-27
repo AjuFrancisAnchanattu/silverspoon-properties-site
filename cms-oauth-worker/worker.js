@@ -1,35 +1,35 @@
 /**
- * Cloudflare Worker — GitHub OAuth proxy for Decap CMS, plus a lead-capture
+ * Cloudflare Worker, GitHub OAuth proxy for Decap CMS, plus a lead-capture
  * endpoint for the site's contact forms.
  *
  * The CMS admin panel (site's /admin) can't do the GitHub OAuth token
- * exchange itself — that step needs a client secret, which must never sit
+ * exchange itself, that step needs a client secret, which must never sit
  * in a static site's client-side code. This tiny Worker is the only piece
  * that ever sees the secret, and it never gets shown to the browser.
  *
  * Routes:
- *   GET  /auth         — CMS opens a popup here, this redirects to GitHub's
+ *   GET  /auth        , CMS opens a popup here, this redirects to GitHub's
  *                        own authorize screen.
- *   GET  /callback      — GitHub redirects back here with a one-time code;
+ *   GET  /callback     , GitHub redirects back here with a one-time code;
  *                        this exchanges it for an access token and hands
  *                        it back to the CMS popup via postMessage.
- *   POST /submit-lead   — contact.html's forms POST here. The Worker reads
+ *   POST /submit-lead  , contact.html's forms POST here. The Worker reads
  *                        the visitor's IP and country straight off
  *                        Cloudflare's own request metadata (no external
  *                        geolocation API needed), then forwards the
  *                        enriched submission to a Google Apps Script Web
  *                        App, which appends a row to Leena's lead-tracking
  *                        Google Sheet.
- *   GET  /geo-country   — returns the visitor's two-letter country code
+ *   GET  /geo-country  , returns the visitor's two-letter country code
  *                        (from the same Cloudflare request metadata), used
  *                        to default the phone field's country-code dropdown
  *                        to the visitor's own country.
  *
  * Required environment variables (set as Worker secrets, never committed
- * to the repo — see README.md in this folder for exact steps):
+ * to the repo, see README.md in this folder for exact steps):
  *   GITHUB_CLIENT_ID
  *   GITHUB_CLIENT_SECRET
- *   SHEETS_WEBHOOK_URL   — the Google Apps Script Web App URL that appends
+ *   SHEETS_WEBHOOK_URL  , the Google Apps Script Web App URL that appends
  *                          rows to the lead-tracking sheet
  */
 
@@ -72,7 +72,7 @@ async function handleSubmitLead(request, env) {
     return new Response(JSON.stringify({ error: 'Invalid JSON body' }), { status: 400, headers });
   }
 
-  // Basic shape validation — reject junk before it ever reaches the sheet.
+  // Basic shape validation, reject junk before it ever reaches the sheet.
   const required = ['formType', 'name', 'phone', 'email'];
   for (const field of required) {
     if (!body[field] || typeof body[field] !== 'string' || !body[field].trim()) {
@@ -104,11 +104,11 @@ async function handleSubmitLead(request, env) {
   try {
     // Apps Script's /exec URL always answers a successful POST with a 302
     // redirect (to script.googleusercontent.com/macros/echo, which serves
-    // the actual response body) — the sheet write itself already happened
+    // the actual response body), the sheet write itself already happened
     // by the time that redirect comes back. Following it (fetch's default)
     // turns the POST into a GET at a URL that expects a real Google
     // session, which an anonymous server-to-server call doesn't have, and
-    // that dead end was getting misread as a failure — even though the
+    // that dead end was getting misread as a failure, even though the
     // row had already been written. redirect:'manual' stops at the 302 and
     // treats it as the success signal it actually is; only a status
     // outside 200/302 is a real failure.
@@ -165,7 +165,7 @@ async function handleCallback(request, env) {
   // Decap CMS's popup-based auth flow: the popup posts an "authorizing"
   // ping, waits for the opener (the admin panel) to acknowledge, then
   // sends the real token in a second message. This exact handshake is
-  // what decap-cms's default GitHub backend expects — don't simplify it
+  // what decap-cms's default GitHub backend expects, don't simplify it
   // to a single postMessage, the CMS side won't pick it up.
   const payload = JSON.stringify({ token: tokenData.access_token, provider: 'github' });
   const html = `<!DOCTYPE html><html><body>
@@ -202,6 +202,6 @@ export default {
     }
     if (url.pathname === '/auth') return handleAuth(request, env);
     if (url.pathname === '/callback') return handleCallback(request, env);
-    return new Response('Silver Spoon Properties — Decap CMS GitHub OAuth proxy + lead capture. Routes: /auth, /callback, /submit-lead, /geo-country', { status: 200 });
+    return new Response('Silver Spoon Properties, Decap CMS GitHub OAuth proxy + lead capture. Routes: /auth, /callback, /submit-lead, /geo-country', { status: 200 });
   },
 };

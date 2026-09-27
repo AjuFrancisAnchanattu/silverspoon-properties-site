@@ -1,8 +1,8 @@
 /* =====================================================================
-   PROJECT.CSS — page-specific styles for project.html
+   PROJECT.CSS, page-specific styles for project.html
    The repeatable individual-project template. All content is rendered
    client-side (see the <script> in project.html) from
-   content/projects/<id>.json via js/projects-loader.js — this file is
+   content/projects/<id>.json via js/projects-loader.js, this file is
    pure styling, no project-specific text lives here.
    Shared nav (overlay variant) / contact pill / footer / buttons live
    in base.css.
@@ -250,7 +250,7 @@
 }
 
 /* ============ LOADING / NOT FOUND STATES ============
-   Dark background is deliberate — the nav is the overlay (transparent,
+   Dark background is deliberate, the nav is the overlay (transparent,
    white-text) variant, which assumes a dark hero behind it. The real
    hero photo only appears once the project data resolves, so these
    interim states need to stay dark too or the nav becomes unreadable. */

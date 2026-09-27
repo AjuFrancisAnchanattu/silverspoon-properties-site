@@ -53,7 +53,7 @@
   <section class="contact-intro">
     <div class="contact-intro-wrap">
       <h1>Let's find your next property</h1>
-      <p>Two ways to get started — book a call directly, or get shortlisted and Leena will reach out personally with options that fit.</p>
+      <p>Two ways to get started, book a call directly, or get shortlisted and Leena will reach out personally with options that fit.</p>
     </div>
   </section>
 
@@ -62,7 +62,7 @@
     <div class="contact-book-wrap">
       <span class="eyebrow">Book a Call</span>
       <h2>Pick a time that works for you</h2>
-      <p>Ready to move now? Grab a slot directly on Leena's calendar — no back-and-forth.</p>
+      <p>Ready to move now? Grab a slot directly on Leena's calendar, no back-and-forth.</p>
 
       <div class="calendly-inline-widget" data-url="https://calendly.com/ajufrancisanchanattu/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
 
@@ -93,7 +93,7 @@
   <!-- ============ WHATSAPP PRE-QUALIFICATION MODAL ============
        Opened by #waTriggerBtn above. Collects a few quick details, then
        builds a pre-filled WhatsApp message from them so Leena gets useful
-       context instead of a blank "hi" — the visitor still taps Send
+       context instead of a blank "hi", the visitor still taps Send
        themselves once WhatsApp opens. ============ -->
   <div class="wa-modal-overlay" id="waModalOverlay">
     <div class="wa-modal" role="dialog" aria-modal="true" aria-labelledby="waModalTitle">
@@ -155,7 +155,7 @@
     <div class="shortlist-card">
       <span class="eyebrow">Get Shortlisted</span>
       <h2>Tell us what you're looking for</h2>
-      <p>A few quick details so Leena can flag your enquiry and come back with the right options — not a generic list.</p>
+      <p>A few quick details so Leena can flag your enquiry and come back with the right options, not a generic list.</p>
 
       <form id="shortlistForm" novalidate>
         <div class="cm-row">
@@ -223,11 +223,11 @@
         </div>
       </form>
 
-      <div class="cm-success">Thank you — Leena will review your details and be in touch shortly.</div>
+      <div class="cm-success">Thank you, Leena will review your details and be in touch shortly.</div>
     </div>
   </section>
 
-  <!-- ============ FOOTER (standard — identical on every page) ============ -->
+  <!-- ============ FOOTER (standard, identical on every page) ============ -->
   <footer class="site-footer">
     <div class="footer-bg"></div>
     <div class="footer-overlay"></div>
@@ -254,7 +254,7 @@
         </div>
 
         <div class="footer-card">
-          <p>Join the WhatsApp Channel for market insight — monthly reports, new launches, off-market alerts.</p>
+          <p>Join the WhatsApp Channel for market insight, monthly reports, new launches, off-market alerts.</p>
           <a class="btn-wa-join" href="#">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>
             Join Channel
@@ -308,7 +308,7 @@
       .then(data => {
         if (data && data.country) scPhoneIti.setSelectedCountry(data.country.toLowerCase());
       })
-      .catch(() => {}); // fallback default ("ae") already showing — fine to leave as-is
+      .catch(() => {}); // fallback default ("ae") already showing, fine to leave as-is
 
     // ============ WHATSAPP PRE-QUALIFICATION MODAL ============
     const WA_NUMBER = '971527693333';
@@ -347,11 +347,11 @@
     });
 
     // Every submission is sent two ways: (1) a pre-filled email to Leena's
-    // lead inbox via the visitor's own mail client — works with zero backend,
+    // lead inbox via the visitor's own mail client, works with zero backend,
     // shows up immediately; (2) a POST to the Cloudflare Worker's
     // /submit-lead route, which stamps on the visitor's IP/country (read
     // straight off the request, no client-side geolocation needed) and
-    // appends a row to Leena's lead-tracking Google Sheet — the permanent,
+    // appends a row to Leena's lead-tracking Google Sheet, the permanent,
     // searchable record. See lead-capture/README.md for how that's wired up.
     const LEAD_EMAIL = 'Info@silverspoonprop.com';
     const LEAD_WORKER_URL = 'https://dawn-bird-577f.ajufrancisanchanattu.workers.dev/submit-lead';
@@ -359,7 +359,7 @@
     const shortlistForm = document.getElementById('shortlistForm');
 
     // ============ VALIDATION ============
-    // novalidate on the form means browser-default bubbles never show —
+    // novalidate on the form means browser-default bubbles never show,
     // every field's error message is shown/hidden here instead, so it's
     // consistent across browsers and matches the site's own styling.
     function setFieldError(inputEl, errorEl, message) {
@@ -443,7 +443,7 @@
     }
 
     // Clear a field's error as soon as the visitor fixes it, rather than
-    // making them re-submit to find out it's now valid — but only once
+    // making them re-submit to find out it's now valid, but only once
     // they've attempted a submit at least once, so errors don't pop up
     // pre-emptively while someone's still mid-way through their first pass.
     function revalidateIfAttempted() {
@@ -483,10 +483,10 @@
         `Purchase Purpose: ${fields.purpose}`,
         `Timeline: ${fields.timeline}`,
       ].join('\n');
-      const subject = 'New Shortlist Enquiry — Silver Spoon Properties';
+      const subject = 'New Shortlist Enquiry, Silver Spoon Properties';
       window.location.href = `mailto:${LEAD_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-      // Fire-and-forget — a failed/blocked save shouldn't stop the visitor
+      // Fire-and-forget, a failed/blocked save shouldn't stop the visitor
       // from seeing the thank-you state, since the email fallback above
       // already carries the enquiry either way.
       fetch(LEAD_WORKER_URL, {

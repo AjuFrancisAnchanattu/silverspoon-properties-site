@@ -1,9 +1,9 @@
 /* =====================================================================
-   REPRESENTATION.CSS — page-specific styles for representation.html
+   REPRESENTATION.CSS, page-specific styles for representation.html
    Shared nav / contact pill / footer / buttons live in base.css.
    ===================================================================== */
 
-/* ============ HERO (video, bottom-left content — matches about.css) ============ */
+/* ============ HERO (video, bottom-left content, matches about.css) ============ */
 .hero{
   position:relative;
   height:82vh; min-height:560px;

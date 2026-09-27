@@ -1,5 +1,5 @@
 /* =====================================================================
-   CONTACT.CSS — page-specific styles for contact.html
+   CONTACT.CSS, page-specific styles for contact.html
    Shared nav / contact pill / footer / buttons / .cm-field form styling
    (from base.css, originally built for the contact modal) live in
    base.css and are reused here as-is.
@@ -147,7 +147,7 @@
   .btn-whatsapp-big{ padding:20px 22px; font-size:16px; margin-top:36px; }
 }
 
-/* ============ PHONE FIELD (intl-tel-input) — match the site's plain
+/* ============ PHONE FIELD (intl-tel-input), match the site's plain
    underline input style instead of the library's default boxed look ============ */
 .cm-field .iti{ width:100%; display:block; }
 .cm-field .iti input.iti__tel-input{

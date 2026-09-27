@@ -1,5 +1,5 @@
 /* =====================================================================
-   PROJECTS.CSS — page-specific styles for projects.html ("Project Focus")
+   PROJECTS.CSS, page-specific styles for projects.html ("Project Focus")
    Shared nav (overlay variant) / contact pill / footer / buttons live
    in base.css.
    ===================================================================== */
@@ -55,7 +55,7 @@
 .filter-dot{ color:rgba(255,255,255,0.55); font-weight:400; }
 
 /* A real <select> styled to match .filter-pill's look (rather than a
-   decorative button opening a separate hidden select) — keeps the
+   decorative button opening a separate hidden select), keeps the
    native dropdown behavior/accessibility with none of the custom
    popover logic to build and maintain. */
 .filter-pill-select{
@@ -65,7 +65,7 @@
   padding-right:44px;
 }
 
-/* Community-type theme toggle — the core positioning filter, so it
+/* Community-type theme toggle, the core positioning filter, so it
    sits first/most prominent in the bar rather than tucked into More Filter. */
 .filter-theme{ display:flex; background:rgba(241,238,231,0.92); }
 .filter-theme-btn{

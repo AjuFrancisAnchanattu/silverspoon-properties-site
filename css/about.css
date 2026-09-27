@@ -1,5 +1,5 @@
 /* =====================================================================
-   ABOUT.CSS — page-specific styles for about.html
+   ABOUT.CSS, page-specific styles for about.html
    Shared nav / contact pill / footer / buttons live in base.css.
    ===================================================================== */
 
@@ -74,7 +74,7 @@
 }
 .bio-copy p:last-of-type{ margin-bottom:0; }
 
-/* Career milestone strip — breaks up the opening narrative */
+/* Career milestone strip, breaks up the opening narrative */
 .bio-milestones{
   display:grid; grid-template-columns:repeat(3, 1fr); gap:32px;
   margin:8px 0 34px; padding:32px 0; border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline);
@@ -108,7 +108,7 @@
 }
 .stat-divider{ height:1px; background:var(--hairline); }
 
-/* What I Bring — narrow single-column list, sits under the stats sidebar */
+/* What I Bring, narrow single-column list, sits under the stats sidebar */
 .bio-brings-head{
   font-family:var(--serif); font-weight:400; font-size:22px;
   color:var(--ink); margin:34px 0 28px;
