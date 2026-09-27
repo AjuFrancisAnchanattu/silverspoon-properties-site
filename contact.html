@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/contact.css">
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@29.5.3/dist/css/intlTelInput.css">
 </head>
 <body>
 
@@ -156,13 +157,25 @@
       <h2>Tell us what you're looking for</h2>
       <p>A few quick details so Leena can flag your enquiry and come back with the right options — not a generic list.</p>
 
-      <form id="shortlistForm">
+      <form id="shortlistForm" novalidate>
         <div class="cm-row">
-          <div class="cm-field"><label for="scName">Name</label><input id="scName" type="text" required></div>
-          <div class="cm-field"><label for="scPhone">Phone / WhatsApp</label><input id="scPhone" type="tel" required></div>
+          <div class="cm-field">
+            <label for="scName">Name</label>
+            <input id="scName" type="text" required>
+            <span class="cm-error" id="scNameError"></span>
+          </div>
+          <div class="cm-field">
+            <label for="scPhone">Phone / WhatsApp</label>
+            <input id="scPhone" type="tel" required>
+            <span class="cm-error" id="scPhoneError"></span>
+          </div>
         </div>
         <div class="cm-row">
-          <div class="cm-field"><label for="scEmail">Email</label><input id="scEmail" type="email" required></div>
+          <div class="cm-field">
+            <label for="scEmail">Email</label>
+            <input id="scEmail" type="email" required>
+            <span class="cm-error" id="scEmailError"></span>
+          </div>
           <div class="cm-field">
             <label for="scBudget">Budget Range</label>
             <select id="scBudget" required>
@@ -174,6 +187,7 @@
               <option>AED 20M+</option>
               <option>Prefer to discuss</option>
             </select>
+            <span class="cm-error" id="scBudgetError"></span>
           </div>
         </div>
         <div class="cm-row">
@@ -189,6 +203,7 @@
               <option>End-Use (personal residence)</option>
               <option>Both</option>
             </select>
+            <span class="cm-error" id="scPurposeError"></span>
           </div>
         </div>
         <div class="cm-field full">
@@ -201,6 +216,7 @@
             <option>6+ months</option>
             <option>Just exploring</option>
           </select>
+          <span class="cm-error" id="scTimelineError"></span>
         </div>
         <div class="cm-actions">
           <button class="cm-send" type="submit">Get Shortlisted</button>
@@ -269,6 +285,7 @@
   </div>
 
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@29.5.3/dist/js/intlTelInputWithUtils.min.js"></script>
   <script src="js/nav.js"></script>
   <script>
     // Pre-fill "Project / Developer of Interest" when arriving from a
@@ -276,6 +293,22 @@
     const params = new URLSearchParams(window.location.search);
     const projectFromUrl = params.get('project') || params.get('developer') || '';
     if (projectFromUrl) document.getElementById('scProject').value = projectFromUrl;
+
+    // ============ PHONE FIELD: country-code dropdown + IP-based default ============
+    // "ae" is the fallback default (Leena's own market) shown instantly, before
+    // the geo lookup below (if it succeeds) switches it to the visitor's own
+    // country. Bundled "WithUtils" build includes full validation logic, so
+    // isValidNumber()/getNumber() work immediately with no extra async load.
+    const scPhoneIti = window.intlTelInput(document.getElementById('scPhone'), {
+      initialCountry: 'ae',
+      separateDialCode: true,
+    });
+    fetch('https://dawn-bird-577f.ajufrancisanchanattu.workers.dev/geo-country')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.country) scPhoneIti.setSelectedCountry(data.country.toLowerCase());
+      })
+      .catch(() => {}); // fallback default ("ae") already showing — fine to leave as-is
 
     // ============ WHATSAPP PRE-QUALIFICATION MODAL ============
     const WA_NUMBER = '971527693333';
@@ -323,14 +356,116 @@
     const LEAD_EMAIL = 'Info@silverspoonprop.com';
     const LEAD_WORKER_URL = 'https://dawn-bird-577f.ajufrancisanchanattu.workers.dev/submit-lead';
     const shortlistCard = document.querySelector('.shortlist-card');
-    document.getElementById('shortlistForm').addEventListener('submit', e => {
+    const shortlistForm = document.getElementById('shortlistForm');
+
+    // ============ VALIDATION ============
+    // novalidate on the form means browser-default bubbles never show —
+    // every field's error message is shown/hidden here instead, so it's
+    // consistent across browsers and matches the site's own styling.
+    function setFieldError(inputEl, errorEl, message) {
+      inputEl.closest('.cm-field').classList.toggle('has-error', !!message);
+      errorEl.textContent = message || '';
+    }
+
+    function validateShortlistForm() {
+      let firstInvalid = null;
+      const markInvalid = (el) => { if (!firstInvalid) firstInvalid = el; };
+
+      const name = document.getElementById('scName');
+      const nameError = document.getElementById('scNameError');
+      if (!name.value.trim()) {
+        setFieldError(name, nameError, 'Please enter your name.');
+        markInvalid(name);
+      } else if (name.value.trim().length < 2) {
+        setFieldError(name, nameError, 'Name looks too short.');
+        markInvalid(name);
+      } else {
+        setFieldError(name, nameError, '');
+      }
+
+      const phoneError = document.getElementById('scPhoneError');
+      const phoneInput = document.getElementById('scPhone');
+      if (!phoneInput.value.trim()) {
+        setFieldError(phoneInput, phoneError, 'Please enter your phone number.');
+        markInvalid(phoneInput);
+      } else if (!scPhoneIti.isValidNumber()) {
+        setFieldError(phoneInput, phoneError, 'That doesn\'t look like a valid number for the selected country.');
+        markInvalid(phoneInput);
+      } else {
+        setFieldError(phoneInput, phoneError, '');
+      }
+
+      const email = document.getElementById('scEmail');
+      const emailError = document.getElementById('scEmailError');
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.value.trim()) {
+        setFieldError(email, emailError, 'Please enter your email.');
+        markInvalid(email);
+      } else if (!emailPattern.test(email.value.trim())) {
+        setFieldError(email, emailError, 'Please enter a valid email address.');
+        markInvalid(email);
+      } else {
+        setFieldError(email, emailError, '');
+      }
+
+      const budget = document.getElementById('scBudget');
+      const budgetError = document.getElementById('scBudgetError');
+      if (!budget.value) {
+        setFieldError(budget, budgetError, 'Please select a budget range.');
+        markInvalid(budget);
+      } else {
+        setFieldError(budget, budgetError, '');
+      }
+
+      const purpose = document.getElementById('scPurpose');
+      const purposeError = document.getElementById('scPurposeError');
+      if (!purpose.value) {
+        setFieldError(purpose, purposeError, 'Please select a purchase purpose.');
+        markInvalid(purpose);
+      } else {
+        setFieldError(purpose, purposeError, '');
+      }
+
+      const timeline = document.getElementById('scTimeline');
+      const timelineError = document.getElementById('scTimelineError');
+      if (!timeline.value) {
+        setFieldError(timeline, timelineError, 'Please select a timeline.');
+        markInvalid(timeline);
+      } else {
+        setFieldError(timeline, timelineError, '');
+      }
+
+      if (firstInvalid) {
+        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstInvalid.focus({ preventScroll: true });
+      }
+      return !firstInvalid;
+    }
+
+    // Clear a field's error as soon as the visitor fixes it, rather than
+    // making them re-submit to find out it's now valid — but only once
+    // they've attempted a submit at least once, so errors don't pop up
+    // pre-emptively while someone's still mid-way through their first pass.
+    function revalidateIfAttempted() {
+      if (shortlistForm.classList.contains('was-validated')) validateShortlistForm();
+    }
+    ['scName', 'scEmail', 'scPhone'].forEach(id => {
+      document.getElementById(id).addEventListener('input', revalidateIfAttempted);
+    });
+    ['scBudget', 'scPurpose', 'scTimeline'].forEach(id => {
+      document.getElementById(id).addEventListener('change', revalidateIfAttempted);
+    });
+
+    shortlistForm.addEventListener('submit', e => {
       e.preventDefault();
+      shortlistForm.classList.add('was-validated');
+      if (!validateShortlistForm()) return;
 
       const fields = {
         formType: 'Get Shortlisted',
-        name: document.getElementById('scName').value,
-        phone: document.getElementById('scPhone').value,
-        email: document.getElementById('scEmail').value,
+        name: document.getElementById('scName').value.trim(),
+        phone: scPhoneIti.getNumber(),
+        email: document.getElementById('scEmail').value.trim(),
         budgetRange: document.getElementById('scBudget').value,
         projectOrDeveloper: document.getElementById('scProject').value,
         purpose: document.getElementById('scPurpose').value,

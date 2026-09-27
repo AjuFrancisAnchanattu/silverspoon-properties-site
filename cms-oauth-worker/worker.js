@@ -20,6 +20,10 @@
  *                        enriched submission to a Google Apps Script Web
  *                        App, which appends a row to Leena's lead-tracking
  *                        Google Sheet.
+ *   GET  /geo-country   — returns the visitor's two-letter country code
+ *                        (from the same Cloudflare request metadata), used
+ *                        to default the phone field's country-code dropdown
+ *                        to the visitor's own country.
  *
  * Required environment variables (set as Worker secrets, never committed
  * to the repo — see README.md in this folder for exact steps):
@@ -46,9 +50,15 @@ function corsHeaders(origin) {
   const allowOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
   return {
     'Access-Control-Allow-Origin': allowOrigin,
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
   };
+}
+
+function handleGeoCountry(request) {
+  const headers = { ...corsHeaders(request.headers.get('Origin') || ''), 'Content-Type': 'application/json' };
+  const country = request.cf && request.cf.country ? request.cf.country : null;
+  return new Response(JSON.stringify({ country }), { status: 200, headers });
 }
 
 async function handleSubmitLead(request, env) {
@@ -187,8 +197,11 @@ export default {
     if (url.pathname === '/submit-lead' && request.method === 'POST') {
       return handleSubmitLead(request, env);
     }
+    if (url.pathname === '/geo-country' && request.method === 'GET') {
+      return handleGeoCountry(request);
+    }
     if (url.pathname === '/auth') return handleAuth(request, env);
     if (url.pathname === '/callback') return handleCallback(request, env);
-    return new Response('Silver Spoon Properties — Decap CMS GitHub OAuth proxy + lead capture. Routes: /auth, /callback, /submit-lead', { status: 200 });
+    return new Response('Silver Spoon Properties — Decap CMS GitHub OAuth proxy + lead capture. Routes: /auth, /callback, /submit-lead, /geo-country', { status: 200 });
   },
 };

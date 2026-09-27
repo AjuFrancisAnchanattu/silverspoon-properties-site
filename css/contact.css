@@ -146,3 +146,19 @@
   .shortlist-card form{ margin-top:40px; }
   .btn-whatsapp-big{ padding:20px 22px; font-size:16px; margin-top:36px; }
 }
+
+/* ============ PHONE FIELD (intl-tel-input) — match the site's plain
+   underline input style instead of the library's default boxed look ============ */
+.cm-field .iti{ width:100%; display:block; }
+.cm-field .iti input.iti__tel-input{
+  width:100%; border:none; border-bottom:1px solid rgba(20,19,17,0.28);
+  background:transparent; padding:6px 0 10px 90px;
+  font-family:var(--sans); font-size:15px; color:var(--ink);
+  border-radius:0; box-shadow:none;
+}
+.cm-field .iti input.iti__tel-input:focus{ outline:none; border-bottom-color:var(--ink); }
+.cm-field .iti__selected-country{ padding-left:2px; }
+
+@media (max-width:640px){
+  .cm-field .iti input.iti__tel-input{ padding-left:82px; }
+}

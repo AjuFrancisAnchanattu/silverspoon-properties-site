@@ -390,6 +390,16 @@ header.site-nav--overlay .icon-circle svg{ stroke:var(--white); }
 .cm-field textarea{ resize:vertical; min-height:64px; }
 .cm-field.full{ margin-bottom:32px; }
 
+.cm-error{
+  display:block; min-height:16px; margin-top:6px;
+  font-family:var(--sans); font-size:12px; line-height:1.4; color:#c0392b;
+}
+.cm-field.has-error input,
+.cm-field.has-error select,
+.cm-field.has-error .iti input{
+  border-bottom-color:#c0392b;
+}
+
 .cm-actions{ display:flex; justify-content:flex-end; }
 .cm-send{
   background:var(--ink); color:var(--white);
