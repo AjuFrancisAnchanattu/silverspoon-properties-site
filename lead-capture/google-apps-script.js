@@ -82,7 +82,7 @@ function notifyOwner(data) {
   const projectLine = data.projectName ? `, ${data.projectName}` : '';
   const subject = `New Lead: ${data.name || 'Unknown'}${projectLine}`;
 
-  const rows = [
+  const allRows = [
     ['Timestamp', data.timestamp || new Date().toISOString()],
     ['Form Type', data.formType || ''],
     ['Name', data.name || ''],
@@ -97,17 +97,30 @@ function notifyOwner(data) {
     ['Message', data.message || ''],
     ['IP Address', data.ip || ''],
     ['Country', data.country || ''],
-  ].filter(([, value]) => value);
+  ];
+  const rows = [];
+  for (var i = 0; i < allRows.length; i++) {
+    if (allRows[i][1]) rows.push(allRows[i]);
+  }
 
-  const plainBody = rows.map(([label, value]) => `${label}: ${value}`).join('\n');
+  var plainLines = [];
+  for (var j = 0; j < rows.length; j++) {
+    plainLines.push(rows[j][0] + ': ' + rows[j][1]);
+  }
+  const plainBody = plainLines.join('\n');
 
-  const htmlRows = rows
-    .map(([label, value]) => `
-      <tr>
-        <td style="padding:6px 12px 6px 0;font-weight:600;color:#141311;white-space:nowrap;vertical-align:top;">${escapeHtml(label)}</td>
-        <td style="padding:6px 0;color:#141311;">${escapeHtml(value)}</td>
-      </tr>`)
-    .join('');
+  var htmlRowParts = [];
+  for (var k = 0; k < rows.length; k++) {
+    var label = rows[k][0];
+    var value = rows[k][1];
+    htmlRowParts.push(
+      '<tr>' +
+      '<td style="padding:6px 12px 6px 0;font-weight:600;color:#141311;white-space:nowrap;vertical-align:top;">' + escapeHtml(label) + '</td>' +
+      '<td style="padding:6px 0;color:#141311;">' + escapeHtml(value) + '</td>' +
+      '</tr>'
+    );
+  }
+  const htmlRows = htmlRowParts.join('');
   const htmlBody = `
     <div style="font-family:Arial,sans-serif;font-size:14px;">
       <p>A new lead just came in on the Silver Spoon Properties site.</p>
