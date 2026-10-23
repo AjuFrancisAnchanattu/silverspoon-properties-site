@@ -3,497 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leena Parwani | Silver Spoon Properties</title>
+<title>Coming Soon | Leena Parwani, Silver Spoon Properties</title>
+<meta name="description" content="Leena Parwani, Private Client Representative in Dubai's premium property market. Our new website is launching soon.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="images/favicon.png" type="image/png">
 <script src="js/tracking.js"></script>
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/home.css">
+<style>
+  /* Standalone homepage placeholder. Swapped in/out by scripts/homepage.sh,
+     the real homepage is kept untouched in index.live.html. */
+  html, body{ height:100%; }
+  body{ background:var(--ink); color:var(--white); }
+
+  .cs{
+    position:relative; min-height:100vh; min-height:100svh;
+    display:flex; flex-direction:column; align-items:center; justify-content:space-between;
+    padding:44px 24px 40px; text-align:center; overflow:hidden;
+  }
+  .cs video, .cs-scrim{ position:absolute; inset:0; width:100%; height:100%; }
+  .cs video{ object-fit:cover; z-index:0; }
+  .cs-scrim{ z-index:1; background:linear-gradient(180deg, rgba(10,9,8,.55) 0%, rgba(10,9,8,.7) 55%, rgba(10,9,8,.85) 100%); }
+  .cs > *:not(video):not(.cs-scrim){ position:relative; z-index:2; }
+
+  .cs-logo img{ height:58px; width:auto; }
+
+  .cs-main{ max-width:720px; }
+  .cs-main .eyebrow{ display:block; margin-bottom:26px; color:#cdb27a; }
+  .cs-main h1{
+    font-family:var(--serif); font-weight:400; line-height:1.08;
+    font-size:clamp(44px,7vw,88px);
+  }
+  .cs-main p{
+    margin:26px auto 0; max-width:540px;
+    font-size:17px; line-height:1.7; color:rgba(255,255,255,.8);
+  }
+
+  .cs-actions{ margin-top:42px; display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+  .cs-actions a{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:16px 30px; font-size:14px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+    border:1px solid rgba(255,255,255,.45); transition:background .2s ease, color .2s ease;
+  }
+  .cs-actions a:hover{ background:var(--white); color:var(--ink); }
+  .cs-actions a.primary{ background:#B7B49B; border-color:#B7B49B; color:var(--ink); }
+  .cs-actions a.primary:hover{ background:#A6A388; border-color:#A6A388; }
+  .cs-actions svg{ width:18px; height:18px; stroke:currentColor; }
+
+  .cs-foot{ display:flex; flex-wrap:wrap; gap:10px 26px; justify-content:center; font-size:13px; color:rgba(255,255,255,.65); }
+  .cs-foot a:hover{ color:var(--white); }
+
+  @media (max-width:640px){
+    .cs{ padding:32px 16px 28px; }
+    .cs-logo img{ height:46px; }
+    .cs-main p{ font-size:16px; }
+    .cs-actions{ flex-direction:column; align-items:stretch; }
+    .cs-actions a{ justify-content:center; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- ============ NAV (overlay variant, transparent over hero video) ============ -->
-  <header class="site-nav site-nav--overlay">
-    <div class="nav-inner">
-      <a href="/" class="logo">
-        <img src="images/logo/logo.png" alt="Silver Spoon Properties" class="logo-img">
-      </a>
-
-      <nav class="primary">
-        <a href="/projects">Project Focus <span class="chevron"></span></a>
-        <span class="dot">•</span>
-        <a href="/representation">Private Client Rep</a>
-        <span class="dot">•</span>
-        <a href="/about">About</a>
-        <span class="dot">•</span>
-        <a href="/developers">Developers <span class="chevron"></span></a>
-        <span class="dot">•</span>
-        <a href="/contact">Contact</a>
-      </nav>
-
-      <div class="nav-icons">
-        <a class="icon-circle" href="https://wa.me/971527693333" aria-label="WhatsApp Leena">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>
-        </a>
-        <a class="icon-circle" href="#" aria-label="Language">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9s1.3-6.4 3.8-9Z"/></svg>
-        </a>
-        <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- ============ HERO ============ -->
-  <section class="hero">
-    <div class="hero-fallback-bg"></div>
-    <video autoplay muted loop playsinline>
+  <main class="cs">
+    <video autoplay muted loop playsinline poster="images/dubai-city-burj-khalifa-skyline-silhouette-cityscape-dusk-3840x1080-5904.jpg">
       <source src="videos/herovideo.mp4" type="video/mp4">
     </video>
+    <div class="cs-scrim"></div>
 
-    <div class="hero-content">
+    <div class="cs-logo">
+      <img src="images/logo/logo.png" alt="Silver Spoon Properties">
+    </div>
+
+    <div class="cs-main">
+      <span class="eyebrow">Coming Soon</span>
       <h1>Leena Parwani</h1>
-      <p>Your Private Client Representative in Dubai's Premium Property Market</p>
+      <p>Your Private Client Representative in Dubai's premium property market. Our new website is launching shortly. In the meantime, Leena is available to speak with you directly.</p>
 
-      <div class="hero-actions">
-        <a class="primary" href="/contact#book-a-call">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
-          Book a Call
+      <div class="cs-actions">
+        <a class="primary" href="https://wa.me/971527693333">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>
+          WhatsApp Leena
         </a>
-        <div class="sep"></div>
-        <a href="/contact#shortlist">
-          Get Shortlisted
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 6l6 6-6 6"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TRUST STRIP ============ -->
-  <section class="trust-strip">
-    <div class="trust-strip-row">
-      <div class="trust-strip-track">
-        <img src="images/DeveloperLogo/emaar-dubai.jpg" alt="Emaar">
-        <img src="images/DeveloperLogo/meraas.jpg" alt="Meraas">
-        <img src="images/DeveloperLogo/nakheel.jpg" alt="Nakheel">
-        <img src="images/DeveloperLogo/damac.jpg" alt="Damac">
-        <img src="images/DeveloperLogo/sobha-realty.jpg" alt="Sobha Realty">
-        <img src="images/DeveloperLogo/aldar.jpg" alt="Aldar">
-        <img src="images/DeveloperLogo/dar-al-arkan.jpg" alt="Dar Al Arkan">
-        <img src="images/DeveloperLogo/maf-logo.jpg" alt="MAF">
-        <img src="images/DeveloperLogo/emaar-dubai.jpg" alt="Emaar" aria-hidden="true">
-        <img src="images/DeveloperLogo/meraas.jpg" alt="Meraas" aria-hidden="true">
-        <img src="images/DeveloperLogo/nakheel.jpg" alt="Nakheel" aria-hidden="true">
-        <img src="images/DeveloperLogo/damac.jpg" alt="Damac" aria-hidden="true">
-        <img src="images/DeveloperLogo/sobha-realty.jpg" alt="Sobha Realty" aria-hidden="true">
-        <img src="images/DeveloperLogo/aldar.jpg" alt="Aldar" aria-hidden="true">
-        <img src="images/DeveloperLogo/dar-al-arkan.jpg" alt="Dar Al Arkan" aria-hidden="true">
-        <img src="images/DeveloperLogo/maf-logo.jpg" alt="MAF" aria-hidden="true">
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FOUNDER ============ -->
-  <section class="founder">
-    <div class="founder-photo">
-      <img src="images/leena-photos/leena.jpg" alt="Leena Parwani, Founder of Silver Spoon Properties">
-    </div>
-    <div class="founder-panel">
-      <span class="founder-eyebrow">Founder</span>
-      <h2>Know Leena Parwani</h2>
-      <div class="founder-copy">
-        <p>I've called the UAE home for 28 years, long enough to have watched this market move through several cycles, not just one boom. Through all of them, one thing has stayed constant: my eye is drawn to properties with a view worth owning. Golf-front and waterfront homes, in particular, hold their value and their story in a way few other assets do, and finding the right one, on and off market, including land, is where I've built my reputation as someone resourceful enough to find the opportunity others miss.</p>
-        <p>My path here didn't start in real estate. For a decade, I worked in wealth preservation and wealth transfer for the UAE's high-net-worth families, using the tools of estate planning, insurance, and structuring to protect what generations had built. That world taught me how ultra-high-net-worth families actually think: patiently, protectively, and always with the next generation in mind.</p>
-        <p>Real estate became the natural next chapter, the same instinct for protecting wealth, now applied to creating it. I represent buyers, not listings. My role is to stand on your side of the table, reading the market the way an investor reads a balance sheet, and saying no when that's the right advice.</p>
-        <p>A large part of my practice is built around buyers who aren't physically in Dubai, family offices and funds across London, Geneva, Singapore, New York, and private clients across India and the GCC. Investing from a distance means trusting someone to manage real complexity, moving capital from one jurisdiction, one structure, one pocket to another, as carefully as you would yourself. That's the role I take on: your eyes and advocate on the ground, working on your time zone and your terms.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROJECT OF FOCUS (real projects, see content/projects/*.json) ============ -->
-  <section class="features">
-    <div class="features-wrap">
-      <div class="features-head">
-        <button class="features-arrow" id="featPrev" aria-label="Previous projects">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M15 6l-6 6 6 6"/></svg>
-        </button>
-        <h2>Project of Focus</h2>
-        <button class="features-arrow" id="featNext" aria-label="Next projects">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 6l6 6-6 6"/></svg>
-        </button>
-      </div>
-
-      <div class="features-track" id="featTrack">
-        <div class="projects-loading">Loading projects…</div>
-      </div>
-
-      <div class="features-cta">
-        <a class="btn-search-all" href="/projects">Search All</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WHY A PRIVATE CLIENT REPRESENTATIVE ============ -->
-  <section class="why-pcr">
-    <div class="why-pcr-wrap">
-      <span class="eyebrow">Why It Matters</span>
-      <h2>Why work with a private client representative?</h2>
-      <div class="why-pcr-grid">
-        <div class="why-pcr-item">
-          <h3>Not the developer's agent</h3>
-          <p>A regular agent's incentives run toward the developer. Leena is retained solely by you.</p>
-        </div>
-        <div class="why-pcr-item">
-          <h3>Access before announcement</h3>
-          <p>Developer relationships mean off-market and pre-launch inventory, before it's public.</p>
-        </div>
-        <div class="why-pcr-item">
-          <h3>Negotiation on your side</h3>
-          <p>Price, payment plan, and terms negotiated purely for your outcome, not theirs.</p>
-        </div>
-      </div>
-      <a class="why-pcr-link" href="/representation">
-        See how representation works
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-  </section>
-
-  <!-- ============ TESTIMONIALS (condensed) ============ -->
-  <section class="home-testimonials">
-    <div class="home-testimonials-wrap">
-      <p class="bio-note">Placeholder quotes, swap in real, permissioned testimonials</p>
-      <span class="eyebrow">Client Reviews</span>
-      <h2>Success stories</h2>
-      <div class="home-testimonials-grid">
-        <div class="home-test-card">
-          <p>"Leena found us a villa in Palm Jebel Ali before it was publicly listed, and negotiated better payment terms than we expected. She works for the buyer, you can tell."</p>
-          <div class="home-test-person">
-            <div class="home-test-avatar">AF</div>
-            <div><div class="name">Mr. Al Farsi</div><div class="role">Buyer, Villa at Palm Jebel Ali</div></div>
-          </div>
-        </div>
-        <div class="home-test-card">
-          <p>"She talked me out of two projects everyone else was pushing, then found something better suited to what I actually wanted. That's rare in this market."</p>
-          <div class="home-test-person">
-            <div class="home-test-avatar">W</div>
-            <div><div class="name">Ms. Whitfield</div><div class="role">Buyer, Apartment in Dubai Hills</div></div>
-          </div>
-        </div>
-        <div class="home-test-card">
-          <p>"As an overseas investor, I needed someone I could trust completely. Leena handled allocation, negotiation, and paperwork without me setting foot in Dubai."</p>
-          <div class="home-test-person">
-            <div class="home-test-avatar">D</div>
-            <div><div class="name">Mr. Devendra</div><div class="role">Investor, Off-Plan Portfolio</div></div>
-          </div>
-        </div>
-      </div>
-      <a class="why-pcr-link" href="/coming-soon?page=Testimonials">
-        Read more stories
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-  </section>
-
-  <!-- ============ JOIN WHATSAPP CHANNEL ============ -->
-  <section class="wa-channel">
-    <div class="wa-channel-wrap">
-      <div class="wa-channel-text">
-        <span class="eyebrow">Market Insight, Straight From Leena</span>
-        <h2>Join My WhatsApp Channel</h2>
-        <p>Monthly market reports, new launches, and off-market alerts, sent directly, no site visit required.</p>
-      </div>
-      <a class="btn-wa-join wa-channel-cta" href="#">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>
-        Join Channel
-      </a>
-    </div>
-  </section>
-
-   <!-- ============ FEATURED DEVELOPMENT ============ -->
-  <section class="featured-dev">
-    <div class="dev-slide is-active">
-      <img src="images/FEATUREDDEVELOPMENT/1777883846332-774979557.jpg" alt="Aman Residences Dubai living room with panoramic skyline views by day">
-    </div>
-    <div class="dev-slide">
-      <img src="images/FEATUREDDEVELOPMENT/1777883846813-262734492.jpg" alt="Aman Residences Dubai living room with panoramic skyline views by night">
-    </div>
-    <div class="dev-slide">
-      <img src="images/FEATUREDDEVELOPMENT/1777883847010-451571279.jpg" alt="Aerial view of Aman Residences Dubai beachfront towers and the Dubai skyline">
-    </div>
-
-    <div class="dev-scrim"></div>
-    <span class="dev-label">Featured Development</span>
-
-    <div class="dev-dots" id="devDots">
-      <button class="dev-dot is-active" data-index="0" aria-label="Show image 1"></button>
-      <button class="dev-dot" data-index="1" aria-label="Show image 2"></button>
-      <button class="dev-dot" data-index="2" aria-label="Show image 3"></button>
-    </div>
-
-    <div class="dev-bar">
-      <h3>Aman Residences Dubai</h3>
-      <div class="dev-bar-right">
-        <div class="dev-meta">
-          <span>78 Residence Units</span><span class="dot">•</span>
-          <span>2 Bed Units From 3,800 Sq Ft</span><span class="dot">•</span>
-          <span>AED 49,945,986</span>
-        </div>
-        <div class="dev-bar-divider"></div>
-        <a class="dev-view-btn" href="/coming-soon?page=Project+Focus">View</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CURATION SIGN-UP ============ -->
-  <section class="curation">
-    <div class="curation-row">
-      <div class="curation-text">
-        <span class="curation-eyebrow">Sign Up</span>
-        <h2>Get A Personalised Curation Of Ideal Opportunities For You</h2>
-        <p>Let us know what you're looking for with a few questions and get a curated list of Dubai properties that match your criteria to your email.</p>
-        <a class="btn-start" href="/contact#shortlist">
-          Start Now
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
+        <a href="tel:+971527693333">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2 2C9.5 21 3 14.5 3 6a2 2 0 0 1 1-2Z"/></svg>
+          Call +971 52 769 3333
         </a>
       </div>
-      <div class="curation-photo">
-        <img src="images/commenimages/dubai-selling-guide-9dpTt35i.png" alt="Dubai residence interior and exterior showcase">
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TRUST WALL ============ -->
-  <section class="trust-wall">
-    <div class="trust-row trust-row--top">
-      <div class="trust-track">
-        <img src="images/leena/images.jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
-        <img src="images/leena/images (1).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
-        <img src="images/leena/images (2).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
-        <img src="images/leena/images (3).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
-        <img src="images/leena/images (4).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
-        <img src="images/leena/images (5).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
-        <img src="images/leena/images.jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
-        <img src="images/leena/images (1).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
-        <img src="images/leena/images (2).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
-        <img src="images/leena/images (3).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
-        <img src="images/leena/images (4).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
-        <img src="images/leena/images (5).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
-      </div>
     </div>
 
-    <div class="trust-row trust-row--center">
-      <img src="images/leena/images (6).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
-      <img src="images/leena/images (8).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
-      <div class="trust-center-text">
-        <h2>A Name You Can Trust</h2>
-      </div>
-      <img src="images/leena/images (1).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
-      <img src="images/leena/images (3).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
+    <div class="cs-foot">
+      <a href="https://www.instagram.com/leenaparwani?igsi=MTZodG40NWRyOHY2cw%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/in/leenaparwani/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.tiktok.com/@leenaparwani8?_r=1&_t=ZS-99CkbMmUnyv" target="_blank" rel="noopener">TikTok</a>
+      <span>&copy; Silver Spoon Properties LLC</span>
     </div>
-
-    <div class="trust-row trust-row--bottom">
-      <div class="trust-track">
-        <img src="images/leena/images (2).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
-        <img src="images/leena/images (4).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
-        <img src="images/leena/images (5).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
-        <img src="images/leena/images (6).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
-        <img src="images/leena/images (8).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
-        <img src="images/leena/images.jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties">
-        <img src="images/leena/images (2).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
-        <img src="images/leena/images (4).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
-        <img src="images/leena/images (5).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
-        <img src="images/leena/images (6).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
-        <img src="images/leena/images (8).jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
-        <img src="images/leena/images.jpeg" alt="Leena Parwani, Founder of Silver Spoon Properties" aria-hidden="true">
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ ON CAMERA (YouTube Shorts, rendered from REEL_IDS below) ============ -->
-  <section class="reels">
-    <div class="reels-wrap">
-      <div class="features-head">
-        <button class="features-arrow" id="reelsPrev" aria-label="Previous videos">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M15 6l-6 6 6 6"/></svg>
-        </button>
-        <h2>On camera</h2>
-        <button class="features-arrow" id="reelsNext" aria-label="Next videos">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 6l6 6-6 6"/></svg>
-        </button>
-      </div>
-
-      <div class="reels-track" id="reelsTrack"></div>
-    </div>
-  </section>
-
-  <!-- ============ FOOTER (standard, identical on every page) ============ -->
-  <footer class="site-footer">
-    <div class="footer-bg"></div>
-    <div class="footer-overlay"></div>
-    <div class="footer-content">
-      <div class="footer-top">
-        <div class="footer-cols">
-          <div class="footer-col">
-            <div class="flogo"><img src="images/logo/logo.png" alt="Silver Spoon Properties" class="logo-img"></div>
-            <a href="/projects">Project Focus</a>
-            <a href="/developers">Developer Partners</a>
-            <a href="/coming-soon?page=Secondary+Market">Secondary Market</a>
-          </div>
-          <div class="footer-col">
-            <a href="/representation">Private Client Representation</a>
-            <a href="/about">About Leena Parwani</a>
-            <a href="/coming-soon?page=Testimonials">Testimonials</a>
-            <a href="/coming-soon?page=Journal">Journal</a>
-          </div>
-          <div class="footer-col">
-            <a href="/contact#book-a-call">Book a Call</a>
-            <a href="/contact#shortlist">Get Shortlisted</a>
-            <a href="/contact">Contact Us</a>
-          </div>
-        </div>
-
-        <div class="footer-card">
-          <p>Join the WhatsApp Channel for market insight, monthly reports, new launches, off-market alerts.</p>
-          <a class="btn-wa-join" href="#">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>
-            Join Channel
-          </a>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div class="footer-legal">
-          <a href="/privacy">Privacy Policy</a><span>•</span><a href="/terms">Terms &amp; Conditions</a>
-        </div>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/leenaparwani?igsi=MTZodG40NWRyOHY2cw%3D%3D&utm_source=qr" target="_blank" rel="noopener"><span class="fs-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg></span>Instagram</a>
-          <a href="https://www.linkedin.com/in/leenaparwani/" target="_blank" rel="noopener"><span class="fs-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4.5a2 2 0 0 1 4 0V17M11 12.5V17"/></svg></span>LinkedIn</a>
-          <a href="https://www.tiktok.com/@leenaparwani8?_r=1&_t=ZS-99CkbMmUnyv" target="_blank" rel="noopener"><span class="fs-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M14 4v10.5a3.5 3.5 0 1 1-2.5-3.36"/><path d="M14 4c.4 2.4 2.1 4 4.3 4.3"/></svg></span>TikTok</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ============ FLOATING CONTACT PILL (persists across the whole site) ============ -->
-  <div class="contact-pill">
-    <a href="https://wa.me/971527693333"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1.1L3.5 20.5l1.2-4.3a8.4 8.4 0 0 1-1.2-4.3c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z"/></svg>WhatsApp</a>
-    <div class="sep"></div>
-    <a href="tel:+971527693333"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2 2C9.5 21 3 14.5 3 6a2 2 0 0 1 1-2Z"/></svg>Call Us</a>
-    <div class="sep"></div>
-    <a href="/contact"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>Contact Us</a>
-  </div>
-
-  <script src="js/projects-loader.js"></script>
-  <script>
-    const featTrack = document.getElementById('featTrack');
-    const featPrev = document.getElementById('featPrev');
-    const featNext = document.getElementById('featNext');
-    const FEAT_PLACEHOLDER_IMG = 'data:image/svg+xml,' + encodeURIComponent(
-      '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><rect width="800" height="600" fill="#EFEDE4"/></svg>'
-    );
-
-    (async function loadProjectOfFocus(){
-      try {
-        const projects = await window.SSPProjects.fetchProjects();
-        featTrack.innerHTML = projects.map(p => `
-          <a class="feature-card" href="/project?id=${encodeURIComponent(p.id)}">
-            <img src="${p.heroImage}" alt="${p.name}" onerror="this.src='${FEAT_PLACEHOLDER_IMG}'">
-            <div class="feature-card-info">
-              <h3>${p.name}</h3>
-              <div class="feature-meta"><span>${p.developer}</span><span class="dot">•</span><span>${p.community}</span></div>
-            </div>
-          </a>`).join('');
-      } catch (e) {
-        featTrack.innerHTML = '<div class="projects-loading">Couldn\'t load projects right now.</div>';
-      }
-    })();
-
-    function featStep(){
-      const card = featTrack.querySelector('.feature-card');
-      return card.offsetWidth + 22;
-    }
-    featNext.addEventListener('click', () => featTrack.scrollBy({ left: featStep(), behavior: 'smooth' }));
-    featPrev.addEventListener('click', () => featTrack.scrollBy({ left: -featStep(), behavior: 'smooth' }));
-  </script>
-
-  <script>
-    const devSlides = document.querySelectorAll('.dev-slide');
-    const devDots = document.querySelectorAll('.dev-dot');
-    let devIndex = 0;
-    let devTimer;
-
-    function devShow(i){
-      devSlides[devIndex].classList.remove('is-active');
-      devDots[devIndex].classList.remove('is-active');
-      devIndex = i;
-      devSlides[devIndex].classList.add('is-active');
-      devDots[devIndex].classList.add('is-active');
-    }
-    function devAutoAdvance(){
-      devTimer = setInterval(() => devShow((devIndex + 1) % devSlides.length), 5000);
-    }
-    devDots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        if (i === devIndex) return;
-        devShow(i);
-        clearInterval(devTimer);
-        devAutoAdvance();
-      });
-    });
-    devAutoAdvance();
-  </script>
-
-  <script>
-    // ON CAMERA, add future YouTube Shorts here, newest first or last, doesn't matter.
-    // Just the video ID (the part after /shorts/ in the URL, before any "?").
-    const REEL_IDS = [
-      'kWb6cy4i-vw',
-      'LjZtou6ZCEI',
-      '6Zcrh6YC7WU',
-      'pV_ok2TF47w',
-      'sT6LCobMFDE',
-      'FWq3kY8X3pI',
-      'Wq9yto57n_s'
-    ];
-
-    const reelsTrack = document.getElementById('reelsTrack');
-    const reelsPrev = document.getElementById('reelsPrev');
-    const reelsNext = document.getElementById('reelsNext');
-
-    reelsTrack.innerHTML = REEL_IDS.map(id => `
-      <div class="reel-card" data-id="${id}">
-        <button class="reel-play" aria-label="Play video">
-          <img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="YouTube Shorts thumbnail" loading="lazy">
-          <span class="reel-play-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
-          </span>
-        </button>
-        <a class="reel-watch" href="https://youtube.com/shorts/${id}" target="_blank" rel="noopener" aria-label="Watch on YouTube">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M14 5h5v5M9 15 19 5"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg>
-        </a>
-      </div>
-    `).join('');
-
-    reelsTrack.querySelectorAll('.reel-play').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.closest('.reel-card').dataset.id;
-        btn.outerHTML = `<iframe class="reel-frame" src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" title="YouTube short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-      });
-    });
-
-    function reelsStep(){
-      const card = reelsTrack.querySelector('.reel-card');
-      return card.offsetWidth + 20;
-    }
-    reelsNext.addEventListener('click', () => reelsTrack.scrollBy({ left: reelsStep(), behavior: 'smooth' }));
-    reelsPrev.addEventListener('click', () => reelsTrack.scrollBy({ left: -reelsStep(), behavior: 'smooth' }));
-  </script>
-
-  <script src="js/nav.js"></script>
+  </main>
 
 </body>
 </html>
