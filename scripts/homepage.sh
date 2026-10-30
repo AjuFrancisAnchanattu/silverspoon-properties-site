@@ -14,7 +14,10 @@ set -e
 cd "$(dirname "$0")/.."
 
 case "$1" in
-  coming-soon) cp index.coming-soon.html index.html ;;
+  coming-soon)
+    # Save the current real homepage first, so edits made while live aren't lost
+    cmp -s index.html index.coming-soon.html || cp index.html index.live.html
+    cp index.coming-soon.html index.html ;;
   live)        cp index.live.html index.html ;;
   *) echo "Usage: sh scripts/homepage.sh coming-soon|live"; exit 1 ;;
 esac
