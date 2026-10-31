@@ -248,6 +248,32 @@
     </div>
   </section>
 
+  <!-- ============ BRAND FILM (muted autoplay loop, tap for sound) ============ -->
+  <section class="brand-film">
+    <div class="brand-film-wrap">
+      <div class="brand-film-head">
+        <span class="eyebrow">In Leena's Words</span>
+        <h2>Who is your agent really working for?</h2>
+      </div>
+
+      <div class="brand-film-frame">
+        <video id="brandFilm" muted loop playsinline preload="none"
+               poster="images/commenimages/concept-01-poster.jpg"
+               data-src="videos/concept-01-v1-web.mp4"></video>
+        <button class="brand-film-sound" id="brandFilmSound" aria-pressed="false">
+          <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="m16 9 5 6M21 9l-5 6"/></svg>
+          <svg class="icon-sound" viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+          <span>Tap for sound</span>
+        </button>
+      </div>
+
+      <a class="brand-film-cta" href="/contact#book-a-call">
+        Book a 15-minute call
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+
   <!-- ============ CURATION SIGN-UP ============ -->
   <section class="curation">
     <div class="curation-row">
@@ -491,6 +517,36 @@
     }
     reelsNext.addEventListener('click', () => reelsTrack.scrollBy({ left: reelsStep(), behavior: 'smooth' }));
     reelsPrev.addEventListener('click', () => reelsTrack.scrollBy({ left: -reelsStep(), behavior: 'smooth' }));
+  </script>
+
+  <script>
+    // BRAND FILM, only fetches the video once the section is near the viewport,
+    // plays muted while visible, pauses when scrolled away. First unmute restarts it.
+    const brandFilm = document.getElementById('brandFilm');
+    const brandFilmSound = document.getElementById('brandFilmSound');
+    let brandFilmHeard = false;
+
+    new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!brandFilm.src) brandFilm.src = brandFilm.dataset.src;
+          brandFilm.play().catch(() => {});
+        } else if (!brandFilm.paused) {
+          brandFilm.pause();
+        }
+      });
+    }, { threshold: 0.25 }).observe(brandFilm);
+
+    brandFilmSound.addEventListener('click', () => {
+      brandFilm.muted = !brandFilm.muted;
+      if (!brandFilm.muted && !brandFilmHeard) {
+        brandFilmHeard = true;
+        brandFilm.currentTime = 0;
+      }
+      brandFilm.play().catch(() => {});
+      brandFilmSound.setAttribute('aria-pressed', String(!brandFilm.muted));
+      brandFilmSound.querySelector('span').textContent = brandFilm.muted ? 'Tap for sound' : 'Mute';
+    });
   </script>
 
   <script src="js/nav.js"></script>

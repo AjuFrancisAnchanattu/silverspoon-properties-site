@@ -24,3 +24,12 @@ representation-hero.mp4
   service works well here (a private viewing, a walkthrough, a handshake
   over a table) rather than a skyline shot, to visually differentiate this
   page from Home/About. Muted/looping, 10-20s.
+
+concept-01-v1-web.mp4
+  Used in: index.html (home), <section class="brand-film"> <video>
+  Web-compressed copy of the client-supplied "concept 01 v1.mp4" brand film
+  (Leena on camera, "Who is your agent really working for?", ends on
+  "Book a 15-minute call"). Original was 214 MB / 1080p 50fps; this copy is
+  1080p 25fps H.264 ~2.4 Mbps + AAC audio (~36 MB). The original stays local
+  only (git-ignored, over GitHub's 100 MB file limit). Poster frame:
+  images/commenimages/concept-01-poster.jpg.
